@@ -1,5 +1,5 @@
 import pygame
-# Add a styling module with the default definitions for the font
+
 class Button:
     def __init__(self, x, y, text):
         self.x = x
