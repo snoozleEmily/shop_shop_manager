@@ -1,5 +1,5 @@
 import pygame
-from game_core import gameplay
+from gameplay import main_game
 from ui_controls import *
 from music import *
 
@@ -29,18 +29,19 @@ while running:
                 game_started = True
 
     # Updates button state
-    button.update_button_state(event)
+    if not game_started:
+        button.button_update_state(event) #SOUND DOES NOT WORK BECAUSE OF THIS IF
 
     # Checks and update the current music
     check_current_music(mp3_files)  
 
     # Draw everything on the screen
     screen.blit(paper_background_image, (0, 0))
-    button.draw_button(screen)
+    button.button_draw(screen)
 
     # Starts the game
     if game_started:
-        gameplay(screen)
+        main_game(screen, event)
 
     # Updates the display
     pygame.display.flip()
