@@ -9,7 +9,7 @@ def main_game(screen, event):
     # Main game logic here
     screen.blit(town_background_image, (0, 0))
 
-    box = Box(10, 250, None)
+    box = Box(10, 350, None)
     box.box_draw(screen)
 
     # Update display to show the new frame

@@ -1,6 +1,8 @@
 import pygame
 import time
 
+pygame.mixer.init()
+
 class Button:
     def __init__(self, x, y, text):
         self.x = x
@@ -13,7 +15,7 @@ class Button:
         self.rect = self.current_image.get_rect(topleft=(x, y))
         self.font = pygame.font.Font(None, 36)
         self.text_surface = self.font.render(text, True, (255, 255, 255))
-
+        
         # Load the click sound effect
         self.button_click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\button_click.mp3")
         
