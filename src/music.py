@@ -11,7 +11,7 @@ mp3_files = [os.path.join(playlist_dir, file) for file in os.listdir(playlist_di
 def start_music(mp3_files):
     if mp3_files:
         pygame.mixer.music.load(mp3_files[0])
-        pygame.mixer.music.set_volume(0.2)  # Set volume to 20%
+        pygame.mixer.music.set_volume(0.1)  # Set volume to 10%
         pygame.mixer.music.play()
         print(f"Playing {mp3_files[0]}")
 
