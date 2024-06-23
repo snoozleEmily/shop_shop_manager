@@ -3,7 +3,7 @@ from ui_controls import *
 
 # Initialize button
 pygame.font.init()
-button = Clickable(254, 280, "Play Game", True)
+button = Clickable(254, 280, "Play Game", is_text=True)
 main_background_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\shop_shop_manager.png")
 
 def handle_click(mouse_event):
@@ -12,8 +12,8 @@ def handle_click(mouse_event):
             return True  # Starts the game 
     return False
 
-def update_initial_screen(display_surface, any_mouse_event):
-    button.update_state(any_mouse_event)
+def update_initial_screen(display_surface, any_mouse_event, update_scene=None):
+    button.update_state(any_mouse_event, update_scene)
     
     # Draw everything on the screen
     display_surface.blit(main_background_image, (0, 0))

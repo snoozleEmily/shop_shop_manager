@@ -19,7 +19,7 @@ game_started = False
 while running:
     # Handle events
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if  event.type == pygame.QUIT:
             running = False # Exit the loop if the user closes the window        
    
     # Checks and update the current music

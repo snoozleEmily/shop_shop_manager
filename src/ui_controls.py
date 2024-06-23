@@ -41,7 +41,7 @@ class Clickable:
             text_rect = self.text_surface.get_rect(center=self.rect.center)
             screen.blit(self.text_surface, text_rect)
 
-    def update_state(self, handle_click_event):
+    def update_state(self, handle_click_event, update_scene):
         # Change default image for the image with hover effect
         if self.is_hovered() and self.is_text:            
             self.current_image = self.hover_image
@@ -49,15 +49,18 @@ class Clickable:
             self.current_image = self.default_image
         
         if handle_click_event.type == pygame.MOUSEBUTTONDOWN and handle_click_event.button == 1:
-            current_time = time.time()  # Get the current time in seconds
+            current_time = time.time()  # Get the current time in seconds            
             if self.rect.collidepoint(pygame.mouse.get_pos()):                
                 # print(pygame.mouse.get_pos()) [BUG] if is_text = False it returns multiple clicks
-
+                
                 # Adds a delay to the sound effect
                 if current_time - self.last_click_time >= self.click_delay:                    
                     self.click_sound.play()
                     self.last_click_time = current_time
+                    # Update the scene
+                    return True
+        return False
 
-# Example usage:
+# e.g. usage:
 # button = Clickable(100, 100, "Click Me", is_button=True)
 # box = Clickable(200, 200, "item_name", is_button=False)
