@@ -4,7 +4,7 @@ from shop_scene import *
 
 # Main game logic/gamyplay here
 pygame.mixer.init()
-box = Clickable(10, 350, item_or_text = None, is_text=False)
+box = Clickable(10, 350, text = None, identifier_type='box')
 town_background_image = pygame.image.load(r"D:/Projects/Python-studies/shop_shop_manager/images/town_background_one.png")
 
 # Define game scenes

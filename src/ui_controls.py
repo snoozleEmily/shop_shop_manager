@@ -4,13 +4,15 @@ import time
 pygame.mixer.init()
 
 class Clickable:
-    def __init__(self, x, y, item_or_text, is_text=False):
+    def __init__(self, x, y, text, identifier_type):
         self.x = x
         self.y = y
-        self.item_or_text = item_or_text
-        self.is_text = is_text
+        self.item_or_text = text
+        self.identifier_type = identifier_type
+
+        self.has_hover = False
         
-        if is_text:
+        if identifier_type == 'button':
             self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\button_image.png")
             self.hover_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\button_image_hover.png")
             
@@ -18,11 +20,14 @@ class Clickable:
             self.click_delay = 0.5  # Delay between consecutive clicks (in seconds)
             
             self.font = pygame.font.Font(None, 36)
-            self.text_surface = self.font.render(item_or_text, True, (255, 255, 255))
-        else: 
+            self.text_surface = self.font.render(text, True, (255, 255, 255))
+
+            self.has_hover = True
+            
+        elif identifier_type == 'box': 
             self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\box.png")
             #self.hover_image = None // Should I add a hover effect for the box too?
-
+           
             self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\box_click.mp3")
             self.click_delay = 0.8  # Delay between consecutive clicks (in seconds)
 
@@ -37,13 +42,13 @@ class Clickable:
 
     def draw_image(self, screen):
         screen.blit(self.current_image, self.rect.topleft)
-        if self.is_text:
+        if self.identifier_type == 'button':
             text_rect = self.text_surface.get_rect(center=self.rect.center)
             screen.blit(self.text_surface, text_rect)
 
     def update_state(self, handle_click_event, update_scene):
         # Change default image for the image with hover effect
-        if self.is_hovered() and self.is_text:            
+        if self.is_hovered() and self.has_hover:            
             self.current_image = self.hover_image
         else:
             self.current_image = self.default_image
