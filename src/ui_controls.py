@@ -13,6 +13,7 @@ class Clickable:
         self.has_hover = False
         
         if identifier_type == 'button':
+            self.has_hover = True
             self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\button_image.png")
             self.hover_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\button_image_hover.png")
             
@@ -20,9 +21,15 @@ class Clickable:
             self.click_delay = 0.5  # Delay between consecutive clicks (in seconds)
             
             self.font = pygame.font.Font(None, 36)
-            self.text_surface = self.font.render(text, True, (255, 255, 255))
+            self.text_surface = self.font.render(text, True, (255, 255, 255))            
 
+        elif identifier_type == 'exit_scene':
             self.has_hover = True
+            self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\exit_scene_default_image.png")
+            self.hover_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\exit_scene_hover_image.png")
+            
+            self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\exit_scene_click.mp3")
+            self.click_delay = 1  # Delay between consecutive clicks (in seconds)           
             
         elif identifier_type == 'box': 
             self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\box.png")
