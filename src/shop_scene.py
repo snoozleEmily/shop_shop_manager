@@ -3,7 +3,7 @@ import scenes
 from ui_controls import *
 
 exit_scene = Clickable(740, 330, text = None, identifier_type='exit_scene')
-shop_background_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\shop_background.png")
+shop_background_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\shop_background.png")
 
 def shop_scene(screen, event, update_scene=None):
 

@@ -14,11 +14,11 @@ class Clickable:
         
         if identifier_type == 'button':
             self.has_hover = True
-            self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\button_image.png")
-            self.hover_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\button_image_hover.png")
+            self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\button_image.png")
+            self.hover_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\button_image_hover.png")
             
             self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\button_click.mp3")
-            self.click_delay = 0.5  # Delay between consecutive clicks (in seconds)
+            self.click_delay = 0.5
             
             self.font = pygame.font.Font(None, 36)
             self.text_surface = self.font.render(text, True, (255, 255, 255))            
@@ -29,14 +29,14 @@ class Clickable:
             self.hover_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\exit_scene_hover_image.png")
             
             self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\exit_scene_click.mp3")
-            self.click_delay = 1  # Delay between consecutive clicks (in seconds)           
+            self.click_delay = 1          
             
         elif identifier_type == 'box': 
-            self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\box.png")
+            self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\box.png")
             #self.hover_image = None // Should I add a hover effect for the box too?
            
             self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\box_click.mp3")
-            self.click_delay = 0.8  # Delay between consecutive clicks (in seconds)
+            self.click_delay = 0.8 
 
         self.current_image = self.default_image
         self.rect = self.current_image.get_rect(topleft=(x, y))

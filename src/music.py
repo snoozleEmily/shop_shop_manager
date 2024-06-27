@@ -13,7 +13,7 @@ def start_music(mp3_files):
         pygame.mixer.music.load(mp3_files[0])
         pygame.mixer.music.set_volume(0.1)  # Set volume to 10%
         pygame.mixer.music.play()
-        print(f"Playing {mp3_files[0]}")
+        #print(f"Playing {mp3_files[0]}")
 
 def check_current_music(mp3_files):
     if mp3_files and not pygame.mixer.music.get_busy():
@@ -21,4 +21,4 @@ def check_current_music(mp3_files):
         mp3_files.append(next_song)  # Appends the song to the end of the playlist
         pygame.mixer.music.load(mp3_files[0]) # Loads the new first song
         pygame.mixer.music.play() # Plays the new song
-        print(f"Playing {mp3_files[0]}")
+        #print(f"Playing {mp3_files[0]}")

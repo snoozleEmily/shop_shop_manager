@@ -5,7 +5,7 @@ from shop_scene import *
 
 # Main game logic/gamyplay here
 box = Clickable(10, 350, text = None, identifier_type='box')
-town_background_image = pygame.image.load(r"D:/Projects/Python-studies/shop_shop_manager/images/town_background_one.png")
+town_background_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\town_background_one.png")
 
 def main_game(screen, event, update_scene=shop_scene):    
     if scenes.in_shop:
