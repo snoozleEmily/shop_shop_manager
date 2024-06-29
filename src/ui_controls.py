@@ -79,7 +79,7 @@ class Clickable:
             self.hover_images = handle_gif_frames(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\settings_hover.gif")
             self.hover_image = self.hover_images[self.current_frame_index]
 
-            self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\box_click.mp3")
+            self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\settings_click.mp3")
             self.click_delay = 1.5 
 
         self.current_image = self.default_image
