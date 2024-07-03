@@ -16,17 +16,15 @@ while running:
     # Handle events
     for event in pygame.event.get():
         if  event.type == pygame.QUIT:
-            running = False # Exit the loop if the user closes the window        
+            running = False # Close game        
    
-    # Checks and update the current music
     check_current_music(mp3_files)
     
-     # Updates button state and draw the initial menu
+    # Updates button state and draw the initial menu
     if not game_started:
         game_started = initial_menu.handle_game_start(event)
-        initial_menu.update_initial_screen(screen, event)
+        initial_menu.render_initial_screen(screen, event)
     else:
-        # Starts the game
         main_game(screen, event)
 
     # Updates the display

@@ -1,5 +1,6 @@
 import pygame
 import settings
+import scenes
 from ui_controls import *
 
 # Initialize button
@@ -15,14 +16,18 @@ def handle_game_start(mouse_event):
             return True  # Starts the game 
     return False
 
-def update_initial_screen(display_surface, any_mouse_event, update_scene=None):
-    button.update_state(any_mouse_event, update_scene)
-    settings_button.update_state(any_mouse_event, update_scene=None)
-    
-    if settings_button.update_state(any_mouse_event, update_scene):
-        settings.render_settings_screen(display_surface)
+def render_initial_screen(display_surface, mouse_event, update_scene=settings.render_settings_screen):
+    if settings_button.update_state(mouse_event, update_scene):
+        scenes.in_settings, scenes.in_town = True, False
+    elif scenes.in_settings:
+        update_scene(display_surface)
+    else:
+        button.update_state(mouse_event, update_scene)
+        settings_button.update_state(mouse_event, update_scene=None)  
         
-    # Draw everything on the screen
-    display_surface.blit(main_background_image, (0, 0))
-    button.draw_image(display_surface)
-    settings_button.draw_image(display_surface)
+        # Draw everything on the screen
+        display_surface.blit(main_background_image, (0, 0))
+        button.draw_image(display_surface)
+        settings_button.draw_image(display_surface)
+    
+    

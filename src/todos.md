@@ -9,7 +9,7 @@ The goal is to create an MVP where the game is actually playable. Then, slowly m
 - [ ] Create art for the box buttons **2**
 - [ ] Implement turns (days) **8**
 - [ ] Arrange the gameplay screen displays (in town) **3**
-- [ ] 
+- [ ] Finish writting README file **1**
 - [ ] 
 - [ ] 
 - [ ] 
