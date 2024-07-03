@@ -6,11 +6,10 @@ from music import *
 # pygame setup
 pygame.init()
 pygame.mixer.init()
-
+start_music(mp3_files)
 screen = pygame.display.set_mode((800, 400))
 clock = pygame.time.Clock()
 running = True
-start_music(mp3_files)
 game_started = False
 
 while running:
