@@ -42,7 +42,7 @@ class Clickable:
         self.y = y
         self.item_or_text = text
         self.identifier_type = identifier_type
-
+        self.enabled = True
         self.has_hover = False
         self.current_frame_index = 0
         self.last_frame_time = time.time()
@@ -87,6 +87,12 @@ class Clickable:
         
         self.last_click_time = time.time() - self.click_delay  # Allow immediate first click
         
+    def disable(self):
+        self.enabled = False
+        
+    def enable(self):
+        self.enabled = True
+
     def is_hovered(self):
         mouse_position = pygame.mouse.get_pos()
         return self.rect.collidepoint(mouse_position) # bool: True if the mouse is hovering over the object
@@ -98,6 +104,9 @@ class Clickable:
             screen.blit(self.text_surface, text_rect)
 
     def update_state(self, handle_click_event, update_scene):
+        if not self.enabled:
+            return False
+        
         current_time = time.time()
         if self.is_hovered() and self.has_hover:
             if hasattr(self, 'hover_images') and self.identifier_type == 'settings':

@@ -21,6 +21,7 @@ def render_initial_screen(display_surface, mouse_event, update_scene=settings.re
         scenes.in_settings, scenes.in_town = True, False
     elif scenes.in_settings:
         update_scene(display_surface)
+        button.disable()
     else:
         button.update_state(mouse_event, update_scene)
         settings_button.update_state(mouse_event, update_scene=None)  
