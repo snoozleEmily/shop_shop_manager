@@ -40,9 +40,9 @@ class Clickable:
         """
         self.x = x
         self.y = y
-        self.item_or_text = text
+        self.text = text
         self.identifier_type = identifier_type
-        self.enabled = True
+        self.enabled, self.toggled = True, False
         self.has_hover = False
         self.current_frame_index = 0
         self.last_frame_time = time.time()
@@ -85,17 +85,17 @@ class Clickable:
         self.current_image = self.default_image
         self.rect = self.current_image.get_rect(topleft=(x, y))
         
-        self.last_click_time = time.time() - self.click_delay  # Allow immediate first click
-        
-    def disable(self):
-        self.enabled = False
-        
-    def enable(self):
-        self.enabled = True
-
+        self.last_click_time = time.time() - self.click_delay  # Allow immediate first click        
+    
+    def enabler(self):
+        if not self.toggled:
+            self.enabled = not self.enabled
+            self.toggled = True
+            print(self.enabled)
+    
     def is_hovered(self):
         mouse_position = pygame.mouse.get_pos()
-        return self.rect.collidepoint(mouse_position) # bool: True if the mouse is hovering over the object
+        return self.rect.collidepoint(mouse_position) # bool: True if the mouse is hovering over
 
     def draw_image(self, screen):
         screen.blit(self.current_image, self.rect.topleft)
@@ -103,11 +103,9 @@ class Clickable:
             text_rect = self.text_surface.get_rect(center=self.rect.center)
             screen.blit(self.text_surface, text_rect)
 
-    def update_state(self, handle_click_event, update_scene):
-        if not self.enabled:
-            return False
-        
+    def update_state(self, handle_click_event, update_scene):       
         current_time = time.time()
+
         if self.is_hovered() and self.has_hover:
             if hasattr(self, 'hover_images') and self.identifier_type == 'settings':
                 # Update the hover frame if enough time has passed for GIF
@@ -120,13 +118,14 @@ class Clickable:
         else:
             self.current_image = self.default_image
 
+        # Adds a delay to the sound effect
         if handle_click_event.type == pygame.MOUSEBUTTONDOWN and handle_click_event.button == 1:
-            current_time = time.time()  # Get the current time in seconds
-            if self.rect.collidepoint(pygame.mouse.get_pos()):
-                # Adds a delay to the sound effect
+            current_time = time.time()
+            if self.enabled and self.rect.collidepoint(pygame.mouse.get_pos()):                
                 if current_time - self.last_click_time >= self.click_delay:
                     self.click_sound.play()
                     self.last_click_time = current_time
-                    # Updates the scene by returning bool: True if the object was clicked, False otherwise.
+                    # Updates the scene by returning bool: True if the object was clicked
+                    
                     return True
         return False 
