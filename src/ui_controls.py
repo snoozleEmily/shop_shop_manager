@@ -69,12 +69,14 @@ class Clickable:
     def enabler(self):        
         if self.toggle_count > 0: # Checks if it's the first call 
             self.toggled = False
+            self.toggle_count = self.toggle_count + 1
             
-        while not self.toggled:
-            self.enabled, self.toggled = not self.enabled, not self.toggled 
+        while self.toggled == False:
+            self.enabled = not self.enabled 
+            self.toggled = True 
             print(self.enabled)
 
-        self.toggle_count = self.toggle_count + 1
+        
     
     def is_hovered(self):
         mouse_position = pygame.mouse.get_pos()
