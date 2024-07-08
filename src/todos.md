@@ -11,7 +11,7 @@ The goal is to create an MVP where the game is actually playable. Then, slowly m
 - [ ] Implement turns (days) **8**
 - [ ] Arrange the gameplay screen displays (in town) **3**
 - [ ] Finish writting README file **1**
-- [ ] Download file with items data **1**
+- [X] Get file with items data **1**
 - [ ] Enable the player's manipulation on the items data **5**
 - [ ] 
 - [ ] 

@@ -4,7 +4,6 @@ import gif_frames
 
 pygame.mixer.init()
 
-
 class Clickable:
     def __init__(self, x, y, text, identifier_type):
         """
@@ -75,7 +74,6 @@ class Clickable:
             self.enabled = not self.enabled 
             self.toggled = True 
             print(self.enabled)
-
         
     
     def is_hovered(self):
@@ -113,5 +111,6 @@ class Clickable:
                         self.last_click_time = current_time
 
                         # Updates the scene by returning bool: True if the object was clicked
-                        return True
+                        if self.toggled:
+                            return True
             return False
