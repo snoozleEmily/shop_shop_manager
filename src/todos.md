@@ -13,3 +13,4 @@ The goal is to create an MVP where the game is actually playable. Then, slowly m
 - [ ] Finish writing README file - **1**
 - [X] Get file with items data - **1**
 - [ ] Enable the player's manipulation of the items data - **5**
+- [ ] Create module to declare all the clickabales - **1**

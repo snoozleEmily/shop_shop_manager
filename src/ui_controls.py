@@ -5,7 +5,7 @@ import gif_frames
 pygame.mixer.init()
 
 class Clickable:
-    def __init__(self, x, y, text, identifier_type):
+    def __init__(self, x, y, text, type_tag):
         """
         Initializes a clickable object with its position, type, and specific attributes
 
@@ -17,7 +17,7 @@ class Clickable:
         self.x = x
         self.y = y
         self.text = text
-        self.identifier_type = identifier_type
+        self.identifier_type = type_tag
 
         self.current_frame_index = 0
         self.last_frame_time = time.time()
@@ -25,7 +25,7 @@ class Clickable:
         self.enabled, self.toggled, self.toggle_count = True, False, 0
         self.has_hover = False        
         
-        if identifier_type == 'button':
+        if type_tag == 'button':
             self.has_hover = True
             self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\button_image.png")
             self.hover_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\button_image_hover.png")
@@ -36,7 +36,7 @@ class Clickable:
             self.font = pygame.font.Font(None, 36)
             self.text_surface = self.font.render(text, True, (255, 255, 255))            
 
-        elif identifier_type == 'exit_scene':
+        elif type_tag == 'exit_scene':
             self.has_hover = True
             self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\exit_scene_default_image.png")
             self.hover_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\exit_scene_hover_image.png")
@@ -44,14 +44,14 @@ class Clickable:
             self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\exit_scene_click.mp3")
             self.click_delay = 1          
             
-        elif identifier_type == 'box': 
+        elif type_tag == 'box': 
             self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\box.png")
             #self.hover_image = None // Should I add a hover effect for the box too?
            
             self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\box_click.mp3")
             self.click_delay = 0.8 
 
-        elif identifier_type == 'settings': 
+        elif type_tag == 'settings': 
             self.has_hover = True
             self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\settings_default.png")
             self.hover_images = gif_frames.handle_gif_frames(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\settings_hover.gif")
@@ -64,7 +64,10 @@ class Clickable:
         self.rect = self.current_image.get_rect(topleft=(x, y))
         
         self.last_click_time = time.time() - self.click_delay  # Allow immediate first click        
-    
+
+    '''
+    Do I really need this?
+
     def enabler(self):        
         if self.toggle_count > 0: # Checks if it's the first call 
             self.toggled = False
@@ -74,7 +77,7 @@ class Clickable:
             self.enabled = not self.enabled 
             self.toggled = True 
             print(self.enabled)
-        
+    '''    
     
     def is_hovered(self):
         mouse_position = pygame.mouse.get_pos()
@@ -110,7 +113,6 @@ class Clickable:
                         self.click_sound.play()
                         self.last_click_time = current_time
 
-                        # Updates the scene by returning bool: True if the object was clicked
-                        if self.toggled:
-                            return True
+                        # Updates the scene by returning bool: True if the object was clicked:
+                        return True
             return False
