@@ -2,11 +2,11 @@ import pygame
 import initial_menu
 from gameplay import *
 from pyximport import install ; install() # Cython
-from music import start_music, check_current_music, MP3_FILES
+from music import start_music, check_current_music, mp3_files
 
 pygame.init()
 pygame.mixer.init()
-start_music(MP3_FILES)
+start_music(mp3_files)
 screen = pygame.display.set_mode((800, 400))
 clock = pygame.time.Clock()
 running = True
@@ -18,7 +18,7 @@ while running:
         if  event.type == pygame.QUIT:
             running = False # Close game        
    
-    check_current_music(MP3_FILES)
+    check_current_music(mp3_files)
     
     # Updates button state and draw the initial menu
     if not game_started:
