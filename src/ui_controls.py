@@ -65,20 +65,6 @@ class Clickable:
         
         self.last_click_time = time.time() - self.click_delay  # Allow immediate first click        
 
-    '''
-    Do I really need this?
-
-    def enabler(self):        
-        if self.toggle_count > 0: # Checks if it's the first call 
-            self.toggled = False
-            self.toggle_count = self.toggle_count + 1
-            
-        while self.toggled == False:
-            self.enabled = not self.enabled 
-            self.toggled = True 
-            print(self.enabled)
-    '''    
-    
     def is_hovered(self):
         mouse_position = pygame.mouse.get_pos()
         return self.rect.collidepoint(mouse_position) # bool: True if the mouse is hovering over

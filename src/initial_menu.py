@@ -1,7 +1,6 @@
 import pygame
-
-import scenes
 from ui_controls import *
+from scenes import GameScenes
 
 # Initialize button
 pygame.font.init()
@@ -12,7 +11,7 @@ def handle_game_start(mouse_event):
     # I SHOULD HANDLE THIS IN CLICKABLE
     if mouse_event.type == pygame.MOUSEBUTTONDOWN and mouse_event.button == 1:
         if button.rect.collidepoint(mouse_event.pos):
-            scenes.in_town = True
+            GameScenes.in_beginning, GameScenes.in_town = False, True
             return True  # Starts the game 
     return False
 

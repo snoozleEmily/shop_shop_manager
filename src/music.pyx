@@ -6,8 +6,8 @@ import os
 
 pygame.mixer.init()
 
-playlist_dir = 'D:\\Projects\\Python-studies\\shop_shop_manager\\music\\loop_songs'
-mp3_files = [os.path.join(playlist_dir, file) for file in os.listdir(playlist_dir) if file.endswith('.mp3')]
+PLAYLIST_DIR  = 'D:\\Projects\\Python-studies\\shop_shop_manager\\music\\loop_songs'
+mp3_files = [os.path.join(PLAYLIST_DIR, file) for file in os.listdir(PLAYLIST_DIR) if file.endswith('.mp3')]
 
 @cython.boundscheck(False)
 @cython.wraparound(False)

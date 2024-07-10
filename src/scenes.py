@@ -1,4 +1,5 @@
-# Define game scenes
-global in_beginning, in_town, in_shop, in_settings
-in_beginning, in_town, in_shop, in_settings = True, False, False, False
-
+class GameScenes:
+    in_beginning = True
+    in_town = False
+    in_shop = False
+    in_settings = False
