@@ -1,9 +1,9 @@
 import pygame
 import initial_menu
 from gameplay import *
-from music import *
+from pyximport import install ; install() # Cython
+from music import start_music, check_current_music, mp3_files
 
-# pygame setup
 pygame.init()
 pygame.mixer.init()
 start_music(mp3_files)
@@ -34,3 +34,4 @@ while running:
     clock.tick(60)  
 
 pygame.quit()
+

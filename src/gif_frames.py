@@ -5,11 +5,7 @@ def handle_gif_frames(gif_path):
     """
     Loads frames from a GIF file and converts them to Pygame images.
 
-    Args:
-    gif_path (str): The file path to the GIF image.
-
-    Returns:
-    list: A list of Pygame images representing each frame of the GIF.
+    Returns a list of Pygame images representing each frame of the GIF.
     """
     pil_image = Image.open(gif_path)
     frames = []
