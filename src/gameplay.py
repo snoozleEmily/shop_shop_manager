@@ -23,11 +23,13 @@ def main_game(display_surface, mouse_event, update_scene=None):
         box.draw_image(display_surface)
         settings_button.draw_image(display_surface)
         
+        # Switch to shop scene
         if box.update_state(mouse_event, update_scene):
-            GameScenes.in_shop, GameScenes.in_town = True, False  # Switch to shop scene
+            GameScenes.in_shop, GameScenes.in_town = True, False  
           
+        # Switch to settings scene
         elif settings_button.update_state(mouse_event, update_scene):
-            GameScenes.in_settings, GameScenes.in_town = True, False  # Switch to settings scene
+            GameScenes.in_settings, GameScenes.in_town = True, False  
 
     # Update display to show the new frame
     pygame.display.flip()
