@@ -1,5 +1,6 @@
 import pygame
 import initial_menu
+from scenes import *
 from gameplay import *
 from pyximport import install ; install() # Cython
 from music import start_music, check_current_music, mp3_files
@@ -7,7 +8,7 @@ from music import start_music, check_current_music, mp3_files
 pygame.init()
 pygame.mixer.init()
 start_music(mp3_files)
-screen = pygame.display.set_mode((800, 400))
+screen = pygame.display.set_mode((Globals.screen_height, Globals.screen_width))
 clock = pygame.time.Clock()
 running = True
 game_started = False

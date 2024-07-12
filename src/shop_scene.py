@@ -1,5 +1,6 @@
 import pygame
 from ui_controls import *
+from market_board import *
 from scenes import GameScenes
 
 exit_scene = Clickable(740, 330, text = None, type_tag='exit_scene')
@@ -7,6 +8,8 @@ shop_background_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop
 
 def render_shop_scene(display_surface, mouse_event, update_scene=None):
     display_surface.blit(shop_background_image, (0, 0))
+
+    render_table(display_surface)
     
     exit_scene.draw_image(display_surface)
 
