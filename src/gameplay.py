@@ -1,8 +1,8 @@
 import pygame
-from ui_controls import *
-from settings import *
-from shop_scene import *
-from scenes import GameScenes
+from clickables import *
+from scenes.settings_scene import *
+from scenes.shop_scene import * 
+from scenes.states import GameScenes
 
 box = Clickable(10, 350, text = None, type_tag='box')
 settings_button = Clickable(770, 7, text = None, type_tag='settings')

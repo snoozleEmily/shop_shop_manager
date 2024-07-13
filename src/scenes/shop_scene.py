@@ -1,7 +1,7 @@
 import pygame
-from ui_controls import *
-from market_board import *
-from scenes import GameScenes
+from clickables import *
+from scenes.market_board import render_table
+from scenes.states import GameScenes
 
 exit_scene = Clickable(740, 330, text = None, type_tag='exit_scene')
 shop_background_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\shop_background.png")

@@ -1,9 +1,10 @@
 import pygame
-import initial_menu
-from scenes import *
-from gameplay import *
 from pyximport import install ; install() # Cython
-from music import start_music, check_current_music, mp3_files
+
+from initial_menu import *
+from gameplay import *
+from scenes.states import *
+from music import *
 
 pygame.init()
 pygame.mixer.init()
@@ -23,8 +24,8 @@ while running:
     
     # Updates button state and draw the initial menu
     if not game_started:
-        game_started = initial_menu.handle_game_start(event)
-        initial_menu.render_initial_screen(screen, event)
+        game_started = handle_game_start(event)
+        render_initial_screen(screen, event)
     else:
         main_game(screen, event)
 

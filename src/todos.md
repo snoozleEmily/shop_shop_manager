@@ -14,4 +14,5 @@ The goal is to create an MVP where the game is actually playable. Then, slowly m
 - [X] Get file with items data - **1**
 - [ ] Enable the player's manipulation of the items data - **5**
 - [ ] Create module to declare all the clickabales - **1**
-- [ ] Organize folders in src - **1**
+- [X] Organize folders in src - **1**
+- [ ] Slice all items data into smaller arrays before rendering them on the spreadsheet - **3**

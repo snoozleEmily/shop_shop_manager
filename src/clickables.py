@@ -1,6 +1,5 @@
 import pygame
 import time
-import gif_frames
 
 pygame.mixer.init()
 
@@ -51,12 +50,9 @@ class Clickable:
             self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\box_click.mp3")
             self.click_delay = 0.8 
 
-        elif type_tag == 'settings': 
-            self.has_hover = True
+        elif type_tag == 'settings':
             self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\settings_default.png")
-            self.hover_images = gif_frames.handle_gif_frames(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\settings_hover.gif")
-            self.hover_image = self.hover_images[self.current_frame_index]
-
+            
             self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\settings_click.mp3")
             self.click_delay = 1.5 
 
@@ -78,17 +74,8 @@ class Clickable:
     def update_state(self, handle_click_event, update_scene):  
             current_time = time.time()
 
-            if self.is_hovered() and self.has_hover:
-                if hasattr(self, 'hover_images') and self.identifier_type == 'settings':
-                    # Update the hover frame if enough time has passed for GIF
-                    if current_time - self.last_frame_time >= 0.1:
-                        self.current_frame_index = (self.current_frame_index + 1) % len(self.hover_images)
-                        self.hover_image = self.hover_images[self.current_frame_index]
-                        self.last_frame_time = current_time
-
-                self.current_image = self.hover_image
-            else:
-                self.current_image = self.default_image
+            if self.is_hovered() and self.has_hover: self.current_image = self.hover_image
+            else: self.current_image = self.default_image
 
             # Adds a delay to the sound effect
             if handle_click_event.type == pygame.MOUSEBUTTONDOWN and handle_click_event.button == 1:

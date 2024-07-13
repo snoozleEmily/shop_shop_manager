@@ -1,6 +1,6 @@
 import pygame
-from ui_controls import *
-from scenes import GameScenes
+from clickables import *
+from scenes.states import GameScenes
 
 # Initialize button
 pygame.font.init()

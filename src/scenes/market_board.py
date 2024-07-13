@@ -1,6 +1,9 @@
 import pygame
 import numpy as np
-from scenes import *
+from scenes.states import Globals
+
+pygame.init()
+pygame.font.init()
 
 with open(r'Python-studies\shop_shop_manager\items\all_items.csv', 'r') as file:
     all_items = np.genfromtxt(file, delimiter=',', dtype=str)
