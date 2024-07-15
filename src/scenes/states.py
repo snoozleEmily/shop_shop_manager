@@ -1,6 +1,6 @@
 class Globals:
-    screen_width = 400
-    screen_height = 800
+    SCREEN_WIDTH = 400
+    SCREEN_HEIGHT = 800
 
 class GameScenes:
     in_beginning = True

@@ -13,8 +13,8 @@ CELL_WIDTH, CELL_HEIGHT = 105, 25
 PADDING = 12
 ROW_MARGIN = 9
 
-table_width = Globals.screen_width - PADDING
-table_height = (Globals.screen_height // 2) - (PADDING * 5)
+table_width = Globals.SCREEN_WIDTH - PADDING
+table_height = (Globals.SCREEN_HEIGHT // 2) - (PADDING * 5)
 
 rows_per_page = (table_height - CELL_HEIGHT - ROW_MARGIN) // (CELL_HEIGHT + ROW_MARGIN)
 cols_per_page = table_width // CELL_WIDTH

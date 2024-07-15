@@ -1,5 +1,5 @@
 import pygame
-from clickables import *
+from ui_controls.clickables import *
 from scenes.market_board import render_table
 from scenes.states import GameScenes
 

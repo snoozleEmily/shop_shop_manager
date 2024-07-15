@@ -1,5 +1,5 @@
 import pygame
-from clickables import *
+from ui_controls.clickables import *
 from scenes.settings_scene import *
 from scenes.shop_scene import * 
 from scenes.states import GameScenes
