@@ -51,8 +51,10 @@ class Clickable:
             self.click_delay = 0.8 
 
         elif type_tag == 'settings':
+            self.has_hover = True
             self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\settings_default.png")
-            
+            self.hover_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\settings_hover.png")
+
             self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\settings_click.mp3")
             self.click_delay = 1.5 
 

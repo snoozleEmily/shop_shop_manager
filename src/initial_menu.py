@@ -1,5 +1,5 @@
 import pygame
-from ui_controls.clickables import *
+from ui_controls.clickables import Clickable
 from scenes.states import GameScenes
 
 # Initialize button
