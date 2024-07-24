@@ -1,15 +1,16 @@
 import pygame
+
 from ui_controls.clickables import Clickable
 from scenes.states import GameScenes
 from scenes.settings_scene import render_settings_scene
 from scenes.shop_scene import render_shop_scene 
+from pygame_loads import load_image
+from backgrounds import TOWN_BACKGROUND
 
-town_background_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\town_background_one.png")
-
-shop_button = Clickable(10, 350, text = None, type_tag='box')
-iventory_button = Clickable(63, 350, text = None, type_tag='box')
-home_button = Clickable(116, 350, text = None, type_tag='box')
-settings_button = Clickable(767, 5, text = None, type_tag='settings')
+SHOP_BUTTON = Clickable(10, 350, text = None, type_tag='box')
+IVENTORY_BUTTON = Clickable(63, 350, text = None, type_tag='box')
+HOME_BUTTON = Clickable(116, 350, text = None, type_tag='box')
+SETTINGS_BUTTON = Clickable(767, 5, text = None, type_tag='settings')
 
 def main_game(display_surface, mouse_event, update_scene=None):  
     if GameScenes.in_shop:
@@ -21,19 +22,19 @@ def main_game(display_surface, mouse_event, update_scene=None):
         update_scene(display_surface, mouse_event) 
          
     else:
-        display_surface.blit(town_background_image, (0, 0))
+        display_surface.blit(load_image(TOWN_BACKGROUND), (0, 0))
 
-        shop_button.draw_image(display_surface)
-        iventory_button.draw_image(display_surface)
-        home_button.draw_image(display_surface)
-        settings_button.draw_image(display_surface)
+        SHOP_BUTTON.draw_screen(display_surface)
+        IVENTORY_BUTTON.draw_screen(display_surface)
+        HOME_BUTTON.draw_screen(display_surface)
+        SETTINGS_BUTTON.draw_screen(display_surface)
         
         # Switch to shop scene
-        if shop_button.update_state(mouse_event, update_scene):
+        if SHOP_BUTTON.update_state(mouse_event, update_scene):
             GameScenes.in_shop, GameScenes.in_town = True, False  
           
         # Switch to settings scene
-        elif settings_button.update_state(mouse_event, update_scene):
+        elif SETTINGS_BUTTON.update_state(mouse_event, update_scene):
             GameScenes.in_settings, GameScenes.in_town = True, False
 
 

@@ -1,7 +1,11 @@
 import pygame
 import time
 
-pygame.mixer.init()
+from pygame_loads import load_image, load_sound
+
+
+IMAGES_PATH = "D:/Projects/Python-studies/shop_shop_manager/images/clickables/"
+SOUND_EFFECTS_PATH = "D:/Projects/Python-studies/shop_shop_manager/music/sound_effects/"
 
 class Clickable:
     def __init__(self, x, y, text, type_tag):
@@ -22,52 +26,47 @@ class Clickable:
         self.last_frame_time = time.time()
 
         self.enabled, self.toggled, self.toggle_count = True, False, 0
-        self.has_hover = False        
+        self.has_hover = False
         
-        if type_tag == 'button':
+        if type_tag in ['button', 'exit_scene', 'settings']:
             self.has_hover = True
-            self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\button_image.png")
-            self.hover_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\button_image_hover.png")
-            
-            self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\button_click.mp3")
+
+        if type_tag == 'button':
+            self.default_image = load_image(IMAGES_PATH + "button_image.png")
+            self.hover_image = load_image(IMAGES_PATH + "button_image_hover.png")
+            self.click_sound = load_sound(SOUND_EFFECTS_PATH + "button_click.mp3")
             self.click_delay = 0.5
-            
             self.font = pygame.font.Font(None, 36)
-            self.text_surface = self.font.render(text, True, (255, 255, 255))            
+            self.text_surface = self.font.render(text, True, (255, 255, 255))
 
         elif type_tag == 'exit_scene':
-            self.has_hover = True
-            self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\exit_scene_default_image.png")
-            self.hover_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\exit_scene_hover_image.png")
-            
-            self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\exit_scene_click.mp3")
-            self.click_delay = 1          
-            
-        elif type_tag == 'box': 
-            self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\box.png")
+            self.default_image = load_image(IMAGES_PATH + "exit_scene_default_image.png")
+            self.hover_image = load_image(IMAGES_PATH + "exit_scene_hover_image.png")
+            self.click_sound = load_sound(SOUND_EFFECTS_PATH + "exit_scene_click.mp3")
+            self.click_delay = 1
+
+        elif type_tag == 'box':
+            self.default_image = load_image(IMAGES_PATH + "box.png")
             #self.hover_image = None // Should I add a hover effect for the box too?
-           
-            self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\box_click.mp3")
-            self.click_delay = 0.8 
+            self.click_sound = load_sound(SOUND_EFFECTS_PATH + "box_click.mp3")
+            self.click_delay = 0.8
 
         elif type_tag == 'settings':
-            self.has_hover = True
-            self.default_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\settings_default.png")
-            self.hover_image = pygame.image.load(r"D:\Projects\Python-studies\shop_shop_manager\images\clickables\settings_hover.png")
-
-            self.click_sound = pygame.mixer.Sound(r"D:\Projects\Python-studies\shop_shop_manager\music\sound_effects\settings_click.mp3")
-            self.click_delay = 1.5 
+            self.default_image = load_image(IMAGES_PATH + "settings_default.png")
+            self.hover_image = load_image(IMAGES_PATH + "settings_hover.png")
+            self.click_sound = load_sound(SOUND_EFFECTS_PATH + "settings_click.mp3")
+            self.click_delay = 1.5
 
         self.current_image = self.default_image
         self.rect = self.current_image.get_rect(topleft=(x, y))
-        
-        self.last_click_time = time.time() - self.click_delay  # Allow immediate first click        
+
+        self.last_click_time = time.time() - self.click_delay  # Allow immediate first click
 
     def is_hovered(self):
         mouse_position = pygame.mouse.get_pos()
         return self.rect.collidepoint(mouse_position) # bool: True if the mouse is hovering over
 
-    def draw_image(self, screen):
+    def draw_screen(self, screen):
         screen.blit(self.current_image, self.rect.topleft)
         if self.identifier_type == 'button':
             text_rect = self.text_surface.get_rect(center=self.rect.center)

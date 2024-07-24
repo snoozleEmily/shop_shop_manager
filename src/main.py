@@ -6,11 +6,9 @@ from scenes.states import Globals
 from initial_menu import handle_game_start, render_initial_screen
 from gameplay import main_game
 
-
-
 pygame.init()
 pygame.mixer.init()
-screen = pygame.display.set_mode((Globals.SCREEN_HEIGHT, Globals.SCREEN_WIDTH))
+SCREEN = pygame.display.set_mode((Globals.SCREEN_HEIGHT, Globals.SCREEN_WIDTH))
 clock = pygame.time.Clock()
 running = True
 game_started = False
@@ -28,9 +26,9 @@ while running:
     # Updates button state and draw the initial menu
     if not game_started:
         game_started = handle_game_start(event)
-        render_initial_screen(screen, event)
+        render_initial_screen(SCREEN, event)
     else:
-        main_game(screen, event)
+        main_game(SCREEN, event)
 
     # Updates the display
     pygame.display.flip()
