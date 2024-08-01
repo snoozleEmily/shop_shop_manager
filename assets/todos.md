@@ -31,8 +31,3 @@ You reach day 30 with a positive account balance.
 
 ### How do you lose?
 You go bankrupt.
-
-
-## Memory Leaks
-Should I setup something for Memory Leaks?
-https://pympler.readthedocs.io/en/latest/muppy.html

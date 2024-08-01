@@ -2,8 +2,9 @@ import pygame
 
 from ui_controls.clickables import Clickable
 from scenes.states import GameScenes
-from scenes.settings_scene import render_settings_scene
-from scenes.shop_scene import render_shop_scene 
+from scenes.settings_scene import render_settings
+from scenes.shop_scene import render_shop 
+from scenes.inventory_scene import render_inventory
 from pygame_loads import load_image
 from backgrounds import TOWN_BACKGROUND
 
@@ -14,12 +15,16 @@ SETTINGS_BUTTON = Clickable(767, 5, text = None, type_tag='settings')
 
 def main_game(display_surface, mouse_event, update_scene=None):  
     if GameScenes.in_shop:
-        update_scene=render_shop_scene
+        update_scene=render_shop
         update_scene(display_surface, mouse_event)
 
     elif GameScenes.in_settings:
-        update_scene=render_settings_scene
-        update_scene(display_surface, mouse_event) 
+        update_scene=render_settings
+        update_scene(display_surface, mouse_event)
+        
+    elif GameScenes.in_inventory:
+        update_scene=render_inventory 
+        update_scene(display_surface, mouse_event)
          
     else:
         display_surface.blit(load_image(TOWN_BACKGROUND), (0, 0))
@@ -32,6 +37,10 @@ def main_game(display_surface, mouse_event, update_scene=None):
         # Switch to shop scene
         if SHOP_BUTTON.update_state(mouse_event, update_scene):
             GameScenes.in_shop, GameScenes.in_town = True, False  
+        
+        # Switch to inventory scene
+        elif IVENTORY_BUTTON.update_state(mouse_event, update_scene):
+            GameScenes.in_inventory, GameScenes.in_town = True, False
           
         # Switch to settings scene
         elif SETTINGS_BUTTON.update_state(mouse_event, update_scene):

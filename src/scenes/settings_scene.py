@@ -7,7 +7,7 @@ from backgrounds import PAPER_BACKGROUND
 
 exit_scene = Clickable(740, 330, text = None, type_tag='exit_scene')
 
-def render_settings_scene(display_surface, mouse_event, update_scene=None):  
+def render_settings(display_surface, mouse_event, update_scene=None):  
     display_surface.blit(load_image(PAPER_BACKGROUND), (0, 0))
 
     exit_scene.draw_screen(display_surface)

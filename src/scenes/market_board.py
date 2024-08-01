@@ -8,8 +8,10 @@ pygame.font.init()
 with open(r'Python-studies\shop_shop_manager\items\all_items.csv', 'r') as file:
     all_items = np.genfromtxt(file, delimiter=',', dtype=str)
 
-FONT = pygame.font.Font(r'Python-studies\shop_shop_manager\assets\SKEETCH_.TTF', 36)
-CELL_WIDTH, CELL_HEIGHT = 105, 25
+# I should declare the font in a separate file 
+FONT = pygame.font.Font(r'Python-studies\shop_shop_manager\assets\SKEETCH_.TTF', 36) 
+CELL_WIDTH = 105
+CELL_HEIGHT = 25
 PADDING = 12
 ROW_MARGIN = 9
 
@@ -25,7 +27,7 @@ total_pages = len(all_items) // rows_per_page + (1 if len(all_items) % rows_per_
 
 viewport_surface = pygame.Surface((table_width, table_height))
 
-def render_table(display_surface):
+def render_table(display_surface: pygame.Surface) -> None:
     start_row = current_page * rows_per_page
     end_row = min(start_row + rows_per_page, len(all_items))
 
@@ -46,4 +48,3 @@ def render_table(display_surface):
 
     display_surface.blit(viewport_surface, (PADDING, PADDING))
     pygame.display.flip()
-

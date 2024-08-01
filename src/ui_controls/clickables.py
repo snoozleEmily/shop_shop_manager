@@ -1,8 +1,8 @@
 import pygame
 import time
+from typing import Callable, Tuple
 
 from pygame_loads import load_image, load_sound
-
 
 IMAGES_PATH = "D:/Projects/Python-studies/shop_shop_manager/images/clickables/"
 SOUND_EFFECTS_PATH = "D:/Projects/Python-studies/shop_shop_manager/music/sound_effects/"
@@ -62,31 +62,47 @@ class Clickable:
 
         self.last_click_time = time.time() - self.click_delay  # Allow immediate first click
 
-    def is_hovered(self):
-        mouse_position = pygame.mouse.get_pos()
-        return self.rect.collidepoint(mouse_position) # bool: True if the mouse is hovering over
 
-    def draw_screen(self, screen):
-        screen.blit(self.current_image, self.rect.topleft)
+    def is_hovered(self) -> bool:
+        """
+        Checks if the mouse is hovering over the clickable object.
+
+        Returns:
+            bool: True if the mouse is hovering over the clickable object, False otherwise.
+        """
+        mouse_position: Tuple[int, int] = pygame.mouse.get_pos()
+        return self.rect.collidepoint(mouse_position)
+
+    def draw_screen(self, surface: pygame.Surface) -> None:
+        """
+        Draws the current image of the clickable object on the screen.
+        """
+        surface.blit(self.current_image, self.rect.topleft)
+        
         if self.identifier_type == 'button':
             text_rect = self.text_surface.get_rect(center=self.rect.center)
-            screen.blit(self.text_surface, text_rect)
+            surface.blit(self.text_surface, text_rect)
+            surface.blit(self.text_surface, text_rect)
+          
+    def update_state(self, event: pygame.event.Event,
+                     update_scene:  Callable[[], None]) -> bool:        
+        """
+        Updates the state of the clickable object based on the given event and update_scene function.
+        """ 
+        current_time = time.time()
 
-    def update_state(self, handle_click_event, update_scene):  
+        if self.is_hovered() and self.has_hover: self.current_image = self.hover_image
+        else: self.current_image = self.default_image
+
+        # Adds a delay to the sound effect
+        if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
             current_time = time.time()
 
-            if self.is_hovered() and self.has_hover: self.current_image = self.hover_image
-            else: self.current_image = self.default_image
+            if self.enabled and self.rect.collidepoint(pygame.mouse.get_pos()):                
+                if current_time - self.last_click_time >= self.click_delay:
+                    self.click_sound.play()
+                    self.last_click_time = current_time
 
-            # Adds a delay to the sound effect
-            if handle_click_event.type == pygame.MOUSEBUTTONDOWN and handle_click_event.button == 1:
-                current_time = time.time()
-
-                if self.enabled and self.rect.collidepoint(pygame.mouse.get_pos()):                
-                    if current_time - self.last_click_time >= self.click_delay:
-                        self.click_sound.play()
-                        self.last_click_time = current_time
-
-                        # Updates the scene by returning bool: True if the object was clicked:
-                        return True
-            return False
+                    # Updates the scene by returning bool: True if the object was clicked:
+                    return True
+        return False
