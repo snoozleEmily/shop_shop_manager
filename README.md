@@ -1,3 +1,5 @@
+[WIP]
+
 # Shop Shop Manager Game
 It's a turn-based management game created with [Pygame](https://github.com/pygame/pygame).
 

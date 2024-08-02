@@ -4,7 +4,7 @@ The goal is to create an MVP where the game is actually playable. Then, slowly m
 
 - [ ] Load game button on initial screen - **1**
 - [ ] Implement functionality on the 'load game' button - **13**
-- [ ] Make the settings screen - **2**
+- [ ] Make the settings screen - **3**
 - [ ] Make the inventory scene - **5**
 - [ ] Make the shop scene - **5**
 - [ ] Create art for the box buttons - **2**
@@ -13,7 +13,7 @@ The goal is to create an MVP where the game is actually playable. Then, slowly m
 - [ ] Finish writing README file - **1**
 - [X] Get file with items data - **1**
 - [ ] Enable the player's manipulation of the items data - **5**
-- [ ] Create a package to declare all the clickabales - **1**
+- [X] Create a package to declare all the clickabales - **1**
 - [X] Organize folders in src - **1**
 - [ ] Slice all items data into smaller arrays before rendering them on the spreadsheet - **3**
 
