@@ -28,7 +28,7 @@ class Clickable:
         self.enabled, self.toggled, self.toggle_count = True, False, 0
         self.has_hover = False
         
-        if type_tag in ['button', 'exit_scene', 'settings']:
+        if type_tag in ['button', 'exit_scene']:
             self.has_hover = True
 
         if type_tag == 'button':
@@ -47,13 +47,11 @@ class Clickable:
 
         elif type_tag == 'box':
             self.default_image = load_image(IMAGES_PATH + "box.png")
-            #self.hover_image = None // Should I add a hover effect for the box too?
             self.click_sound = load_sound(SOUND_EFFECTS_PATH + "box_click.mp3")
             self.click_delay = 0.8
 
         elif type_tag == 'settings':
             self.default_image = load_image(IMAGES_PATH + "settings_default.png")
-            self.hover_image = load_image(IMAGES_PATH + "settings_hover.png")
             self.click_sound = load_sound(SOUND_EFFECTS_PATH + "settings_click.mp3")
             self.click_delay = 1.5
 
