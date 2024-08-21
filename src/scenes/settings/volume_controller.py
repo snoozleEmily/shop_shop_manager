@@ -1,5 +1,6 @@
 import pygame
 
+
 class VolumeController:
     def __init__(self):
         self.volume = 0.1  # Default volume
