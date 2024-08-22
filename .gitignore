@@ -3,3 +3,6 @@
 
 # But not the README.md file
 !README.md
+
+# Ignore all pycache files
+*.pyc
