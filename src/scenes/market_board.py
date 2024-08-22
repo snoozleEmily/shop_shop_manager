@@ -1,15 +1,16 @@
 import pygame
 import numpy as np
 from scenes.states import Globals
+from pygame_loads import FONT_CURSIVE
 
 pygame.init()
 pygame.font.init()
 
-with open(r"Python-studies\shop_shop_manager\items\all_items.csv", "r") as file:
+with open(
+    r"Python-studies\shop_shop_manager\assets\data\items\all_items.csv", "r"
+) as file:
     all_items = np.genfromtxt(file, delimiter=",", dtype=str)
 
-# I should declare the font in a separate file
-FONT = pygame.font.Font(r"Python-studies\shop_shop_manager\assets\SKEETCH_.TTF", 36)
 CELL_WIDTH = 105
 CELL_HEIGHT = 25
 PADDING = 12
@@ -39,12 +40,12 @@ def render_table(display_surface: pygame.Surface) -> None:
     for i, row in enumerate(all_items[start_row:end_row]):
         for j, cell in enumerate(row):
             if i == 0:  # Column Titles
-                text_surface = FONT.render(cell, True, (0, 0, 0))
+                text_surface = FONT_CURSIVE.render(cell, True, (0, 0, 0))
                 x = j * CELL_WIDTH + PADDING
                 y = PADDING / 3
                 viewport_surface.blit(text_surface, (x, y))
             else:
-                text_surface = FONT.render(cell, True, (0, 0, 0))
+                text_surface = FONT_CURSIVE.render(cell, True, (0, 0, 0))
                 x = j * CELL_WIDTH + PADDING
                 y = i * (CELL_HEIGHT + ROW_MARGIN) + PADDING
                 viewport_surface.blit(text_surface, (x, y))

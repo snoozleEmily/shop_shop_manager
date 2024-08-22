@@ -18,9 +18,9 @@ def render_inventory(
 
     display_surface.blit(load_image(PAPER_BACKGROUND), (0, 0))
     render_table(display_surface)
-    EXIT_SCENE.draw_screen(display_surface)
 
     # Goes back to town if exit button is clicked
+    EXIT_SCENE.draw_screen(display_surface)
     if EXIT_SCENE.update_state(mouse_event, update_scene):
         GameScenes.in_town, GameScenes.in_inventory = True, False
 
