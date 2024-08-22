@@ -26,7 +26,9 @@ def display_customer(
         character_images = os.listdir(characters_folder)
         random_character_image = random.choice(character_images)
 
-        # TODO: Make sure the new character is not the same as the previous one
+        character_not_allowed = random_character_image == previous_character
+        while character_not_allowed:
+            random_character_image = random.choice(character_images)
 
         _selected_character[0] = load_image(
             os.path.join(characters_folder, random_character_image)
