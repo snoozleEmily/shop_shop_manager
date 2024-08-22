@@ -14,7 +14,7 @@ def get_dialogue() -> dict:
     tickets_amount = (
         6
         # Futurely, this should depend on the amount of tickets the user has
-        # and add +3 or so to it
+        # and add +3 or so to it to avoid repetead dialogues
     )
 
     def is_dialogue_new(dialogue: dict) -> bool:
@@ -31,6 +31,6 @@ def get_dialogue() -> dict:
 
 
 if __name__ == "__main__":
-    for _ in range(50):
-        print(get_dialogue())
-        print("")
+    # To test if is_dialogue_new is working
+    # run for _ in range(len(sale_speech))
+    print(get_dialogue())
