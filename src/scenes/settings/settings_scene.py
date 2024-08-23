@@ -1,9 +1,9 @@
 import pygame
 
-from ui_controls.clickables import Clickable
+from utils.clickables import Clickable
 from scenes.states import GameScenes
 from .volume_controller import VolumeController
-from pygame_loads import load_image
+from utils.pygame_loads import load_image
 from backgrounds import PAPER_BACKGROUND
 
 EXIT_SCENE = Clickable(740, 330, text=None, type_tag="exit_scene")

@@ -1,11 +1,11 @@
 import pygame
 
-from ui_controls.clickables import Clickable
+from utils.clickables import Clickable
 from scenes.states import GameScenes
 from scenes.settings.settings_scene import render_settings
 from scenes.shop.shop_scene import render_shop
 from scenes.inventory_scene import render_inventory
-from pygame_loads import load_image
+from utils.pygame_loads import load_image
 from backgrounds import TOWN_BACKGROUND
 
 SHOP_BUTTON = Clickable(10, 350, text=None, type_tag="box")

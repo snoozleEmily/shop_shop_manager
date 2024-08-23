@@ -1,10 +1,10 @@
 import pygame
 from typing import Optional, Callable
 
-from ui_controls.clickables import Clickable
+from utils.clickables import Clickable
 from scenes.states import GameScenes
 from scenes.market_board import render_table
-from pygame_loads import load_image
+from utils.pygame_loads import load_image
 from backgrounds import PAPER_BACKGROUND
 
 EXIT_SCENE = Clickable(740, 330, text=None, type_tag="exit_scene")

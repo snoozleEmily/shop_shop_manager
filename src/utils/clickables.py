@@ -2,7 +2,7 @@ import pygame
 import time
 from typing import Callable, Tuple
 
-from pygame_loads import load_image, load_sound
+from .pygame_loads import load_image, load_sound
 
 IMAGES_PATH = "D:/Projects/Python-studies/shop_shop_manager/images/clickables/"
 SOUND_EFFECTS_PATH = "D:/Projects/Python-studies/shop_shop_manager/music/sound_effects/"

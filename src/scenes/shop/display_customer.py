@@ -2,7 +2,7 @@ import pygame
 import os
 import random
 
-from pygame_loads import load_image
+from utils.pygame_loads import load_image
 
 
 # Display a random character image
