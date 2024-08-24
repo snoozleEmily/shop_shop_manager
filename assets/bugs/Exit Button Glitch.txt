@@ -1,0 +1,2 @@
+When in a SCENE the 'exit button' (the small door at the lower right corner) 
+glitches. Maybe it is being rendered multiple times? 

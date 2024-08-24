@@ -1,14 +1,24 @@
 import pygame
+import numpy as np
 
 pygame.init()
 pygame.mixer.init()
-FONT_DEFAULT = pygame.font.Font(None, 28)
+
+FONT_DEFAULT = pygame.font.Font(
+    r"Python-studies\shop_shop_manager\assets\fonts\baby_doll.ttf", 36
+)
 FONT_CURSIVE = pygame.font.Font(
-    r"Python-studies\shop_shop_manager\assets\SKEETCH_.TTF", 36
+    r"Python-studies\shop_shop_manager\assets\fonts\skeetch.ttf", 36
 )
 
 
-def load_image(image_path: str) -> pygame.Surface:
+with open(
+    r"Python-studies\shop_shop_manager\assets\data\items\all_items.csv", "r"
+) as file:
+    all_items = np.genfromtxt(file, delimiter=",", dtype=str)
+
+
+def load_image(image_path: str) -> pygame.Surface:    
     return pygame.image.load(image_path)
 
 

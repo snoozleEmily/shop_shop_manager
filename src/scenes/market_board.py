@@ -2,14 +2,11 @@ import pygame
 import numpy as np
 from scenes.states import Globals
 from utils.pygame_loads import FONT_CURSIVE
+from utils.pygame_loads import all_items
 
 pygame.init()
 pygame.font.init()
 
-with open(
-    r"Python-studies\shop_shop_manager\assets\data\items\all_items.csv", "r"
-) as file:
-    all_items = np.genfromtxt(file, delimiter=",", dtype=str)
 
 CELL_WIDTH = 105
 CELL_HEIGHT = 25

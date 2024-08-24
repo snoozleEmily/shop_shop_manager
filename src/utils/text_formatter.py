@@ -13,6 +13,7 @@ def wrap_text(text, font, max_width):
         else:
             # If the line is too wide, append the current line to lines and start a new one
             lines.append(" ".join(current_line))
+            lines.append("")  # Add an empty line for line spacing
             current_line = [word]
 
     # Add the last line

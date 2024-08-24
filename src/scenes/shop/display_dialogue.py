@@ -12,7 +12,7 @@ def display_dialogue(display_surface: pygame.Surface) -> pygame.Surface:
     CONTAINER_COLOR = (50, 50, 50, 128)  # Gray-ish with alpha for transparency
 
     # Define the position
-    container_x, container_y = 227, 123
+    container_x, container_y = 230, 123
     text_x, text_y = container_x + 10, container_y + 10  # Padding inside the container
 
     # Define the text area width

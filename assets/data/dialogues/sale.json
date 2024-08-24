@@ -1,7 +1,7 @@
 [
     {
         "id": 1,
-        "speech": "I've been looking everywhere for an ITEM like this. I need it to do something... Do you have it?"
+        "speech": "I've been looking everywhere for ITEM like this. I need it to do something... Do you have it?"
     },
     {
         "id": 2,
@@ -13,23 +13,23 @@
     },
     {
         "id": 4,
-        "speech": "Ah, the fates have brought me to your door. Do you have an ITEM to fulfill my destiny?"
+        "speech": "Ah, the fates have brought me to your door. Do you have ITEM to fulfill my destiny?"
     },
     {
         "id": 5,
-        "speech": "I could've sworn I had an ITEM yesterday, but now it's gone. Could you help a forgetful soul?"
+        "speech": "I could've sworn I had ITEM yesterday, but now it's gone. Could you help a forgetful soul?"
     },
     {
         "id": 6,
-        "speech": "They say you're the best in the business. Can you prove it by selling me an ITEM?"
+        "speech": "They say you're the best in the business. Can you prove it by selling me ITEM?"
     },
     {
         "id": 7,
-        "speech": "I'm in a bit of a hurry. Just give me an ITEM and I'll be on my way."
+        "speech": "I'm in a bit of a hurry. Just give me ITEM and I'll be on my way."
     },
     {
         "id": 8,
-        "speech": "I need an ITEM, and fast! My potion's brewing, and it's about to explode!"
+        "speech": "I need ITEM, and fast! My potion's brewing, and it's about to explode!"
     },
     {
         "id": 9,
@@ -41,15 +41,15 @@
     },
     {
         "id": 11,
-        "speech": "If I don't get an ITEM right now, my mother-in-law will turn me into a frog. Please help!"
+        "speech": "If I don't get ITEM right now, my mother-in-law will turn me into a frog. Please help!"
     },
     {
         "id": 12,
-        "speech": "I need an ITEM, but don't try to swindle me. I know the market price."
+        "speech": "I need ITEM, but don't try to swindle me. I know the market price."
     },
     {
         "id": 13,
-        "speech": "Greetings! Could you please assist me with an ITEM? It's for a... delicate matter."
+        "speech": "Greetings! Could you please assist me with ITEM? It's for a... delicate matter."
     },
     {
         "id": 14,
@@ -61,75 +61,75 @@
     },
     {
         "id": 16,
-        "speech": "I've heard whispers in the wind about your shop. Do you have an ITEM that might pique my interest?"
+        "speech": "I've heard whispers in the wind about your shop. Do you have ITEM that might pique my interest?"
     },
     {
         "id": 17,
-        "speech": "An ITEM, you say? I'll take one. Make sure it's not cursed this time."
+        "speech": "Oh, ITEM, you say? I'll take one. Make sure it's not cursed this time."
     },
     {
         "id": 18,
-        "speech": "Do you have any items that sparkle? Maybe an ITEM for a discerning eye like mine?"
+        "speech": "Do you have any items that sparkle? Maybe ITEM for a discerning eye like mine?"
     },
     {
         "id": 19,
-        "speech": "Straight to the point. I need an ITEM, and I'm not leaving without it."
+        "speech": "Straight to the point. I need ITEM, and I'm not leaving without it."
     },
     {
         "id": 20,
-        "speech": "My cauldron is bubbling and the stars are aligned. All I need now is an ITEM."
+        "speech": "My cauldron is bubbling and the stars are aligned. All I need now is ITEM."
     },
     {
         "id": 21,
-        "speech": "This shop smells... interesting. Do you have an ITEM I could take off your hands?"
+        "speech": "This shop smells... interesting. Do you have ITEM I could take off your hands?"
     },
     {
         "id": 22,
-        "speech": "I don't care about the price, just get me an ITEM and be quick about it."
+        "speech": "I don't care about the price, just get me ITEM and be quick about it."
     },
     {
         "id": 23,
-        "speech": "The elders spoke of a place where one could find an ITEM. Is this the place?"
+        "speech": "The elders spoke of a place where one could find ITEM. Is this the place?"
     },
     {
         "id": 24,
-        "speech": "I'll be blunt: I need an ITEM, and you look like someone who can get it for me."
+        "speech": "I'll be blunt: I need ITEM, and you look like someone who can get it for me."
     },
     {
         "id": 25,
-        "speech": "An ITEM, my good shopkeeper! Preferably one that doesn't explode... this time."
+        "speech": "In need of ITEM, my good shopkeeper! Preferably one that doesn't explode... this time."
     },
     {
         "id": 26,
-        "speech": "The road's been long, and my patience is short. Do you have an ITEM for sale?"
+        "speech": "The road's been long, and my patience is short. Do you have ITEM for sale?"
     },
     {
         "id": 27,
-        "speech": "My horse has been acting strange... Do you have an ITEM that could help?"
+        "speech": "My horse has been acting strange... Do you have ITEM that could help?"
     },
     {
         "id": 28,
-        "speech": "I need an ITEM, but not just any ITEM. It has to be... special. Can you help?"
+        "speech": "I need ITEM, but not just any ITEM. It has to be... special. Can you help?"
     },
     {
         "id": 29,
-        "speech": "My rival mentioned this shop. I don't see the appeal. But I do need an ITEM."
+        "speech": "My rival mentioned this shop. I don't see the appeal. But I do need ITEM."
     },
     {
         "id": 30,
-        "speech": "I've got a riddle for you: What do I need that starts with 'I' and ends with 'TEM'?"
+        "speech": "I've got a riddle for you: Donkey, donkey, donkey. Do you have ITEM?"
     },
     {
         "id": 31,
-        "speech": "Let's make this quick. I need an ITEM before anyone else gets their hands on it."
+        "speech": "Let's make this quick. I need ITEM before anyone else gets their hands on it."
     },
     {
         "id": 32,
-        "speech": "My collection's almost complete, but I'm missing an ITEM. Do you have it?"
+        "speech": "My collection's almost complete, but I'm missing ITEM. Do you have it?"
     },
     {
         "id": 33,
-        "speech": "I'm here for an ITEM. And don't even think about overcharging me."
+        "speech": "I'm here for ITEM. And don't even think about overcharging me."
     },
     {
         "id": 34,
@@ -137,15 +137,15 @@
     },
     {
         "id": 35,
-        "speech": "My grandmother used to have an ITEM like this. Nostalgia's a funny thing, isn't it?"
+        "speech": "My grandmother used to have ITEM like this. Nostalgia's a funny thing, isn't it?"
     },
     {
         "id": 36,
-        "speech": "I've got a sneaking suspicion you're hiding an ITEM I need. Care to sell it?"
+        "speech": "I've got a sneaking suspicion you're hiding ITEM I need. Care to sell it?"
     },
     {
         "id": 37,
-        "speech": "This shop is... cozy. Do you happen to have an ITEM in stock?"
+        "speech": "This shop is... cozy. Do you happen to have ITEM in stock?"
     },
     {
         "id": 38,
@@ -153,7 +153,7 @@
     },
     {
         "id": 39,
-        "speech": "I'm not sure what an ITEM is, but I was told to ask for one."
+        "speech": "I'm not sure what ITEM is, but I was told to ask for one."
     },
     {
         "id": 40,
@@ -161,39 +161,39 @@
     },
     {
         "id": 41,
-        "speech": "I was just passing through... Do you have an ITEM that catches the eye?"
+        "speech": "I was just passing through... Do you have ITEM that catches the eye?"
     },
     {
         "id": 42,
-        "speech": "I require an ITEM. Don't ask why. It's... complicated."
+        "speech": "I require ITEM. Don't ask why. It's... complicated."
     },
     {
         "id": 43,
-        "speech": "The market was out of ITEMs. You're my last hope."
+        "speech": "The market was out of ITEM. You're my last hope."
     },
     {
         "id": 44,
-        "speech": "I've got gold and I need an ITEM. Let's do business."
+        "speech": "I've got gold and I need ITEM. Let's do business."
     },
     {
         "id": 45,
-        "speech": "I had a dream about an ITEM. Do you believe in fate?"
+        "speech": "I had a dream about ITEM. Do you believe in fate?"
     },
     {
         "id": 46,
-        "speech": "I'm in desperate need of an ITEM. Can you help?"
+        "speech": "I'm in desperate need of ITEM. Can you help?"
     },
     {
         "id": 47,
-        "speech": "I've got a good feeling about this shop. Do you have an ITEM?"
+        "speech": "I've got a good feeling about this shop. Do you have ITEM?"
     },
     {
         "id": 48,
-        "speech": "Ah, the scent of commerce. I'm here for an ITEM."
+        "speech": "Ah, the scent of commerce. I'm here for ITEM."
     },
     {
         "id": 49,
-        "speech": "I've been saving up for an ITEM. Show me what you've got!"
+        "speech": "I've been saving up for ITEM. Show me what you've got!"
     },
     {
         "id": 50,
