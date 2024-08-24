@@ -1,7 +1,5 @@
-# Ignore all markdown files
+# Ignore all markdown files except README.md
 *.md
-
-# But not the README.md file
 !README.md
 
 # Ignore all pycache files
