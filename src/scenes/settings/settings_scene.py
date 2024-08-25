@@ -1,14 +1,11 @@
 import pygame
 
-from utils.clickables import Clickable
 from scenes.states import GameScenes
+from utils.buttons import EXIT_SCENE, SOUND_UP, SOUND_DOWN, ABOUT_INFO
 from .volume_controller import VolumeController
 from utils.pygame_loads import load_image
 from backgrounds import PAPER_BACKGROUND
 
-EXIT_SCENE = Clickable(740, 330, text=None, type_tag="exit_scene")
-SOUND_UP = Clickable(15, 15, text=None, type_tag="box")
-SOUND_DOWN = Clickable(67, 15, text=None, type_tag="box")
 
 volume_controller = VolumeController()
 
@@ -19,6 +16,7 @@ def render_settings(display_surface, mouse_event, update_scene=None):
     SOUND_UP.draw_screen(display_surface)
     SOUND_DOWN.draw_screen(display_surface)
     EXIT_SCENE.draw_screen(display_surface)
+    ABOUT_INFO.draw_screen(display_surface)
 
     # Goes back to town if exit button is clicked
     if EXIT_SCENE.update_state(mouse_event, update_scene):
@@ -29,5 +27,8 @@ def render_settings(display_surface, mouse_event, update_scene=None):
 
     if SOUND_DOWN.update_state(mouse_event, update_scene):
         volume_controller.decrease_volume()
+
+    if ABOUT_INFO.update_state(mouse_event, update_scene):
+        print("The information about the game will be here")
 
     pygame.display.flip()

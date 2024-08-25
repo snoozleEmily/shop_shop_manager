@@ -1,11 +1,11 @@
 [WIP]
 
 # Shop Shop Manager Game
+
 It's a turn-based management game created with [Pygame](https://github.com/pygame/pygame).
 
 ## What is it about?
-You are the owner of a shop in a fantasy world. Try to avoid bankruptcy by making tough deals for a few pennies or capitalizing on lucrative trades to build your fortune. While managing your shop, handle a variety of items and clients, and trade with other merchants.
+
+Manage a shop in a fantasy world. Avoid bankruptcy by balancing your budget, negotiating deals, capitalizing on trades, and handling various items and clients. Trade with other merchants to build your fortune in a dynamic economy.
 
 ## Gameplay
-
-

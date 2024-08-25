@@ -2,7 +2,7 @@ import pygame
 import time
 from typing import Callable, Tuple
 
-from .pygame_loads import load_image, load_sound
+from .pygame_loads import FONT_BUTTON, load_image, load_sound
 
 IMAGES_PATH = "D:/Projects/Python-studies/shop_shop_manager/images/clickables/"
 SOUND_EFFECTS_PATH = "D:/Projects/Python-studies/shop_shop_manager/music/sound_effects/"
@@ -37,7 +37,7 @@ class Clickable:
             self.hover_image = load_image(IMAGES_PATH + "button_image_hover.png")
             self.click_sound = load_sound(SOUND_EFFECTS_PATH + "button_click.mp3")
             self.click_delay = 0.5
-            self.font = pygame.font.Font(None, 36)
+            self.font = FONT_BUTTON
             self.text_surface = self.font.render(text, True, (255, 255, 255))
 
         elif type_tag == "exit_scene":

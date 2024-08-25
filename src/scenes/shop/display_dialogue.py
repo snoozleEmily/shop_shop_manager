@@ -16,12 +16,12 @@ def display_dialogue(display_surface: pygame.Surface) -> pygame.Surface:
     text_x, text_y = container_x + 10, container_y + 10  # Padding inside the container
 
     # Define the text area width
-    text_area_width = CONTAINER_WIDTH - 20
+    text_width = CONTAINER_WIDTH - 20
 
     # Get the text from the sales dialogue
     if not Dialogue.dialogue_displayed:
         dialogue = get_dialogue().get("speech", "")
-        Dialogue.dialogue_text = wrap_text(dialogue, FONT_DEFAULT, text_area_width)
+        Dialogue.dialogue_text = wrap_text(dialogue, FONT_DEFAULT, text_width)
         Dialogue.displayed_count += 1
         Dialogue.dialogue_displayed = True
 

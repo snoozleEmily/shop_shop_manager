@@ -1,8 +1,7 @@
 import pygame
-import numpy as np
+
 from scenes.states import Globals
-from utils.pygame_loads import FONT_CURSIVE
-from utils.pygame_loads import all_items
+from utils.pygame_loads import all_items, FONT_CURSIVE
 
 pygame.init()
 pygame.font.init()

@@ -1,3 +1,6 @@
+from typing import Callable
+
+
 class Globals:
     """
     Class to store game's global variables.
@@ -6,8 +9,21 @@ class Globals:
         SCREEN_HEIGHT (int): Height of the game's window.
     """
 
-    SCREEN_WIDTH = 400
-    SCREEN_HEIGHT = 800
+    SCREEN_WIDTH: int = 400
+    SCREEN_HEIGHT: int = 800
+
+
+class GameScenes:
+    """
+    Class to manage the current game scene.
+    """
+
+    in_beginning: bool = True
+    in_town: bool = False
+    in_shop: bool = False
+    in_inventory: bool = False
+    in_home: bool = False
+    in_settings: bool = False
 
 
 class Dialogue:
@@ -19,19 +35,6 @@ class Dialogue:
         displayed_count (int): The number of times the dialogue was displayed.
     """
 
-    dialogue_text = None
-    dialogue_displayed = False
-    displayed_count = 0
-
-
-class GameScenes:
-    """
-    Class to manage the current game scene.
-    """
-
-    in_beginning = True
-    in_town = False
-    in_shop = False
-    in_inventory = False
-    in_home = False
-    in_settings = False
+    dialogue_text: Callable = None
+    dialogue_displayed: bool = False
+    displayed_count: int = 0
