@@ -1,2 +1,8 @@
-When in a SCENE the 'exit button' (the small door at the lower right corner) 
+1.0
+-When in a SCENE the 'exit button' (the small door at the lower right corner) 
 glitches. Maybe it is being rendered multiple times? 
+
+
+1.1
+-All buttons are being rendered on a loop and 'update_scene' from Clickables
+most likelyis being called over and over...

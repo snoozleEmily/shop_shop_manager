@@ -6,9 +6,6 @@ from utils.buttons import START_GAME_BUTTON
 from scenes.states import GameScenes
 from backgrounds import INITIAL_BACKGROUND
 
-# Initialize button
-pygame.font.init()
-
 
 def handle_game_start(mouse_event: pygame.event.Event) -> bool:
     if mouse_event.type == pygame.MOUSEBUTTONDOWN and mouse_event.button == 1:
@@ -18,13 +15,13 @@ def handle_game_start(mouse_event: pygame.event.Event) -> bool:
     return False
 
 
-def render_initial_screen(
+def render_beginning(
     display_surface: pygame.Surface,
     mouse_event: pygame.event.Event,
-    update_scene: Optional[Callable] = None,
+    trigger_update: Optional[Callable] = None,
 ) -> None:
 
-    START_GAME_BUTTON.update_state(mouse_event, update_scene)
+    START_GAME_BUTTON.update_scene(mouse_event, trigger_update)
 
     # Draw everything on the screen
     display_surface.blit(load_image(INITIAL_BACKGROUND), (0, 0))

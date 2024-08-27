@@ -10,17 +10,15 @@ from backgrounds import HOME_BACKGROUND
 def render_home(
     display_surface: pygame.Surface,
     mouse_event: pygame.event.Event,
-    update_scene: Optional[Callable] = None,
+    trigger_update: Optional[Callable] = None,
 ):
 
     display_surface.blit(load_image(HOME_BACKGROUND), (0, 0))
 
     # Goes back to town if exit button is clicked
     EXIT_SCENE.draw_screen(display_surface)
-    if EXIT_SCENE.update_state(mouse_event, update_scene):
+    if EXIT_SCENE.update_scene(mouse_event, trigger_update):
         GameScenes.in_town, GameScenes.in_home = True, False
-
-    pygame.display.flip()
 
 
 # Menu for houses purchase

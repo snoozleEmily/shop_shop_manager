@@ -11,9 +11,9 @@ last_dialogue = []
 
 
 def get_dialogue() -> dict:
-    tickets_amount = (
+    energy_level = (
         6
-        # Futurely, this should depend on the amount of tickets the user has
+        # Futurely, this should depend on the amount of energy levels the user has
         # and add +3 or so to it to avoid repetead dialogues
     )
 
@@ -24,7 +24,7 @@ def get_dialogue() -> dict:
     while True:
         dialogue = random.choice(sale_speech)
         if is_dialogue_new(dialogue):
-            if len(last_dialogue) >= tickets_amount:
+            if len(last_dialogue) >= energy_level:
                 last_dialogue.pop(0)
             last_dialogue.append(dialogue)
             return dialogue

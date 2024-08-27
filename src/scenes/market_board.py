@@ -47,4 +47,3 @@ def render_table(display_surface: pygame.Surface) -> None:
                 viewport_surface.blit(text_surface, (x, y))
 
     display_surface.blit(viewport_surface, (PADDING, PADDING))
-    pygame.display.flip()

@@ -11,7 +11,7 @@ from backgrounds import PAPER_BACKGROUND
 def render_inventory(
     display_surface: pygame.Surface,
     mouse_event: pygame.event.Event,
-    update_scene: Optional[Callable] = None,
+    trigger_update: Optional[Callable] = None,
 ) -> None:
 
     display_surface.blit(load_image(PAPER_BACKGROUND), (0, 0))
@@ -19,7 +19,5 @@ def render_inventory(
 
     # Goes back to town if exit button is clicked
     EXIT_SCENE.draw_screen(display_surface)
-    if EXIT_SCENE.update_state(mouse_event, update_scene):
+    if EXIT_SCENE.update_scene(mouse_event, trigger_update):
         GameScenes.in_town, GameScenes.in_inventory = True, False
-
-    pygame.display.flip()

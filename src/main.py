@@ -5,7 +5,7 @@ install()  # Cython
 
 import music
 from scenes.states import Globals
-from initial_menu import handle_game_start, render_initial_screen
+from initial_menu import handle_game_start, render_beginning
 from gameplay import main_game
 
 pygame.init()
@@ -28,7 +28,7 @@ while running:
     # Updates button state and draw the initial menu
     if not game_started:
         game_started = handle_game_start(event)
-        render_initial_screen(SCREEN, event)
+        render_beginning(SCREEN, event)
     else:
         main_game(SCREEN, event)
 
