@@ -1,6 +1,6 @@
 import pygame
 import time
-from typing import Callable, Tuple
+from typing import Tuple
 
 from .pygame_loads import FONT_BUTTON, load_image, load_sound
 
@@ -60,11 +60,11 @@ class Clickable:
             self.default_image = load_image(IMAGES_PATH + "settings_default.png")
             self.click_sound = load_sound(SOUND_EFFECTS_PATH + "settings_click.mp3")
 
-        self.current_image = self.default_image
-        self.rect = self.current_image.get_rect(topleft=(x, y))
-
         # Allow immediate first click
         self.last_click_time = time.time() - self.click_delay
+
+        self.current_image = self.default_image
+        self.rect = self.current_image.get_rect(topleft=(x, y))
 
     def is_hovered(self) -> bool:
         """
@@ -86,18 +86,15 @@ class Clickable:
             text_rect = self.text_surface.get_rect(center=self.rect.center)
             surface.blit(self.text_surface, text_rect)
 
-    def update_scene(
-        self, event: pygame.event.Event, trigger_update: Callable[[], None]
-    ) -> bool:
+    def update_scene(self, event: pygame.event.Event, trigger_update: None) -> bool:
         """
         Updates the state of the clickable object based on the given event and trigger_update function.
         """
         hovered = self.is_hovered()
 
-        # Only update the image if hover state changes and hover_image exists
-        if hovered != self.has_hover and hasattr(self, "hover_image"):
+        # Only update the image if hover_image exists
+        if self.has_hover and hasattr(self, "hover_image"):
             self.current_image = self.hover_image if hovered else self.default_image
-            self.has_hover = hovered
 
         # Adds a delay to the sound effect
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:

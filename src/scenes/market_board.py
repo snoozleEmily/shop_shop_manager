@@ -1,19 +1,15 @@
 import pygame
 
-from scenes.states import Globals
+from scenes.states import Screen
 from utils.pygame_loads import all_items, FONT_CURSIVE
-
-pygame.init()
-pygame.font.init()
-
 
 CELL_WIDTH = 105
 CELL_HEIGHT = 25
 PADDING = 12
 ROW_MARGIN = 9
 
-table_width = Globals.SCREEN_WIDTH - PADDING
-table_height = (Globals.SCREEN_HEIGHT // 2) - (PADDING * 5)
+table_width = Screen.SCREEN_WIDTH - PADDING
+table_height = (Screen.SCREEN_HEIGHT // 2) - (PADDING * 5)
 
 rows_per_page = (table_height - CELL_HEIGHT - ROW_MARGIN) // (CELL_HEIGHT + ROW_MARGIN)
 cols_per_page = table_width // CELL_WIDTH
