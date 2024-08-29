@@ -1,6 +1,6 @@
 import pygame
 
-from scenes.states import GameScenes, shop, inventory, home, settings
+
 from scenes.shop.shop_scene import render_shop
 from scenes.inventory_scene import render_inventory
 from scenes.home_scene import render_home
@@ -13,6 +13,13 @@ from utils.buttons import (
     IVENTORY_BUTTON,
     HOME_BUTTON,
     SETTINGS_BUTTON,
+)
+from scenes.states import (
+    GameScenes,
+    shop,
+    inventory,
+    home,
+    settings,
 )
 
 

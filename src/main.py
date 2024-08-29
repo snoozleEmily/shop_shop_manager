@@ -5,7 +5,7 @@ install()  # Cython
 
 import music
 from scenes.states import Screen
-from initial_menu import handle_game_start, render_beginning
+from initial_scene import handle_game_start, render_beginning
 from gameplay import main_game
 
 pygame.init()
