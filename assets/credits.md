@@ -32,8 +32,9 @@ It is challenging to credit all authors accurately since some of the content use
 
 ## Town Backgrounds
 
-- Macrovector  
-  [Medieval Architecture Isometric Background](https://www.vectorstock.com/royalty-free-vector/medieval-architecture-isometric-background-vector-38555365)
+- Macrovector
+- Sawetny
+- November1711
 
   ### Other Backgrounds
 

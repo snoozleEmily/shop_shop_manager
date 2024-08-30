@@ -3,9 +3,15 @@ from utils.clickables import Clickable
 # Regular Buttons
 EXIT_SCENE = Clickable(740, 4, text=None, type_tag="exit_scene")
 NEXT_BUTTON = Clickable(327, 309, text=None, type_tag="box")
-SOUND_UP = Clickable(337, 330, text=None, type_tag="box")
-SOUND_DOWN = Clickable(402, 330, text=None, type_tag="box")
-ABOUT_INFO = Clickable(254, 250, "About The Game", type_tag="button")
+
+
+# Settings Buttons
+SOUND_UP = Clickable(337, 80, text=None, type_tag="box")
+SOUND_DOWN = Clickable(402, 80, text=None, type_tag="box")
+NEXT_SONG = Clickable(337, 140, text=None, type_tag="box")
+PREVIOUS_SONG = Clickable(402, 140, text=None, type_tag="box")
+ABOUT_INFO = Clickable(254, 330, "About The Game", type_tag="button")
+
 
 # Scene-changer Buttons
 START_GAME_BUTTON = Clickable(254, 280, "Play Game", type_tag="button")

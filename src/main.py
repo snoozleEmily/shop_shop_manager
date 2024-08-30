@@ -23,6 +23,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False  # Close game
 
+    # Start background music
     music.check_current_music(music.mp3_files)
 
     # Updates button state and draw the initial menu

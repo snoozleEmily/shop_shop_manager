@@ -23,21 +23,15 @@ class GameScenes:
         if buttons_in_scene is None:
             buttons_in_scene = {}
         self.buttons_in_scene = buttons_in_scene
+
         self.default_hover = (
             default_hover if default_hover is not None else self.hover_check
         )
-        self.last_hover_time = None
-        self.hovered_last_frame = False
 
-        # The time of the last hover event
-        # This is used to prevent the hover event from
-        # triggering multiple times in quick succession
+        # Tracks the last hover time to prevent rapid re-triggering
         self.last_hover_time = None
 
-        # A flag to check if the mouse was already
-        # hovering over the button in the previous frame
-        # This is used to prevent the hover event from
-        # triggering multiple times in quick succession
+        # Flags if the mouse was hovering over the button in the last frame
         self.hovered_last_frame = False
 
     def scene_check(self) -> list:
@@ -78,7 +72,7 @@ class GameScenes:
             # If no button is hovered, check if the delay has passed
             if self.hovered_last_frame and self.last_hover_time is not None:
                 elapsed_time = time.time() - self.last_hover_time
-                if elapsed_time >= 0.5:
+                if elapsed_time >= 0.2:
                     # Reset the flag and return False if the delay has passed
                     self.hovered_last_frame = False
                     return False
