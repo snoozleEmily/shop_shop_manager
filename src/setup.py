@@ -25,7 +25,7 @@ setup(
     author="snoozleEmily",
     author_email="snoozlingemily@gmail.com",
     url="https://github.com/snoozleEmily/shop_shop_manager",
-    license="MIT",
+    license="GNU GENERAL PUBLIC LICENSE",
     install_requires=[
         "numpy>=1.18.0",
         "pygame>=2.0.0",

@@ -31,28 +31,24 @@ def main_game(display_surface, mouse_event, trigger_update=None):
         if was_clicked:
             trigger_update = render_shop(display_surface, mouse_event)
         if shop.hover_check():
-            print("Shop Scene Button Hovered")
             render_shop(display_surface, mouse_event)
 
     elif GameScenes.in_inventory:
         if was_clicked:
             trigger_update = render_inventory(display_surface, mouse_event)
         if inventory.hover_check():
-            print("Inventory Scene Button Hovered")
             render_inventory(display_surface, mouse_event)
 
     elif GameScenes.in_home:
         if was_clicked:
             trigger_update = render_home(display_surface, mouse_event)
         if home.hover_check():
-            print("Home Scene Button Hovered")
             render_home(display_surface, mouse_event)
 
     elif GameScenes.in_settings:
         if was_clicked:
             trigger_update = render_settings(display_surface, mouse_event)
         if settings.hover_check():
-            print("Settings Scene Button Hovered")
             render_settings(display_surface, mouse_event)
 
     elif GameScenes.in_town and was_clicked:

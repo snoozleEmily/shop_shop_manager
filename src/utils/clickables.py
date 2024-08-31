@@ -66,16 +66,6 @@ class Clickable:
         self.current_image = self.default_image
         self.rect = self.current_image.get_rect(topleft=(x, y))
 
-    def is_hovered(self) -> bool:
-        """
-        Checks if the mouse is hovering over the clickable object.
-
-        Returns:
-            bool: True if the mouse is hovering over the clickable object, False otherwise.
-        """
-        mouse_position: Tuple[int, int] = pygame.mouse.get_pos()
-        return self.rect.collidepoint(mouse_position)
-
     def draw_screen(self, surface: pygame.Surface) -> None:
         """
         Draws the current image of the clickable object on the screen.
@@ -85,6 +75,16 @@ class Clickable:
         if self.identifier_type == "button":
             text_rect = self.text_surface.get_rect(center=self.rect.center)
             surface.blit(self.text_surface, text_rect)
+
+    def is_hovered(self) -> bool:
+        """
+        Checks if the mouse is hovering over the clickable object.
+
+        Returns:
+            bool: True if the mouse is hovering over the clickable object, False otherwise.
+        """
+        mouse_position: Tuple[int, int] = pygame.mouse.get_pos()
+        return self.rect.collidepoint(mouse_position)
 
     def update_scene(self, event: pygame.event.Event, trigger_update: None) -> bool:
         """
