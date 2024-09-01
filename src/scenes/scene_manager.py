@@ -11,6 +11,7 @@ class GameScenes:
     in_town: bool = False
     in_shop: bool = False
     in_inventory: bool = False
+    in_tavern: bool = False
     in_home: bool = False
     in_settings: bool = False
 

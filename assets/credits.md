@@ -9,8 +9,7 @@ It is challenging to credit all authors accurately since some of the content use
 
 ## UI Controls Design
 
-- Lamoot  
-  [RPG GUI Construction Kit](https://opengameart.org/content/rpg-gui-construction-kit-v10)
+- Lamoot
 
 ## Sound Effects
 
@@ -20,7 +19,7 @@ It is challenging to credit all authors accurately since some of the content use
 
 ## Character Art
 
-- Unknown authors  
+- Unknown author  
   [Free Character Avatar Icons](https://craftpix.net/freebies/free-character-avatar-icons/)
 
 ## Fonts
@@ -30,12 +29,11 @@ It is challenging to credit all authors accurately since some of the content use
 - Denise Bentulan
   [Baby Doll](https://www.dafont.com/babydoll.font)
 
-## Town Backgrounds
+## Backgrounds
 
 - Macrovector
+- RavenseyeTravisLacey
 - Sawetny
+- Vectorpouch
 - November1711
-
-  ### Other Backgrounds
-
-  - Unknown authors
+- Unknown authors

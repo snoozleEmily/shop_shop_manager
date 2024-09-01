@@ -26,6 +26,13 @@ home: GameScenes = GameScenes(
         ]
     }
 )
+tavern: GameScenes = GameScenes(
+    buttons_in_scene={
+        "tavern": [
+            EXIT_SCENE,
+        ]
+    }
+)
 settings: GameScenes = GameScenes(
     buttons_in_scene={
         "settings": [
