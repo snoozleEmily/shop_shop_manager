@@ -3,7 +3,7 @@ from typing import Optional, Callable
 
 from scenes.states import GameScenes, Dialogue
 from utils.pygame_loads import load_image
-from utils.buttons import EXIT_SCENE, NEXT_BUTTON
+from utils.declared_buttons import EXIT_SCENE, NEXT_BUTTON
 from backgrounds import SHOP_BACKGROUND
 from .display_customer import display_customer
 from .display_dialogue import display_dialogue

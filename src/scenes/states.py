@@ -1,7 +1,7 @@
 from typing import Callable
 
 from .scene_manager import GameScenes
-from utils.buttons import EXIT_SCENE, ABOUT_INFO, NEXT_BUTTON
+from utils.declared_buttons import EXIT_SCENE, ABOUT_INFO, NEXT_BUTTON
 
 # Which buttons trigger the rerendering of the scene if hovered
 shop: GameScenes = GameScenes(

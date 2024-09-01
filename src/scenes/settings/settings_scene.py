@@ -2,7 +2,7 @@ from scenes.states import GameScenes
 from .sound_controller import SoundController
 from utils.pygame_loads import load_image
 from backgrounds import PAPER_BACKGROUND
-from utils.buttons import (
+from utils.declared_buttons import (
     MUSIC_TOGGLE,
     SOUND_UP,
     SOUND_DOWN,

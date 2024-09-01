@@ -2,7 +2,7 @@ import pygame
 from typing import Optional, Callable
 
 from utils.pygame_loads import load_image
-from utils.buttons import START_GAME_BUTTON
+from utils.declared_buttons import START_GAME_BUTTON
 from scenes.states import GameScenes
 from backgrounds import INITIAL_BACKGROUND
 

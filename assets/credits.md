@@ -7,9 +7,11 @@ It is challenging to credit all authors accurately since some of the content use
 - Matthew Pablo
 - Other unknown authors
 
-## UI Controls Design
+## Icons Design
 
 - Lamoot
+- Game Icons Website
+  [game-icons.net](https://game-icons.net)
 
 ## Sound Effects
 

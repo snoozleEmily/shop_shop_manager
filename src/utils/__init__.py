@@ -1,4 +1,6 @@
-from .clickables import Clickable
+from .clickables.clickables import Clickable
+from .clickables.buttons import Button
+from .clickables.dice import Dice
 from .text_formatter import wrap_text
 from .pygame_loads import (
     all_items,
@@ -7,7 +9,7 @@ from .pygame_loads import (
     load_image,
     load_sound,
 )
-from .buttons import (
+from .declared_buttons import (
     START_GAME_BUTTON,
     EXIT_SCENE,
     NEXT_BUTTON,
