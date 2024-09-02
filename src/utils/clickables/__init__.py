@@ -1,3 +1,2 @@
-from .clickables import Clickable
+from .clickables import Clickables
 from .buttons import Button
-from .dice import Dice

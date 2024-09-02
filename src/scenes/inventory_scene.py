@@ -6,6 +6,7 @@ from utils.pygame_loads import load_image
 from utils.declared_buttons import EXIT_SCENE
 from scenes.market_board import render_table
 from backgrounds import PAPER_BACKGROUND
+from turns.day_turner import handle_days
 
 
 def render_inventory(
@@ -20,4 +21,5 @@ def render_inventory(
     # Goes back to town if exit button is clicked
     EXIT_SCENE.draw_screen(display_surface)
     if EXIT_SCENE.update_scene(mouse_event, trigger_update):
+        handle_days(True)
         GameScenes.in_town, GameScenes.in_inventory = True, False

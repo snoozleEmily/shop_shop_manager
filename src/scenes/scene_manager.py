@@ -42,6 +42,7 @@ class GameScenes:
         scene_flags = {
             "in_shop": "shop",
             "in_home": "home",
+            "in_tavern": "tavern",
             "in_inventory": "inventory",
             "in_settings": "settings",
         }

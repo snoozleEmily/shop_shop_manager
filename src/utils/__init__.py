@@ -1,6 +1,5 @@
-from .clickables.clickables import Clickable
+from .clickables.clickables import Clickables
 from .clickables.buttons import Button
-from .clickables.dice import Dice
 from .text_formatter import wrap_text
 from .pygame_loads import (
     all_items,

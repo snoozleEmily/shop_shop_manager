@@ -3,8 +3,8 @@ import time
 from typing import Tuple
 
 
-class Clickable:
-    # Parent class of buttons and dice classes
+class Clickables:
+    # Superclass of Buttons
     def __init__(self, x, y, text, type_tag):
         """
         Initializes a clickable object with its position, type, and specific attributes.

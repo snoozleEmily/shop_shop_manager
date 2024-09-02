@@ -23,3 +23,8 @@ IVENTORY_BUTTON = Button(63, 350, text=None, type_tag="default")
 TAVERN_BUTTON = Button(170, 350, text=None, type_tag="default")
 HOME_BUTTON = Button(116, 350, text=None, type_tag="default")
 SETTINGS_BUTTON = Button(10, 6, text=None, type_tag="settings")
+
+
+# Mini-game Buttons
+ROLL_DICE = Button(254, 5, "Roll Dice", type_tag="caption_btn")
+DICE_CUP = Button(254, 30, text=None, type_tag="dice_cup")

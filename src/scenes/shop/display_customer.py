@@ -26,12 +26,20 @@ def display_customer(
         character_images = os.listdir(characters_folder)
         random_character_image = random.choice(character_images)
 
+        # I don't think this works
+        # saw some characters being repeated?
+        # not sure though
+
         character_not_allowed = random_character_image == previous_character
         while character_not_allowed:
             random_character_image = random.choice(character_images)
 
         _selected_character[0] = load_image(
-            os.path.join(characters_folder, random_character_image)
+            os.path.join(
+                characters_folder,
+                random_character_image,
+            )
         )
 
+    # I could maybe add a smooth transition from one character to another?
     return display_surface.blit(_selected_character[0], (-13, 137))

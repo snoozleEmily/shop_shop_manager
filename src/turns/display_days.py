@@ -11,7 +11,7 @@ def display_days(display_surface):
     text_rect = days_text.get_rect()
 
     # Placing the text on screen
-    x, y = 727, 4
+    x, y = 720, 6
 
     # Draw the black border with larger offsets
     display_surface.blit(border_surface, (x - 2, y - 2))  # Top-left
