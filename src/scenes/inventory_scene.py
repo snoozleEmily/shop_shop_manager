@@ -21,5 +21,4 @@ def render_inventory(
     # Goes back to town if exit button is clicked
     EXIT_SCENE.draw_screen(display_surface)
     if EXIT_SCENE.update_scene(mouse_event, trigger_update):
-        handle_days(True)
         GameScenes.in_town, GameScenes.in_inventory = True, False

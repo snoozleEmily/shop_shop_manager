@@ -6,6 +6,9 @@ DICE_IMG_PATH = "D:/Projects/Python-studies/shop_shop_manager/images/ui/dice/"
 
 
 class Dice:
+    die_face = None
+    minigame_active = False
+
     # The cup with the dice is in Button class
     def __init__(self, n=1):
         self.dice_images = {

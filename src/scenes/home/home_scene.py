@@ -4,7 +4,7 @@ from typing import Optional, Callable
 from scenes.states import GameScenes
 from utils.pygame_loads import load_image
 from utils.declared_buttons import EXIT_SCENE
-from backgrounds import HOME_BACKGROUND
+from backgrounds import HOME_DAYLIGHT
 
 
 def render_home(
@@ -13,7 +13,7 @@ def render_home(
     trigger_update: Optional[Callable] = None,
 ):
 
-    display_surface.blit(load_image(HOME_BACKGROUND), (0, 0))
+    display_surface.blit(load_image(HOME_DAYLIGHT), (0, 0))
 
     # Give n quantity of energy based on the housing level
     # Player had to collect each turn (day) to get the energy

@@ -11,4 +11,9 @@ TOWN_BACKGROUND = r"D:\Projects\Python-studies\shop_shop_manager\images\backgrou
 # Scenes Backgrounds
 SHOP_BACKGROUND = r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\shop_background.png"
 TAVEN_BACKGROUND = r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\tavern_background.png"
-HOME_BACKGROUND = r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\home_background.png"
+HOME_DAYLIGHT = (
+    r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\home_daylight.png"
+)
+HOME_NIGHT = (
+    r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\home_night.png"
+)

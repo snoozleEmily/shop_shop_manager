@@ -1,7 +1,7 @@
 from .clickables.buttons import Button
 
 # Regular Buttons
-EXIT_SCENE = Button(740, 4, text=None, type_tag="exit_scene")
+EXIT_SCENE = Button(740, 4, text=None, type_tag="exit")
 NEXT_BUTTON = Button(327, 309, text=None, type_tag="default")
 
 

@@ -13,11 +13,11 @@ class Button(Clickables):
     def __init__(self, x, y, text, type_tag):
         super().__init__(x, y, text, type_tag)
 
-        if type_tag in ["caption_btn", "exit_scene", "dice_cup"]:
+        if type_tag in ["caption_btn", "exit", "dice_cup"]:
             self.has_hover = True
             # In order for the hover effect to work, the new button
             # must be added to the 'buttons_in_scene' dictionary
-            # in the 'scenes.py' file
+            # in the 'states.py' file in scenes package
 
         # Long button with text (e.g. "Play Game")
         if type_tag == "caption_btn":
@@ -28,16 +28,16 @@ class Button(Clickables):
             self.text_surface = self.font.render(text, True, (255, 255, 255))
 
         # Door at the right top corner
-        elif type_tag == "exit_scene":
-            self.default_image = load_image(
-                BUTTONS_PATH + "exit_scene_default_image.png"
-            )
-            self.hover_image = load_image(BUTTONS_PATH + "exit_scene_hover_image.png")
+        elif type_tag == "exit":
+            self.default_image = load_image(BUTTONS_PATH + "exit_default_btn.png")
+            self.hover_image = load_image(BUTTONS_PATH + "exit_hover_btn.png")
             self.click_sound = load_sound(SOUND_EFFECTS_PATH + "exit_scene_click.mp3")
+
+        # TODO: Add white exit button (in tavern it doesn't appear)
 
         # Box that leads to scenes or has some action (in settings)
         elif type_tag == "default":
-            self.default_image = load_image(BUTTONS_PATH + "default.png")
+            self.default_image = load_image(BUTTONS_PATH + "default_btn.png")
             self.click_sound = load_sound(SOUND_EFFECTS_PATH + "default_click.mp3")
 
         # Engine at the left top corner

@@ -1,19 +1,16 @@
 import pygame
 from typing import Optional, Callable
 
-from .dice import Dice
 from scenes.states import GameScenes
+from .dice import Dice
+from .render_minigame import render_minigame
 from utils.container import render_container
 from utils.pygame_loads import load_image
 from backgrounds import TAVEN_BACKGROUND
 from utils.declared_buttons import (
     ROLL_DICE,
-    DICE_CUP,
     EXIT_SCENE,
 )
-
-die: Dice = Dice()
-die_face = None
 
 
 def render_tavern(
@@ -29,18 +26,14 @@ def render_tavern(
 
     ROLL_DICE.draw_screen(display_surface)
     if ROLL_DICE.update_scene(mouse_event, trigger_update):
-        global die_face
-        dice_path = die.roll()
-        die_face = load_image(dice_path)
+        Dice.minigame_active = True
 
-    # Hide DICE_CUP button and only reveal it when ROLL_DICE is clicked
-    DICE_CUP.draw_screen(display_surface)
-    if DICE_CUP.update_scene(mouse_event, trigger_update):
-        pass
+    if Dice.minigame_active:
+        render_minigame(display_surface, mouse_event, trigger_update)
 
-    # Keep drawing the dice face after it has been rolled
-    if die_face:
-        display_surface.blit(die_face, (100, 50))
+    # Keep the dice face on screen after it has been rolled
+    if Dice.die_face:
+        display_surface.blit(Dice.die_face, (100, 50))
 
     # Goes back to town if exit button is clicked
     EXIT_SCENE.draw_screen(display_surface)
