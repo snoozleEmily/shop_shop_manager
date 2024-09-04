@@ -1,4 +1,4 @@
-from utils.clickables.clickables import Clickables
+from .clickables import Clickables
 
 
 class PreviewItems(Clickables):

@@ -1,7 +1,7 @@
-from scenes.states import GameScenes
+from scenes.scene_manager import GameScenes
 from .sound_controller import SoundController
 from utils.pygame_loads import load_image
-from backgrounds import PAPER_BACKGROUND
+from backgrounds import PAPER_IMG
 from utils.declared_buttons import (
     MUSIC_TOGGLE,
     SOUND_UP,
@@ -19,7 +19,7 @@ volume_controller = SoundController()
 
 
 def render_settings(display_surface, mouse_event, trigger_update=None) -> None:
-    display_surface.blit(load_image(PAPER_BACKGROUND), (0, 0))
+    display_surface.blit(load_image(PAPER_IMG), (0, 0))
 
     MUSIC_TOGGLE.draw_screen(display_surface)
     NEXT_SONG.draw_screen(display_surface)

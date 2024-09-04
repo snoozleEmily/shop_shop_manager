@@ -4,14 +4,20 @@ from pyximport import install
 install()  # Cython
 
 import music
-from scenes.states import Screen
+from utils.pygame_loads import Screen
 from initial_scene import handle_game_start, render_beginning
 from gameplay import main_game
 
 pygame.init()
 pygame.mixer.init()
-SCREEN = pygame.display.set_mode((Screen.SCREEN_HEIGHT, Screen.SCREEN_WIDTH))
 clock = pygame.time.Clock()
+SCREEN = pygame.display.set_mode(
+    (
+        Screen.SCREEN_HEIGHT,
+        Screen.SCREEN_WIDTH,
+    )
+)
+
 running = True
 game_started = False
 

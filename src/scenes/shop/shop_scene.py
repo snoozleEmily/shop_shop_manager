@@ -1,10 +1,11 @@
 import pygame
 from typing import Optional, Callable
 
-from scenes.states import GameScenes, Dialogue
+from .dialogue import Dialogue
+from scenes.scene_manager import GameScenes
 from utils.pygame_loads import load_image
 from utils.declared_buttons import EXIT_SCENE, NEXT_BUTTON
-from backgrounds import SHOP_BACKGROUND
+from backgrounds import SHOP_IMG
 from .display_customer import display_customer
 from .display_dialogue import display_dialogue
 
@@ -16,7 +17,7 @@ def render_shop(
     _selected_character=[None],
 ):
 
-    display_surface.blit(load_image(SHOP_BACKGROUND), (0, 0))
+    display_surface.blit(load_image(SHOP_IMG), (0, 0))
     display_dialogue(display_surface)
     display_customer(display_surface, _selected_character, force_update=False)
 

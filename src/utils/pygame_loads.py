@@ -5,6 +5,19 @@ import numpy as np
 pygame.init()
 pygame.mixer.init()
 
+
+class Screen:
+    """
+    Class to store game's global variables.
+    Attributes:
+        SCREEN_WIDTH (int): Width of the game's window.
+        SCREEN_HEIGHT (int): Height of the game's window.
+    """
+
+    SCREEN_WIDTH: int = 400
+    SCREEN_HEIGHT: int = 800
+
+
 # Items Game Data
 with open(
     r"Python-studies\shop_shop_manager\assets\data\items\all_items.csv", "r"

@@ -1,7 +1,11 @@
 import pygame
 
-from scenes.states import Screen
-from utils.pygame_loads import all_items, FONT_CURSIVE
+
+from utils.pygame_loads import (
+    Screen,
+    all_items,
+    FONT_CURSIVE,
+)
 
 CELL_WIDTH = 105
 CELL_HEIGHT = 25

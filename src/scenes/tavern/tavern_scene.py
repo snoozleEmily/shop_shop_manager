@@ -1,12 +1,13 @@
 import pygame
 from typing import Optional, Callable
 
-from scenes.states import GameScenes
+
 from .dice import Dice
+from scenes.scene_manager import GameScenes
 from .render_minigame import render_minigame
 from utils.container import render_container
 from utils.pygame_loads import load_image
-from backgrounds import TAVEN_BACKGROUND
+from backgrounds import TAVERN_IMG
 from utils.declared_buttons import (
     ROLL_DICE,
     EXIT_SCENE,
@@ -18,7 +19,7 @@ def render_tavern(
     mouse_event: pygame.event.Event,
     trigger_update: Optional[Callable] = None,
 ) -> None:
-    display_surface.blit(load_image(TAVEN_BACKGROUND), (0, 0))
+    display_surface.blit(load_image(TAVERN_IMG), (0, 0))
 
     # Display the container when ROLL_DICE is clicked
     container_width, container_height = 688, 360  # Define your container dimensions

@@ -1,10 +1,9 @@
-from typing import Callable
-
-from .scene_manager import GameScenes
+from scenes.scene_manager import GameScenes
 from utils.declared_buttons import (
     EXIT_SCENE,
     ABOUT_INFO,
     NEXT_BUTTON,
+    SLEEP,
     ROLL_DICE,
     DICE_CUP,
 )
@@ -28,6 +27,7 @@ inventory: GameScenes = GameScenes(
 home: GameScenes = GameScenes(
     buttons_in_scene={
         "home": [
+            SLEEP,
             EXIT_SCENE,
         ]
     }
@@ -49,29 +49,3 @@ settings: GameScenes = GameScenes(
         ]
     }
 )
-
-
-class Screen:
-    """
-    Class to store game's global variables.
-    Attributes:
-        SCREEN_WIDTH (int): Width of the game's window.
-        SCREEN_HEIGHT (int): Height of the game's window.
-    """
-
-    SCREEN_WIDTH: int = 400
-    SCREEN_HEIGHT: int = 800
-
-
-class Dialogue:
-    """
-    Class to manage dialogues.
-    Attributes:
-        dialogue_text (Surface): The current dialogue being displayed.
-        dialogue_displayed (bool): If the dialogue is currently being displayed.
-        displayed_count (int): The number of times the dialogue was displayed.
-    """
-
-    dialogue_text: Callable = None
-    dialogue_displayed: bool = False
-    displayed_count: int = 0

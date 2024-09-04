@@ -1,22 +1,29 @@
 # Tasks To Do
 
-The goal is to create an MVP where the game is actually playable. Then, slowly make improvements and implement new functionalities.
+The goal is to follow the KISS (keep it simple stupid) principles and create an MVP where the game is actually playable. Then, slowly make improvements and implement new functionalities.
 
+## For Much Later
+
+- [ ] Finish writing README file - **1**
 - [ ] Load game button on initial screen - **1**
 - [ ] Implement functionality on the 'load game' button - **13**
-- [ ] Finish the settings screen - **3**
-- [ ] Finish the inventory scene - **5**
-- [ ] Finish the home scene - **3**
-- [x] Make the shop scene - **5**
-- [ ] Create art for the box buttons - **2**
 - [ ] Implement turns (days) - **8**
-- [ ] Arrange the gameplay screen displays (in town), like: coins, stats and buttons. - **3**
-- [ ] Finish writing README file - **1**
-- [x] Get file with items data - **1**
+
+## Will Do Eventually
+
+- [ ] Get art for the scenes (box buttons) - **2**
+- [ ] Get UI displays (in town), like: coinsa and stats. - **3**
+
 - [ ] Enable the player's manipulation of the items data - **5**
-- [x] Create a package to declare all the clickabales - **1**
-- [x] Organize folders in src - **1**
-- [ ] Slice all items data into smaller arrays before rendering them on the spreadsheet - **3**
+- [ ] Slice items data into smaller arrays before rendering them on the spreadsheet - **3**
+
+## For Now
+
+- [ ] Finish the settings screen - **3**
+- [ ] Finish the home scene/counting sheep minigame - **5**
+- [ ] Finish the tavern scene/dice minigame - **5**
+- [ ] Finish the inventory scene - **5**
+- [x] Make the shop scene - **5**
 
 ## Core Game Concepts
 

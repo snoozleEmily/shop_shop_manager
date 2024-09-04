@@ -1,7 +1,11 @@
 import pygame
 
-from utils.clickables.clickables import Clickables
-from utils.pygame_loads import FONT_BUTTON, load_image, load_sound
+from .clickables import Clickables
+from .pygame_loads import (
+    FONT_BUTTON,
+    load_image,
+    load_sound,
+)
 
 BUTTONS_PATH = "D:/Projects/Python-studies/shop_shop_manager/images/ui/buttons/"
 DICE_CUP_PATH = "D:/Projects/Python-studies/shop_shop_manager/images/ui/dice/"

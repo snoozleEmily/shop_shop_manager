@@ -1,4 +1,4 @@
-from .clickables.buttons import Button
+from .buttons import Button
 
 # Regular Buttons
 EXIT_SCENE = Button(740, 4, text=None, type_tag="exit")
@@ -28,3 +28,4 @@ SETTINGS_BUTTON = Button(10, 6, text=None, type_tag="settings")
 # Mini-game Buttons
 ROLL_DICE = Button(254, 5, "Roll Dice", type_tag="caption_btn")
 DICE_CUP = Button(254, 30, text=None, type_tag="dice_cup")
+SLEEP = Button(254, 55, text="Sleep", type_tag="caption_btn")

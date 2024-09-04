@@ -1,10 +1,11 @@
 import pygame
 from typing import Optional, Callable
 
-from scenes.states import GameScenes
+from .counting_sheep import CountingSheep
+from scenes.scene_manager import GameScenes
 from utils.pygame_loads import load_image
-from utils.declared_buttons import EXIT_SCENE
-from backgrounds import HOME_DAYLIGHT
+from utils.declared_buttons import SLEEP, EXIT_SCENE
+from backgrounds import HOME_DAYLIGHT_IMG, HOME_NIGHT_IMG
 
 
 def render_home(
@@ -12,11 +13,16 @@ def render_home(
     mouse_event: pygame.event.Event,
     trigger_update: Optional[Callable] = None,
 ):
+    if CountingSheep.grow_dark:
+        # Night background is NOT being rendereds
+        display_surface.blit(load_image(HOME_NIGHT_IMG), (0, 0))
+    else:
+        display_surface.blit(load_image(HOME_DAYLIGHT_IMG), (0, 0))
 
-    display_surface.blit(load_image(HOME_DAYLIGHT), (0, 0))
-
-    # Give n quantity of energy based on the housing level
-    # Player had to collect each turn (day) to get the energy
+    # Change background to night
+    SLEEP.draw_screen(display_surface)
+    if SLEEP.update_scene(mouse_event, trigger_update):
+        CountingSheep.grow_dark == True
 
     # Goes back to town if exit button is clicked
     EXIT_SCENE.draw_screen(display_surface)
@@ -24,4 +30,5 @@ def render_home(
         GameScenes.in_town, GameScenes.in_home = True, False
 
 
-# Menu for houses purchase
+# Give n quantity of energy based on the housing level
+# Player had to collect each turn (day) to get the energy

@@ -1,6 +1,7 @@
 import pygame
 
-from scenes.states import Dialogue
+from .dialogue import Dialogue
+from scenes.scene_manager import GameScenes
 from utils.pygame_loads import FONT_DEFAULT
 from utils.text_formatter import wrap_text
 from utils.container import render_container
