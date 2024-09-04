@@ -2,6 +2,13 @@ from scenes.scene_manager import GameScenes
 from utils.declared_buttons import (
     EXIT_SCENE,
     ABOUT_INFO,
+    MUSIC_TOGGLE,
+    SOUND_UP,
+    SOUND_DOWN,
+    NEXT_SONG,
+    PREVIOUS_SONG,
+    SEE_LEADERBOARD,
+    SUPPORT,
     NEXT_BUTTON,
     SLEEP,
     ROLL_DICE,
@@ -45,6 +52,13 @@ settings: GameScenes = GameScenes(
     buttons_in_scene={
         "settings": [
             EXIT_SCENE,
+            MUSIC_TOGGLE,
+            SOUND_UP,
+            SOUND_DOWN,
+            NEXT_SONG,
+            PREVIOUS_SONG,
+            SEE_LEADERBOARD,
+            SUPPORT,
             ABOUT_INFO,
         ]
     }

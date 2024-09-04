@@ -6,7 +6,7 @@ NEXT_BUTTON = Button(327, 309, text=None, type_tag="default")
 
 
 # Settings Buttons
-MUSIC_TOGGLE = Button(402, 20, text=None, type_tag="default")
+MUSIC_TOGGLE = Button(402, 20, text=None, type_tag="checkbox_on")
 SOUND_UP = Button(337, 80, text=None, type_tag="default")
 SOUND_DOWN = Button(402, 80, text=None, type_tag="default")
 NEXT_SONG = Button(337, 140, text=None, type_tag="default")

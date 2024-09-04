@@ -7,21 +7,31 @@ from .pygame_loads import (
     load_sound,
 )
 
+# All buttons are declared in declared_buttons.py
+
+
 BUTTONS_PATH = "D:/Projects/Python-studies/shop_shop_manager/images/ui/buttons/"
 DICE_CUP_PATH = "D:/Projects/Python-studies/shop_shop_manager/images/ui/dice/"
 SOUND_EFFECTS_PATH = "D:/Projects/Python-studies/shop_shop_manager/music/sound_effects/"
 
 
 class Button(Clickables):
-    # All buttons are declared in declared_buttons.py
+    checkbox_toggled = False
+
     def __init__(self, x, y, text, type_tag):
         super().__init__(x, y, text, type_tag)
 
-        if type_tag in ["caption_btn", "exit", "dice_cup"]:
+        if type_tag in [
+            "caption_btn",
+            "checkbox_off",
+            "checkbox_on",
+            "exit",
+            "dice_cup",
+        ]:
             self.has_hover = True
             # In order for the hover effect to work, the new button
             # must be added to the 'buttons_in_scene' dictionary
-            # in the 'states.py' file in scenes package
+            # in the trigger_hover.py file
 
         # Long button with text (e.g. "Play Game")
         if type_tag == "caption_btn":
@@ -44,11 +54,23 @@ class Button(Clickables):
             self.default_image = load_image(BUTTONS_PATH + "default_btn.png")
             self.click_sound = load_sound(SOUND_EFFECTS_PATH + "default_click.mp3")
 
+        # Checkbox in the settings
+        elif type_tag == "checkbox_off":
+            self.default_image = load_image(BUTTONS_PATH + "unchecked_default_btn.png")
+            self.hover_image = load_image(BUTTONS_PATH + "unchecked_hover_btn.png")
+            self.click_sound = load_sound(SOUND_EFFECTS_PATH + "default_click.mp3")
+
+        elif type_tag == "checkbox_on":
+            self.default_image = load_image(BUTTONS_PATH + "checked_default_btn.png")
+            self.hover_image = load_image(BUTTONS_PATH + "checked_hover_btn.png")
+            self.click_sound = load_sound(SOUND_EFFECTS_PATH + "default_click.mp3")
+
         # Engine at the left top corner
         elif type_tag == "settings":
             self.default_image = load_image(BUTTONS_PATH + "settings_default.png")
             self.click_sound = load_sound(SOUND_EFFECTS_PATH + "settings_click.mp3")
 
+        # To start the dice minigame in tavren
         elif type_tag == "dice_cup":
             self.default_image = load_image(DICE_CUP_PATH + "dice_cup.png")
             self.hover_image = load_image(DICE_CUP_PATH + "rolling_dice_cup.png")
@@ -57,7 +79,25 @@ class Button(Clickables):
         self.current_image = self.default_image
         self.rect = self.current_image.get_rect(topleft=(x, y))
 
+        # If the button is a checkbox, update the checkbox_toggled state
+        if type_tag == "checkbox_off" or type_tag == "checkbox_on":
+            Button.checkbox_toggled = type_tag == "checkbox_on"
+            self.update_checkbox()
+
+    def update_checkbox(self):
+        """Update the checkbox image based on the checkbox_toggled state."""
+        if Button.checkbox_toggled:
+            self.default_image = load_image(BUTTONS_PATH + "checked_default_btn.png")
+            self.hover_image = load_image(BUTTONS_PATH + "checked_hover_btn.png")
+        else:
+            self.default_image = load_image(BUTTONS_PATH + "unchecked_default_btn.png")
+            self.hover_image = load_image(BUTTONS_PATH + "unchecked_hover_btn.png")
+
     def draw_screen(self, surface: pygame.Surface):
+        # Update the checkbox image if the button is a checkbox
+        if self.type_tag in ["checkbox_off", "checkbox_on"]:
+            self.update_checkbox()
+
         # Draws the button image and text on the screen
         super().draw_screen(surface)
         if self.type_tag == "caption_btn":
