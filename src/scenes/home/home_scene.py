@@ -3,6 +3,7 @@ from typing import Optional, Callable
 
 from .counting_sheep import CountingSheep
 from scenes.scene_manager import GameScenes
+from utils.container import render_container
 from utils.pygame_loads import load_image
 from utils.declared_buttons import SLEEP, EXIT_SCENE
 from backgrounds import HOME_DAYLIGHT_IMG, HOME_NIGHT_IMG
@@ -16,18 +17,19 @@ def render_home(
     if CountingSheep.grow_dark:
         # Night background is NOT being rendered
         display_surface.blit(load_image(HOME_NIGHT_IMG), (0, 0))
+        render_container(display_surface, 50, 0, 688, 380, "white-ish")
     else:
         display_surface.blit(load_image(HOME_DAYLIGHT_IMG), (0, 0))
 
-    # Change background image to night
-    SLEEP.draw_screen(display_surface)
-    if SLEEP.update_scene(mouse_event, trigger_update):
-        CountingSheep.grow_dark = True
+        # Change background image to night
+        SLEEP.draw_screen(display_surface)
+        if SLEEP.update_scene(mouse_event, trigger_update):
+            CountingSheep.grow_dark = True
 
-    # Goes back to town if exit button is clicked
-    EXIT_SCENE.draw_screen(display_surface)
-    if EXIT_SCENE.update_scene(mouse_event, trigger_update):
-        GameScenes.in_town, GameScenes.in_home = True, False
+        # Goes back to town if exit button is clicked
+        EXIT_SCENE.draw_screen(display_surface)
+        if EXIT_SCENE.update_scene(mouse_event, trigger_update):
+            GameScenes.in_town, GameScenes.in_home = True, False
 
 
 # The counting sheep minigame  will give the player energy
