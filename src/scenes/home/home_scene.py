@@ -14,7 +14,7 @@ def render_home(
     trigger_update: Optional[Callable] = None,
 ):
     if CountingSheep.grow_dark:
-        # Night background is NOT being rendereds
+        # Night background is NOT being rendered
         display_surface.blit(load_image(HOME_NIGHT_IMG), (0, 0))
     else:
         display_surface.blit(load_image(HOME_DAYLIGHT_IMG), (0, 0))
