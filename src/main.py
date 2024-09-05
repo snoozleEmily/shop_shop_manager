@@ -1,7 +1,4 @@
 import pygame
-from pyximport import install
-
-install()  # Cython
 
 import music
 from utils.pygame_loads import Screen
