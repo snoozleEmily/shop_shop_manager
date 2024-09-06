@@ -2,7 +2,7 @@ import pygame
 
 
 from utils.pygame_loads import Screen
-from music import start_music, check_current_music, mp3_files
+from music import SongsPath, start_music, check_current_music
 from initial_scene import handle_game_start, render_beginning
 from gameplay import main_game
 
@@ -19,7 +19,8 @@ SCREEN = pygame.display.set_mode(
 running = True
 game_started = False
 
-start_music(mp3_files)
+songs_path = SongsPath()
+start_music(songs_path)
 
 while running:
     # Handle events
@@ -28,7 +29,7 @@ while running:
             running = False  # Close game
 
     # Start background music
-    check_current_music(mp3_files)
+    check_current_music(songs_path)
 
     # Updates button state and draw the initial menu
     if not game_started:

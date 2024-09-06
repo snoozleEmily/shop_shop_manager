@@ -6,5 +6,4 @@ from .home.counting_sheep import CountingSheep
 from .market_board import render_table
 from .tavern.tavern_scene import render_tavern
 from .tavern.render_minigame import render_minigame
-from .settings.settings_scene import render_settings
-from .settings.sound_controller import SoundController
+from .settings_scene import render_settings

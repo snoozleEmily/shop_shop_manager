@@ -5,7 +5,7 @@ from scenes.shop.shop_scene import render_shop
 from scenes.inventory_scene import render_inventory
 from scenes.tavern.tavern_scene import render_tavern
 from scenes.home.home_scene import render_home
-from scenes.settings.settings_scene import render_settings
+from scenes.settings_scene import render_settings
 from turns.display_days import display_days
 from backgrounds import TOWN_IMG
 from utils.pygame_loads import load_image

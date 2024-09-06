@@ -1,6 +1,5 @@
-import pygame
 from scenes.scene_manager import GameScenes
-from .sound_controller import SoundController
+from music.sound_controller import SoundController
 from utils.buttons import Button
 from utils.pygame_loads import load_image
 from backgrounds import PAPER_IMG
@@ -35,13 +34,13 @@ def render_settings(display_surface, mouse_event, trigger_update=None) -> None:
 
     if MUSIC_TOGGLE.update_scene(mouse_event, trigger_update):
         Button.checkbox_toggle = not Button.checkbox_toggle
-        print(Button.checkbox_toggle)
+        volume_controller.toggle_mute()
 
     if NEXT_SONG.update_scene(mouse_event, trigger_update):
-        volume_controller.next_song()  # Not implemented
+        volume_controller.next_song()
 
     if PREVIOUS_SONG.update_scene(mouse_event, trigger_update):
-        volume_controller.previous_song()  # Not implemented
+        volume_controller.last_song()  # Not implemented
 
     if SOUND_UP.update_scene(mouse_event, trigger_update):
         volume_controller.increase_volume()
