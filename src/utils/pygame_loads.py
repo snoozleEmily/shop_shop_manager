@@ -17,8 +17,6 @@ class Screen:
     SCREEN_WIDTH: int = 400
     SCREEN_HEIGHT: int = 800
 
-    is_too_dark = False  # Makes UI (buttons) easier to see
-
 
 # Items Game Data
 with open(

@@ -44,7 +44,6 @@ def render_tavern(
         display_surface.blit(Dice.die_face, (100, 50))
 
     # Goes back to town if exit button is clicked
-    Screen.is_too_dark = True
     EXIT_SCENE.draw_screen(display_surface)
     if EXIT_SCENE.update_scene(mouse_event, trigger_update):
         GameScenes.in_town, GameScenes.in_tavern = True, False

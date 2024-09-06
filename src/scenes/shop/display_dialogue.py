@@ -35,6 +35,7 @@ def display_dialogue(display_surface: pygame.Surface) -> pygame.Surface:
         container_y,
         CONTAINER_WIDTH,
         CONTAINER_HEIGHT,
+        "black-ish",
     )
 
     # Render the text within the text area, line by line

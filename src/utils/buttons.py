@@ -2,7 +2,6 @@ import pygame
 
 from .clickables import Clickables
 from .pygame_loads import (
-    Screen,
     FONT_BUTTON,
     load_image,
     load_sound,
@@ -96,18 +95,6 @@ class Button(Clickables):
         # Update the checkbox image if the button is a checkbox
         if self.type_tag in ["checkbox_off", "checkbox_on"]:
             self.update_checkbox()
-
-        # Sets exit button default as black
-        if self.type_tag == "exit":
-            self.default_image = load_image(BUTTONS_PATH + "exit_default_btn.png")
-            self.hover_image = load_image(BUTTONS_PATH + "exit_hover_btn.png")
-
-        # Makes exit button white
-        if Screen.is_too_dark:
-            if self.type_tag == "exit":
-                self.default_image = load_image(BUTTONS_PATH + "exit_white_btn.png")
-                self.hover_image = load_image(BUTTONS_PATH + "exit_hover_white_btn.png")
-                Screen.is_too_dark = False
 
         # Draws the button image and text on the screen
         super().draw_screen(surface)
