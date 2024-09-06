@@ -34,8 +34,8 @@ def render_settings(display_surface, mouse_event, trigger_update=None) -> None:
     EXIT_SCENE.draw_screen(display_surface)
 
     if MUSIC_TOGGLE.update_scene(mouse_event, trigger_update):
-        Button.checkbox_toggled = not Button.checkbox_toggled
-        print(Button.checkbox_toggled)
+        Button.checkbox_toggle = not Button.checkbox_toggle
+        print(Button.checkbox_toggle)
 
     if NEXT_SONG.update_scene(mouse_event, trigger_update):
         volume_controller.next_song()  # Not implemented

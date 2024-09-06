@@ -8,7 +8,6 @@ from scenes.home.home_scene import render_home
 from scenes.settings.settings_scene import render_settings
 from turns.display_days import display_days
 from backgrounds import TOWN_IMG
-from utils.buttons import Button
 from utils.pygame_loads import load_image
 from utils.declared_buttons import (
     SHOP_BUTTON,

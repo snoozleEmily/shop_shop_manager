@@ -22,7 +22,7 @@ class GameScenes:
             default_hover (function): A function that will be called to check if a button is hovered, if not provided it will default to the hover_check method of this class.
         """
         if buttons_in_scene is None:
-            buttons_in_scene = {}  # HEREEEEE
+            buttons_in_scene = {}
         self.buttons_in_scene = buttons_in_scene
 
         self.default_hover = (

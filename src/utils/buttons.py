@@ -2,6 +2,7 @@ import pygame
 
 from .clickables import Clickables
 from .pygame_loads import (
+    Screen,
     FONT_BUTTON,
     load_image,
     load_sound,
@@ -16,7 +17,7 @@ SOUND_EFFECTS_PATH = "D:/Projects/Python-studies/shop_shop_manager/music/sound_e
 
 
 class Button(Clickables):
-    checkbox_toggled = False
+    checkbox_toggle = False
 
     def __init__(self, x, y, text, type_tag):
         super().__init__(x, y, text, type_tag)
@@ -46,8 +47,6 @@ class Button(Clickables):
             self.default_image = load_image(BUTTONS_PATH + "exit_default_btn.png")
             self.hover_image = load_image(BUTTONS_PATH + "exit_hover_btn.png")
             self.click_sound = load_sound(SOUND_EFFECTS_PATH + "exit_scene_click.mp3")
-
-        # TODO: Add white exit button (in tavern it doesn't appear)
 
         # Box that leads to scenes or has some action (in settings)
         elif type_tag == "default":
@@ -81,12 +80,12 @@ class Button(Clickables):
 
         # If the button is a checkbox, update the checkbox_toggled state
         if type_tag == "checkbox_off" or type_tag == "checkbox_on":
-            Button.checkbox_toggled = type_tag == "checkbox_on"
+            Button.checkbox_toggle = type_tag == "checkbox_on"
             self.update_checkbox()
 
     def update_checkbox(self):
         """Update the checkbox image based on the checkbox_toggled state."""
-        if Button.checkbox_toggled:
+        if Button.checkbox_toggle:
             self.default_image = load_image(BUTTONS_PATH + "checked_default_btn.png")
             self.hover_image = load_image(BUTTONS_PATH + "checked_hover_btn.png")
         else:
@@ -97,6 +96,18 @@ class Button(Clickables):
         # Update the checkbox image if the button is a checkbox
         if self.type_tag in ["checkbox_off", "checkbox_on"]:
             self.update_checkbox()
+
+        # Sets exit button default as black
+        if self.type_tag == "exit":
+            self.default_image = load_image(BUTTONS_PATH + "exit_default_btn.png")
+            self.hover_image = load_image(BUTTONS_PATH + "exit_hover_btn.png")
+
+        # Makes exit button white
+        if Screen.is_too_dark:
+            if self.type_tag == "exit":
+                self.default_image = load_image(BUTTONS_PATH + "exit_white_btn.png")
+                self.hover_image = load_image(BUTTONS_PATH + "exit_hover_white_btn.png")
+                Screen.is_too_dark = False
 
         # Draws the button image and text on the screen
         super().draw_screen(surface)
