@@ -1,10 +1,11 @@
 import pygame
 
 
+from gameplay import main_game
 from utils.pygame_loads import Screen
 from music import SongsPath, start_music, check_current_music
 from initial_scene import handle_game_start, render_beginning
-from gameplay import main_game
+
 
 pygame.init()
 pygame.mixer.init()

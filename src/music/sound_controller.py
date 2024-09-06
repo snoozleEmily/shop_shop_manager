@@ -52,5 +52,3 @@ class SoundController(SongsPath):
             # Load and play the previous song
             pygame.mixer.music.load(self.previous_song)
             pygame.mixer.music.play()
-        else:
-            print("No previous song available")

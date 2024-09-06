@@ -13,6 +13,19 @@ def render_minigame(
     DICE_CUP.draw_screen(display_surface)
     if DICE_CUP.update_scene(mouse_event, trigger_update):
         dice_path = die.roll()
-        Dice.die_face = load_image(dice_path)
+        Dice.dice_path = load_image(dice_path)
 
-        return Dice.die_face
+        if die.face == 1:
+            print("You rolled a 1!")
+        elif die.face == 2:
+            print("You rolled a 2!")
+        elif die.face == 3:
+            print("You rolled a 3!")
+        elif die.face == 4:
+            print("You rolled a 4!")
+        elif die.face == 5:
+            print("You rolled a 5!")
+        elif die.face == 6:
+            print("You rolled a 6!")
+
+        return Dice.dice_path

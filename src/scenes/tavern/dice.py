@@ -6,7 +6,8 @@ DICE_IMG_PATH = "D:/Projects/Python-studies/shop_shop_manager/images/ui/dice/"
 
 
 class Dice:
-    die_face = None
+    dice_path = ""
+    face = 1
     minigame_active = False
 
     # The rolling cup (with the dice in it) is in the Button class
@@ -30,6 +31,9 @@ class Dice:
     def roll(self):
         """Rolls the dice, updates the current face image, and returns its path."""
         face_number = random.randint(1, 6)
+        self.face = face_number
+
         self.current_image = self.dice_images[face_number][1]
         new_face_path = self.dice_images[face_number][0]
+
         return new_face_path

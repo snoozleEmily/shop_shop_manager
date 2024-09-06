@@ -40,8 +40,8 @@ def render_tavern(
         render_minigame(display_surface, mouse_event, trigger_update)
 
     # Keep the dice face on screen after it has been rolled
-    if Dice.die_face:
-        display_surface.blit(Dice.die_face, (100, 50))
+    if Dice.dice_path:
+        display_surface.blit(Dice.dice_path, (350, 200))  # Dice positioning
 
     # Goes back to town if exit button is clicked
     EXIT_SCENE.draw_screen(display_surface)

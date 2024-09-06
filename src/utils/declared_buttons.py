@@ -27,5 +27,5 @@ SETTINGS_BUTTON = Button(10, 6, text=None, type_tag="settings")
 
 # Mini-game Buttons
 ROLL_DICE = Button(254, 5, "Roll Dice", type_tag="caption_btn")
-DICE_CUP = Button(254, 30, text=None, type_tag="dice_cup")
+DICE_CUP = Button(215, 140, text=None, type_tag="dice_cup")
 SLEEP = Button(254, 55, text="Sleep", type_tag="caption_btn")
