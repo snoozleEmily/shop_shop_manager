@@ -25,7 +25,8 @@ HOME_BUTTON = Button(116, 350, text=None, type_tag="default")
 SETTINGS_BUTTON = Button(10, 6, text=None, type_tag="settings")
 
 
-# Mini-game Buttons
+# Minigame Buttons
 ROLL_DICE = Button(254, 5, "Roll Dice", type_tag="caption_btn")
-DICE_CUP = Button(215, 140, text=None, type_tag="dice_cup")
+RETURN = Button(254, 5, "Return", type_tag="caption_btn")
+DICE_CUP = Button(180, 75, text=None, type_tag="dice_cup")
 SLEEP = Button(254, 55, text="Sleep", type_tag="caption_btn")

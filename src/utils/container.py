@@ -9,7 +9,10 @@ def render_container(
     height: int,
     color_name: str,
 ) -> pygame.Surface:
-    color_map = {"black-ish": (50, 50, 50, 128), "white-ish": (240, 240, 240, 128)}
+    color_map = {
+        "black-ish": (50, 50, 50, 128),
+        "white-ish": (240, 240, 240, 128),
+    }
 
     # Get the color from the dictionary, default to black-ish if not found
     color = color_map.get(color_name, (50, 50, 50, 128))

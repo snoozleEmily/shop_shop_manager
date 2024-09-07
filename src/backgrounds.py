@@ -6,7 +6,7 @@ PAPER_IMG = r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\pa
 
 # Main Game Backgrounds
 TOWN_IMG = r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\town_background.png"
-# Will add more later
+
 
 # Scenes Backgrounds
 SHOP_IMG = r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\shop_background.png"
@@ -16,4 +16,9 @@ HOME_DAYLIGHT_IMG = (
 )
 HOME_NIGHT_IMG = (
     r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\home_night.png"
+)
+
+# Mini-games
+DICE_TABLE = (
+    r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\table.png"
 )

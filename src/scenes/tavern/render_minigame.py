@@ -1,31 +1,32 @@
 import pygame
 
-from .dice import Dice
+from .dice import Die
 from utils.pygame_loads import load_image
 from utils.declared_buttons import DICE_CUP
+from backgrounds import DICE_TABLE
 
-die: Dice = Dice()
+
+die1: Die = Die()
+die2: Die = Die()
 
 
-def render_minigame(
-    display_surface, mouse_event, trigger_update=None
-) -> pygame.Surface:
-    DICE_CUP.draw_screen(display_surface)
-    if DICE_CUP.update_scene(mouse_event, trigger_update):
-        dice_path = die.roll()
-        Dice.dice_path = load_image(dice_path)
+def roll_dice(display_surface, mouse_event, trigger_update=None) -> pygame.Surface:
+    # Only display the DICE_CUP if the dice have not been rolled yet
+    if not Die.dice_rolled:
+        display_surface.blit(load_image(DICE_TABLE), (97, 50))
+        DICE_CUP.draw_screen(display_surface)
+        if DICE_CUP.update_scene(mouse_event, trigger_update):
+            dice_path1 = die1.get_face()
+            dice_path2 = die2.get_face()
 
-        if die.face == 1:
-            print("You rolled a 1!")
-        elif die.face == 2:
-            print("You rolled a 2!")
-        elif die.face == 3:
-            print("You rolled a 3!")
-        elif die.face == 4:
-            print("You rolled a 4!")
-        elif die.face == 5:
-            print("You rolled a 5!")
-        elif die.face == 6:
-            print("You rolled a 6!")
+            Die.dice_path = [
+                load_image(dice_path1),
+                load_image(dice_path2),
+            ]
 
-        return Dice.dice_path
+            # Show the result for both dice
+            print(f"You rolled a {die1.face} and a {die2.face}!")
+
+            Die.dice_rolled = True
+
+            return Die.dice_path

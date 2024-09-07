@@ -5,10 +5,11 @@ from utils.pygame_loads import load_image
 DICE_IMG_PATH = "D:/Projects/Python-studies/shop_shop_manager/images/ui/dice/"
 
 
-class Dice:
+class Die:
     dice_path = ""
     face = 1
     minigame_active = False
+    dice_rolled = False
 
     # The rolling cup (with the dice in it) is in the Button class
     def __init__(self, n=1):
@@ -28,7 +29,7 @@ class Dice:
         self.default_image = self.dice_images.get(n, self.dice_images[1])[1]
         self.current_image = self.default_image
 
-    def roll(self):
+    def get_face(self):
         """Rolls the dice, updates the current face image, and returns its path."""
         face_number = random.randint(1, 6)
         self.face = face_number
