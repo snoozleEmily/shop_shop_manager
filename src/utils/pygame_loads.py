@@ -13,6 +13,8 @@ class Screen:
     Attributes:
         SCREEN_WIDTH (int): Width of the game's window.
         SCREEN_HEIGHT (int): Height of the game's window.
+        paginated_data (list): List of items to be displayed on the table in inventory.
+        current_page (int): Current page of the table of inventory.
     """
 
     SCREEN_WIDTH: int = 400

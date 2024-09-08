@@ -36,8 +36,6 @@ viewport_surface = pygame.Surface((table_width, table_height))
 def render_table(display_surface: pygame.Surface) -> None:
     viewport_surface.fill((255, 255, 255))
 
-    print(f"Rendering table for page {Screen.current_page}")
-
     # Fetch data for the current page
     pages = Screen.paginated_data[Screen.current_page]
 

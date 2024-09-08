@@ -1,4 +1,21 @@
 Item,Price,Type
+black pepper,5.0,spice
+white pepper,6.0,spice
+peppercorns,4.5,spice
+black cumin,8.0,spice
+capsicum,6.0,spice
+chili powder,3.0,spice
+cinnamon,7.0,spice
+garlic,2.0,spice
+ginger,3.5,spice
+mustard seed,2.5,spice
+sesame seed,4.0,spice
+star anise,10.0,spice
+tamarind,5.5,spice
+turmeric,3.5,spice
+salt,4.0,spice
+annatto,60.0,spice
+saffron,100.0,spice
 wood,3.0,miscellaneous
 iron,5.0,miscellaneous
 copper,7.0,miscellaneous
@@ -13,17 +30,20 @@ ink,3.5,miscellaneous
 stone,4.5,miscellaneous
 clay,3.0,miscellaneous
 ceramics,13.0,miscellaneous
-Sword,120.0,weapon
-Axe,130.0,weapon
-Dagger,150.0,weapon
-Mace,115.0,weapon
-Staff,180.0,weapon
-Bow,190.0,weapon
-Spear,200.0,weapon
-Lance,240.0,weapon
-Hammer,260.0,weapon
-Crossbow,280.0,weapon
-Shield,260.0,weapon
+knife,30.0,weapon
+seax,50.0,weapon
+dagger,60.0,weapon
+gauntlet blade,100.0,weapon
+sword,120.0,weapon
+axe,130.0,weapon
+mace,115.0,weapon
+staff,180.0,weapon
+bow,190.0,weapon
+spear,200.0,weapon
+lance,240.0,weapon
+hammer,260.0,weapon
+crossbow,280.0,weapon
+shield,260.0,weapon
 bread,2.5,grocery
 wine,10.0,grocery
 cheese,5.0,grocery
@@ -36,41 +56,29 @@ milk,3.5,grocery
 ale,3.0,grocery
 oil,4.5,grocery
 butter,4.0,grocery
-nuts,5.0,grocery
+nuts,15.0,grocery
 beans,2.5,grocery
 rice,3.5,grocery
 cattle,10.0,grocery
 mutton,9.0,grocery
 beer,5.0,grocery
 caviar,50.0,grocery
-black pepper,5.0,spice
-peppercorns,4.5,spice
-black cumin,8.0,spice
-capsicum,6.0,spice
-chili pepper powder,3.0,spice
-cinnamon,7.0,spice
-garlic,2.0,spice
-ginger,3.5,spice
-mustard seed,2.5,spice
-saffron,100.0,spice
-sesame seed,4.0,spice
-star anise,10.0,spice
-tamarind,5.5,spice
-turmeric,3.5,spice
-white pepper,6.0,spice
-salt,4.0,spice
+garnet,90.0,gem
+tourmaline,100.0,gem
+aventurine,130.0,gem
+amethyst,520.0,gem
+topaz,520.0,gem
+garnet,500.0,gem
+aquamarine,700.0,gem
+citrine,520.0,gem
+turquoise,530.0,gem
+onyx,540.0,gem
+moonstone,580.0,gem
+jade,710.0,gem
+opal,750.0,gem
+pearl,750.0,gem
 ruby,750.0,gem
 sapphire,700.0,gem
 emerald,750.0,gem
 diamond,900.0,gem
-amethyst,520.0,gem
-topaz,520.0,gem
-garnet,500.0,gem
-opal,750.0,gem
-jade,710.0,gem
-aquamarine,700.0,gem
-citrine,520.0,gem
-pearl,750.0,gem
-turquoise,530.0,gem
-onyx,540.0,gem
-moonstone,580.0,gem
+painite,1500.0,gem

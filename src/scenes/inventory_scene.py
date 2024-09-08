@@ -18,8 +18,11 @@ def render_inventory(
 
     NEXT_BUTTON.draw_screen(display_surface)
     if NEXT_BUTTON.update_scene(mouse_event, trigger_update):
+        print(total_pages, Screen.current_page)
         if Screen.current_page < total_pages - 1:
             Screen.current_page += 1
+        else:
+            Screen.current_page = 0
 
     # Goes back to town if exit button is clicked
     EXIT_SCENE.draw_screen(display_surface)
