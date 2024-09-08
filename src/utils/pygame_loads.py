@@ -8,7 +8,8 @@ pygame.mixer.init()
 
 class Screen:
     """
-    Class to store game's global variables.
+    Class to store on screen-related global variables.
+
     Attributes:
         SCREEN_WIDTH (int): Width of the game's window.
         SCREEN_HEIGHT (int): Height of the game's window.
@@ -16,6 +17,10 @@ class Screen:
 
     SCREEN_WIDTH: int = 400
     SCREEN_HEIGHT: int = 800
+
+    # Table Of The Inventory Scene
+    paginated_data = []
+    current_page = 0
 
 
 # Items Game Data

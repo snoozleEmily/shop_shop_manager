@@ -52,6 +52,11 @@ def render_tavern(
                 if last_game_result:
                     Die.dice_path = last_game_result
 
+        # Goes back to town if exit button is clicked
+        EXIT_SCENE.draw_screen(display_surface)  # Not visible in minigame
+        if EXIT_SCENE.update_scene(mouse_event, trigger_update):
+            GameScenes.in_town, GameScenes.in_tavern = True, False
+
     # Displays the dice minigame
     if Die.minigame_active:
         display_surface.fill((0, 0, 0))  # Make the background black
@@ -71,8 +76,3 @@ def render_tavern(
                 last_game_result = Die.dice_path  # Save the result of the dice roll
                 Die.dice_path = None  # Clear path to remove the minigame screen display
                 return_click_time = pygame.time.get_ticks()  # Record end minigame time
-
-    # Goes back to town if exit button is clicked
-    EXIT_SCENE.draw_screen(display_surface)
-    if EXIT_SCENE.update_scene(mouse_event, trigger_update):
-        GameScenes.in_town, GameScenes.in_tavern = True, False

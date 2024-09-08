@@ -2,11 +2,10 @@ import pygame
 from typing import Optional, Callable
 
 from .scene_manager import GameScenes
-from utils.pygame_loads import load_image
-from utils.declared_buttons import EXIT_SCENE
-from scenes.market_board import render_table
+from utils.pygame_loads import Screen, load_image
+from scenes.market_board import render_table, total_pages
+from utils.declared_buttons import EXIT_SCENE, NEXT_BUTTON
 from backgrounds import PAPER_IMG
-from turns.day_turner import handle_days
 
 
 def render_inventory(
@@ -14,9 +13,13 @@ def render_inventory(
     mouse_event: pygame.event.Event,
     trigger_update: Optional[Callable] = None,
 ) -> None:
-
     display_surface.blit(load_image(PAPER_IMG), (0, 0))
     render_table(display_surface)
+
+    NEXT_BUTTON.draw_screen(display_surface)
+    if NEXT_BUTTON.update_scene(mouse_event, trigger_update):
+        if Screen.current_page < total_pages - 1:
+            Screen.current_page += 1
 
     # Goes back to town if exit button is clicked
     EXIT_SCENE.draw_screen(display_surface)

@@ -27,6 +27,7 @@ shop: GameScenes = GameScenes(
 inventory: GameScenes = GameScenes(
     buttons_in_scene={
         "inventory": [
+            NEXT_BUTTON,
             EXIT_SCENE,
         ]
     }

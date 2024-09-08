@@ -1,6 +1,5 @@
 import pygame
 
-
 from utils.pygame_loads import (
     Screen,
     all_items,
@@ -15,31 +14,45 @@ ROW_MARGIN = 9
 table_width = Screen.SCREEN_WIDTH - PADDING
 table_height = (Screen.SCREEN_HEIGHT // 2) - (PADDING * 5)
 
+# Calculate rows and columns per page
 rows_per_page = (table_height - CELL_HEIGHT - ROW_MARGIN) // (CELL_HEIGHT + ROW_MARGIN)
 cols_per_page = table_width // CELL_WIDTH
 
-# Pagination
-current_page = 0
+# Pagination variables
 total_pages = len(all_items) // rows_per_page + (
     1 if len(all_items) % rows_per_page > 0 else 0
 )
+
+# Precompute pages
+for page in range(total_pages):
+    start_row = page * rows_per_page
+    end_row = min(start_row + rows_per_page, len(all_items))
+    items_per_page = all_items[start_row:end_row]
+    Screen.paginated_data.append(items_per_page)
 
 viewport_surface = pygame.Surface((table_width, table_height))
 
 
 def render_table(display_surface: pygame.Surface) -> None:
-    start_row = current_page * rows_per_page
-    end_row = min(start_row + rows_per_page, len(all_items))
-
     viewport_surface.fill((255, 255, 255))
 
-    for i, row in enumerate(all_items[start_row:end_row]):
+    print(f"Rendering table for page {Screen.current_page}")
+
+    # Fetch data for the current page
+    pages = Screen.paginated_data[Screen.current_page]
+
+    # Iterate over the paginated items and draw the table
+    for i, row in enumerate(pages):
         for j, cell in enumerate(row):
-            if i == 0:  # Column Titles
+
+            # Draw the column titles
+            if i == 0:
                 text_surface = FONT_CURSIVE.render(cell, True, (0, 0, 0))
                 x = j * CELL_WIDTH + PADDING
                 y = PADDING / 3
                 viewport_surface.blit(text_surface, (x, y))
+
+            # Draw the table cells
             else:
                 text_surface = FONT_CURSIVE.render(cell, True, (0, 0, 0))
                 x = j * CELL_WIDTH + PADDING
