@@ -6,7 +6,7 @@ from scenes.inventory_scene import render_inventory
 from scenes.tavern.tavern_scene import render_tavern
 from scenes.home.home_scene import render_home
 from scenes.settings_scene import render_settings
-from turns.display_days import display_days
+from turns.display_days import display_days, turns
 from backgrounds import TOWN_IMG
 from utils.pygame_loads import load_image
 from utils.declared_buttons import (
@@ -63,7 +63,7 @@ def main_game(display_surface, mouse_event, trigger_update=None):
     elif GameScenes.in_town and was_clicked:
         # print("In Town Scene")  # Debug
         display_surface.blit(load_image(TOWN_IMG), (0, 0))
-        display_days(display_surface)
+        display_days(display_surface, turns.current_day)
 
         SHOP_BUTTON.draw_screen(display_surface)
         IVENTORY_BUTTON.draw_screen(display_surface)

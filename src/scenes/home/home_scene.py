@@ -14,8 +14,8 @@ def render_home(
     mouse_event: pygame.event.Event,
     trigger_update: Optional[Callable] = None,
 ):
+
     if CountingSheep.grow_dark:
-        # Night background is NOT being rendered
         display_surface.blit(load_image(HOME_NIGHT_IMG), (0, 0))
         render_container(display_surface, 50, 0, 688, 380, "white-ish")
     else:
@@ -24,7 +24,11 @@ def render_home(
         # Change background image to night
         SLEEP.draw_screen(display_surface)
         if SLEEP.update_scene(mouse_event, trigger_update):
-            CountingSheep.grow_dark = True
+            # Need to implement the counting sheep minigame
+            # to after, end the day
+
+            CountingSheep.grow_dark = True  # minigame begins
+            # After end of minigame, end the day
 
         # Goes back to town if exit button is clicked
         EXIT_SCENE.draw_screen(display_surface)
