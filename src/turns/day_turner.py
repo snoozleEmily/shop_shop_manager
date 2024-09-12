@@ -10,26 +10,28 @@ from scenes.tavern.tavern_scene import (
 
 
 class Days:
-    turn_day: bool = False
+    turn_day: bool = False  # This is ALWAYS FALSE IN main_game???
     max_days: int = 30
     current_day: int = 1
 
-    def handle_days(self, display_surface, turn_day):
+    def handle_days(self, display_surface):
         global last_game_result, minigame_start_time, return_click_time
+        self.turn_day = True
 
-        if turn_day:
-            self.current_day += 1
+        # Increment the day counter
+        self.current_day += 1
+        print(f"Day {self.turn_day} started and it's now {self.current_day} day.")
 
-            last_game_result = None  # Rest dice minigame
-            minigame_start_time, return_click_time = 0, 0
+        # Update the display with the new day
+        self.display_days(display_surface, self.current_day)
 
-            self.display_days(display_surface, self.current_day)
+        last_game_result = None  # Reset minigame-related variables
+        minigame_start_time, return_click_time = 0, 0
 
         if self.current_day == self.max_days:
             print("Max days reached - game won or lost.")
 
-    def display_days(self, display_surface, day=1):
-        # handle_days(display_surface, day)
+    def display_days(self, display_surface, day):
         day = self.current_day
         day_string = f"Day: {day}"
         days_text = FONT_BUTTON.render(day_string, True, (255, 255, 255))
@@ -46,4 +48,3 @@ class Days:
 
         # Draw the white text on top
         display_surface.blit(days_text, text_rect.topleft)
-        pygame.display.flip()

@@ -62,9 +62,9 @@ def main_game(display_surface, mouse_event, trigger_update=None):
         if settings.hover_check():
             render_settings(display_surface, mouse_event)
 
-    elif GameScenes.in_town and was_clicked:
-        # print("In Town Scene")  # Debug
+    elif (GameScenes.in_town and was_clicked) or days_instance.turn_day:
         display_surface.blit(load_image(TOWN_IMG), (0, 0))
+        print(days_instance.turn_day)
         days_instance.display_days(display_surface, days_instance.current_day)
 
         # THE DAYS AREN'T BEING UPDATED ON SCREEN!!!!
