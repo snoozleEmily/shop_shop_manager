@@ -23,6 +23,8 @@ class Days:
             last_game_result = None  # Rest dice minigame
             minigame_start_time, return_click_time = 0, 0
 
+            self.display_days(display_surface, self.current_day)
+
         if self.current_day == self.max_days:
             print("Max days reached - game won or lost.")
 
