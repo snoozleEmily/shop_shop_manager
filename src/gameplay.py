@@ -4,9 +4,8 @@ import pygame
 from scenes.shop.shop_scene import render_shop
 from scenes.inventory_scene import render_inventory
 from scenes.tavern.tavern_scene import render_tavern
-from scenes.home.home_scene import render_home, CountingSheep
+from scenes.home.home_scene import turn, render_home
 from scenes.settings_scene import render_settings
-from turns.day_turner import Days
 from backgrounds import TOWN_IMG
 from utils.pygame_loads import load_image
 from utils.declared_buttons import (
@@ -24,8 +23,6 @@ from utils.trigger_hover import (
     home,
     settings,
 )
-
-days_instance = Days()
 
 
 def main_game(display_surface, mouse_event, trigger_update=None):
@@ -62,12 +59,11 @@ def main_game(display_surface, mouse_event, trigger_update=None):
         if settings.hover_check():
             render_settings(display_surface, mouse_event)
 
-    elif (GameScenes.in_town and was_clicked) or days_instance.turn_day:
+    elif (GameScenes.in_town and was_clicked) or turn.turn_day:
         display_surface.blit(load_image(TOWN_IMG), (0, 0))
-        print(days_instance.turn_day)
-        days_instance.display_days(display_surface, days_instance.current_day)
 
-        # THE DAYS AREN'T BEING UPDATED ON SCREEN!!!!
+        # Display the day counter
+        turn.display_days(display_surface, turn.current_day)
 
         SHOP_BUTTON.draw_screen(display_surface)
         IVENTORY_BUTTON.draw_screen(display_surface)

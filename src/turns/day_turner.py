@@ -1,6 +1,3 @@
-import pygame
-
-
 from utils.pygame_loads import FONT_BUTTON
 from scenes.tavern.tavern_scene import (
     last_game_result,
@@ -25,8 +22,8 @@ class Days:
         # Update the display with the new day
         self.display_days(display_surface, self.current_day)
 
-        last_game_result = None  # Reset minigame-related variables
-        minigame_start_time, return_click_time = 0, 0
+        # last_game_result = None  # Reset minigame-related variables
+        # minigame_start_time, return_click_time = 0, 0
 
         if self.current_day == self.max_days:
             print("Max days reached - game won or lost.")
