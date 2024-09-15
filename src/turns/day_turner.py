@@ -7,7 +7,7 @@ from scenes.tavern.tavern_scene import (
 
 
 class Days:
-    turn_day: bool = False  # This is ALWAYS FALSE IN main_game???
+    turn_day: bool = False
     max_days: int = 30
     current_day: int = 1
 
