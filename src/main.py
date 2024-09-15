@@ -42,7 +42,7 @@ while running:
     # Updates the display
     pygame.display.flip()
 
-    # Limits FPS to 60
-    clock.tick(60)
+    # Limits FPS to 30
+    clock.tick(30)
 
 pygame.quit()

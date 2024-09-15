@@ -6,8 +6,8 @@ from utils.declared_buttons import DICE_CUP
 from backgrounds import DICE_TABLE
 
 
-die1: Die = Die()
-die2: Die = Die()
+first_die: Die = Die()
+second_die: Die = Die()
 
 
 def roll_dice(display_surface, mouse_event, trigger_update=None) -> pygame.Surface:
@@ -16,16 +16,16 @@ def roll_dice(display_surface, mouse_event, trigger_update=None) -> pygame.Surfa
         display_surface.blit(load_image(DICE_TABLE), (97, 50))
         DICE_CUP.draw_screen(display_surface)
         if DICE_CUP.update_scene(mouse_event, trigger_update):
-            dice_path1 = die1.get_face()
-            dice_path2 = die2.get_face()
+            first_path = first_die.get_face()
+            second_path = second_die.get_face()
 
             Die.dice_path = [
-                load_image(dice_path1),
-                load_image(dice_path2),
+                load_image(first_path),
+                load_image(second_path),
             ]
 
             # Show the result for both dice
-            print(f"You rolled a {die1.face} and a {die2.face}!")
+            print(f"You rolled a {first_die.face} and a {second_die.face}!")
 
             Die.dice_rolled = True
 
