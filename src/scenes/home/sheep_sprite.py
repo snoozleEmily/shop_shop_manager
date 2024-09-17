@@ -26,8 +26,8 @@ sheep_sprites = get_sheep_frames(
     200,
 )
 
-# Specify the index of the frame to be excluded from the loop
-exclude_frame = 2  # Change this to the correct index
+# Index of the frame to be excluded from the loop
+exclude_frame = 3
 jumping_sheep = sheep_sprites[exclude_frame]
 
 # Remove the excluded frame from the animation list
