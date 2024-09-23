@@ -5,6 +5,7 @@ It is challenging to credit all authors accurately since some of the content use
 ## Music
 
 - Matthew Pablo
+- Alexander Nakarada
 - Other unknown authors
 
 ## Icons Design

@@ -35,3 +35,6 @@ def check_current_music(path):
         path.mp3_files.append(next_song)
         pygame.mixer.music.load(path.mp3_files[0])
         pygame.mixer.music.play()
+
+
+# I want to play the first song only once
