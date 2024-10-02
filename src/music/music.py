@@ -15,6 +15,7 @@ class SongsPath:
             if file.endswith(".mp3")
         ]
         self.previous_song = None
+        self.is_first_song = False  # First song only plays once
 
 
 def start_music(path):
@@ -30,9 +31,13 @@ def check_current_music(path):
         if path.previous_song is not None:
             path.previous_song = path.mp3_files[0]
 
-        # Move the current song to the end of the playlist
         next_song = path.mp3_files.pop(0)
-        path.mp3_files.append(next_song)
+        if not path.is_first_song:
+            path.is_first_song = True  # Mark the first song as played
+        else:
+            # Move the current song to the end of the playlist
+            path.mp3_files.append(next_song)
+
         pygame.mixer.music.load(path.mp3_files[0])
         pygame.mixer.music.play()
 
