@@ -14,7 +14,7 @@ setup(
     name="Shop Shop Manager",
     version="0.1.0",
     description="Turn-based management game.",
-    long_description=open("README.md").read(),
+    # long_description=open("README.md").read(), # BUG: Does not work
     author="snoozleEmily",
     author_email="snoozlingemily@gmail.com",
     url="https://github.com/snoozleEmily/shop_shop_manager",
