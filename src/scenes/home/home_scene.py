@@ -3,7 +3,7 @@ from typing import Optional, Callable
 
 from turns.day_turner import Days
 from .counting_sheep import CountingSheep
-from .sheep_sprite import sheep_sprites
+from .sheep_sprite import sheep_sprites, jumping_sheep
 from scenes.scene_manager import GameScenes
 from utils.pygame_loads import load_image
 from utils.declared_buttons import SLEEP, EXIT_SCENE
@@ -52,3 +52,8 @@ def render_home(
 
 
 # The counting sheep minigame  will give the player energy
+
+
+# The minigame should start after the sleep button was clicked
+# And only after it is finished the day will end
+# The minigame should return the amount of energy acquired during it

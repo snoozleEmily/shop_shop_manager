@@ -2,8 +2,13 @@ import pygame
 
 from utils.pygame_loads import load_image
 
+# Load jumping sheep
+jumping_sheep = load_image(
+    r"D:\Projects\Python-studies\shop_shop_manager\images\characters\sheep\sheep_jump.png"
+)
 
-# Helper function to load sprite frames
+
+# Load sprite frames
 def get_sheep_frames(spritesheet_path: str, frame_width: int, frame_height: int):
     sprite_sheet = load_image(spritesheet_path)
     sheet_width, sheet_height = sprite_sheet.get_size()
@@ -21,14 +26,11 @@ def get_sheep_frames(spritesheet_path: str, frame_width: int, frame_height: int)
 
 
 sheep_sprites = get_sheep_frames(
-    "D:\Projects\Python-studies\shop_shop_manager\images\characters\sheep\sheep_spritesheet.png",
+    r"D:\Projects\Python-studies\shop_shop_manager\images\characters\sheep\sheep_spritesheet.png",
     200,
     200,
 )
 
-# Index of the frame to be excluded from the loop
-exclude_frame = 3
-jumping_sheep = sheep_sprites[exclude_frame]
 
 # Remove the excluded frame from the animation list
-sheep_sprites = [frame for i, frame in enumerate(sheep_sprites) if i != exclude_frame]
+sheep_sprites = [frame for i, frame in enumerate(sheep_sprites)]
