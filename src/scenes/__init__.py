@@ -1,6 +1,7 @@
 from .scene_manager import GameScenes
 from .shop.shop_scene import render_shop
 from .shop.display_customer import display_customer
+from .shop.get_item import get_item
 from .home.home_scene import render_home
 from .home.sheep_sprite import sheep_sprites
 from .home.counting_sheep import CountingSheep

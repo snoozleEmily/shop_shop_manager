@@ -1,7 +1,6 @@
 import pygame
 
 from .dialogue import Dialogue
-from scenes.scene_manager import GameScenes
 from utils.pygame_loads import FONT_DEFAULT
 from utils.text_formatter import wrap_text
 from utils.container import render_container
@@ -21,7 +20,7 @@ def display_dialogue(display_surface: pygame.Surface) -> pygame.Surface:
 
     # Get the text from the sales dialogue
     if not Dialogue.dialogue_displayed:
-        dialogue = get_dialogue().get("speech", "")
+        dialogue, _ = get_dialogue()
         Dialogue.dialogue_text = wrap_text(dialogue, FONT_DEFAULT, text_width)
         Dialogue.displayed_count += 1
         Dialogue.dialogue_displayed = True

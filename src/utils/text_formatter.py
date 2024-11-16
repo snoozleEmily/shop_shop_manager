@@ -1,5 +1,11 @@
 def wrap_text(text, font, max_width):
-    """Wrap text to fit within a given width."""
+    """
+    Wrap text to fit within a given width.
+    """
+    # Check if text is a dictionary, and extract the string if so
+    if isinstance(text, dict):
+        text = text.get("speech", "")
+        
     words = text.split(" ")
     lines = []
     current_line = []
