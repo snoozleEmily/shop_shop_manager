@@ -5,6 +5,7 @@ from scenes.tavern.tavern_scene import (
     return_click_time,
 )
 
+# THE DICE MINIGAME INS'T RESETING?
 
 class Days:
     turn_day: bool = False

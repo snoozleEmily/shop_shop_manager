@@ -9,6 +9,8 @@ from backgrounds import DICE_TABLE
 first_die: Die = Die()
 second_die: Die = Die()
 
+# The dice minigame MUST be set to default (erase result)
+# when the day turns
 
 def roll_dice(display_surface, mouse_event, trigger_update=None) -> pygame.Surface:
     # Only display the DICE_CUP if the dice have not been rolled yet
