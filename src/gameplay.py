@@ -5,6 +5,7 @@ from scenes.shop.shop_scene import render_shop
 from scenes.inventory_scene import render_inventory
 from scenes.tavern.tavern_scene import render_tavern
 from scenes.home.home_scene import turn, render_home
+from scenes.home.counting_sheep import render_sheep
 from scenes.settings_scene import render_settings
 from backgrounds import TOWN_IMG
 from utils.pygame_loads import load_image
@@ -18,9 +19,9 @@ from utils.declared_buttons import (
 from utils.trigger_hover import (
     GameScenes,
     shop,
-    inventory,
-    tavern,
     home,
+    tavern,
+    inventory,
     settings,
 )
 
@@ -40,6 +41,10 @@ def main_game(display_surface, mouse_event, trigger_update=None):
             trigger_update = render_inventory(display_surface, mouse_event)
         if inventory.hover_check():
             render_inventory(display_surface, mouse_event)
+    
+    elif GameScenes.in_sheep_mg:
+        # Render counting sheep game
+        trigger_update = render_sheep(display_surface, mouse_event, trigger_update)
 
     elif GameScenes.in_home:
         if was_clicked:
@@ -58,6 +63,8 @@ def main_game(display_surface, mouse_event, trigger_update=None):
             trigger_update = render_settings(display_surface, mouse_event)
         if settings.hover_check():
             render_settings(display_surface, mouse_event)
+    
+    # ADD NEW SCENE HERE
 
     elif (GameScenes.in_town and was_clicked) or turn.turn_day:
         display_surface.blit(load_image(TOWN_IMG), (0, 0))
@@ -91,3 +98,5 @@ def main_game(display_surface, mouse_event, trigger_update=None):
         # Switch to settings scene
         elif SETTINGS_BUTTON.update_scene(mouse_event, trigger_update):
             GameScenes.in_settings, GameScenes.in_town = True, False
+
+        # ADD NEW SCENE HERE

@@ -22,3 +22,6 @@ HOME_NIGHT_IMG = (
 DICE_TABLE = (
     r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\table.png"
 )
+SHEEP_FIELD = (
+    r"D:\Projects\Python-studies\shop_shop_manager\images\backgrounds\couting_sheep.png"
+)

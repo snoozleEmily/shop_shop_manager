@@ -11,6 +11,7 @@ from utils.declared_buttons import (
     SUPPORT,
     NEXT_BUTTON,
     SLEEP,
+    WAKE_UP,
     ROLL_DICE,
     DICE_CUP,
 )
@@ -24,18 +25,11 @@ shop: GameScenes = GameScenes(
         ]
     }
 )
-inventory: GameScenes = GameScenes(
-    buttons_in_scene={
-        "inventory": [
-            NEXT_BUTTON,
-            EXIT_SCENE,
-        ]
-    }
-)
 home: GameScenes = GameScenes(
     buttons_in_scene={
         "home": [
             SLEEP,
+            WAKE_UP,
             EXIT_SCENE,
         ]
     }
@@ -46,6 +40,15 @@ tavern: GameScenes = GameScenes(
             EXIT_SCENE,
             ROLL_DICE,
             DICE_CUP,
+        ]
+    }
+)
+
+inventory: GameScenes = GameScenes(
+    buttons_in_scene={
+        "inventory": [
+            NEXT_BUTTON,
+            EXIT_SCENE,
         ]
     }
 )
@@ -64,3 +67,4 @@ settings: GameScenes = GameScenes(
         ]
     }
 )
+# ADD NEW SCENE HERE

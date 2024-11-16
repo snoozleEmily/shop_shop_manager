@@ -10,10 +10,12 @@ class GameScenes:
     in_beginning: bool = True  # Refers to the initial_scene
     in_town: bool = False
     in_shop: bool = False
-    in_inventory: bool = False
-    in_tavern: bool = False
     in_home: bool = False
+    in_sheep_mg: bool = False
+    in_tavern: bool = False
+    in_inventory: bool = False    
     in_settings: bool = False
+    # ADD NEW SCENE HERE
 
     def __init__(self, buttons_in_scene: dict = None, default_hover: callable = None) -> None:
         """
@@ -46,9 +48,11 @@ class GameScenes:
         scene_flags = {
             "in_shop": "shop",
             "in_home": "home",
+            "in_sheep_mg": "sheep",
             "in_tavern": "tavern",
             "in_inventory": "inventory",
             "in_settings": "settings",
+            # ADD NEW SCENE HERE
         }
 
         for flag, scene_name in scene_flags.items():
