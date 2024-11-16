@@ -15,11 +15,15 @@ class GameScenes:
     in_home: bool = False
     in_settings: bool = False
 
-    def __init__(self, buttons_in_scene=None, default_hover=None) -> None:
+    def __init__(self, buttons_in_scene: dict = None, default_hover: callable = None) -> None:
         """
         Args:
-            buttons_in_scene (dict): A dictionary where the keys are the names of the scenes and the values are lists of button objects.
-            default_hover (function): A function that will be called to check if a button is hovered, if not provided it will default to the hover_check method of this class.
+            # buttons_in_scene (dict):
+            A dictionary where the keys are the names of the scenes and the values are lists of button objects.
+
+            # default_hover (function):
+            A function that will be called to check if a button is hovered,
+            if not provided it will default to the hover_check method of this class.
         """
         if buttons_in_scene is None:
             buttons_in_scene = {}
@@ -56,12 +60,13 @@ class GameScenes:
     def hover_check(self) -> bool:
         """
         Checks if any button in the current active scene is hovered.
-        The function also implements a delay period of 0.5 seconds between
+        The function also implements a delay period of 0.2 seconds between
         hover events.
 
         Returns:
             bool: True if any button that HAS the hover effect is hovered, False otherwise.
         """
+        delay = 0.2
         buttons = self.scene_check()
         any_hovered = any(button.is_hovered() for button in buttons)
 
@@ -71,14 +76,17 @@ class GameScenes:
             self.hovered_last_frame = True
             return True
         else:
-            # If no button is hovered, check if the delay has passed
-            if self.hovered_last_frame and self.last_hover_time is not None:
-                elapsed_time = time.time() - self.last_hover_time
-                if elapsed_time >= 0.2:
-                    # Reset the flag and return False if the delay has passed
-                    self.hovered_last_frame = False
-                    return False
-                # Return True if still within the delay period
-                return True
-            # Return False if no button is hovered and delay has passed
-            return False
+            # If no hover event has occurred yet, return False immediately
+            if self.last_hover_time is None:
+                return False
+
+            # Calculate the elapsed time since the last recorded hover event
+            elapsed_time = time.time() - self.last_hover_time
+
+            # This method returns True in two cases:
+            # 1. If a button is actively hovered (hover flag is active).
+            # 2. If a button was recently hovered and the elapsed time is still within the delay period.
+            # If the delay period has passed, the hover flag is reset and the method returns False.
+            return self.hovered_last_frame and elapsed_time < delay
+
+

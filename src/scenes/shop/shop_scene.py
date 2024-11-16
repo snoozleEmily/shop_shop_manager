@@ -33,3 +33,6 @@ def render_shop(
     if EXIT_SCENE.update_scene(mouse_event, trigger_update):
         Dialogue.dialogue_displayed = True
         GameScenes.in_town, GameScenes.in_shop = True, False
+
+# TODO: Set up the logic to increase money and decrease the sold item
+# Should I get this data(money, item) from the inventory?
