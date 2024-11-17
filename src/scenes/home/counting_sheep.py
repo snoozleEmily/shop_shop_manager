@@ -8,11 +8,6 @@ from utils.declared_buttons import RETURN
 from backgrounds import SHEEP_FIELD
 
 
-class CountingSheep:
-    # Do I really need this class?????
-    grow_dark = False
-
-
 current_frame = 0
 frame_counter = 0
 animation_speed = 5

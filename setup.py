@@ -5,7 +5,7 @@ from setuptools import Extension, setup, find_packages
 extensions = [
     Extension(
         "pygame_loads",
-        ["src\utils\pygame_loads.py"],
+        [r"src\utils\pygame_loads.py"],
         include_dirs=[np.get_include()],
     ),
 ]

@@ -58,19 +58,19 @@ To add dialogue to the game, edit the relevant JSON file in the `assets > data >
 #### Customer Dialogue
 
 For customer dialogues:
-- Add the dialogue to the `sale` section.
+- Add the dialogue to the `sale` file.
 - Assign a unique ID (integer).
 - Ensure the **text (speech)** includes the word "ITEM" (in all caps). The game relies on this keyword for functionality.
 
 #### Supplier Dialogue
 
 For supplier dialogues:
-- Add the dialogue to the `trade` section.
+- Add the dialogue to the `trade` file.
 
 #### Deal Dialogue
 
 For deal-related dialogues:
-- Add the dialogue to the `deals` section.
+- Add the dialogue to the `deals` file.
 
 ## License
 
