@@ -16,7 +16,7 @@ Contributions are welcome! Below are some guidelines to help you get started:
 
 ### Rendering
 
-Rendering functionality is limited due to a workaround implemented to fix a bug that caused all buttons to flicker. To maintain the default rendering behavior, handle specific cases in the **gameplay module** as needed.
+Standard FPS re-rendering functionality is limited due to a workaround implemented to fix the flickering buttons. To maintain the default rendering behavior, handle specific cases in the gameplay module as necessary.
 
 ### Adding a New Scene
 
