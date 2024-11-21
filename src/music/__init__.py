@@ -1,2 +1,2 @@
-from .music import SongsPath, start_music, check_current_music
+from .music import SongsPath
 from .sound_controller import SoundController
