@@ -198,5 +198,213 @@
     {
         "id": 50,
         "speech": "The journey's been long, but I'm here for an ITEM. Let's see it."
+    },
+    {
+        "id": 51,
+        "speech": "I'll let it slide that you're pricey. Just get me ITEM."
+    },
+    {
+        "id": 52,
+        "speech": "I'm making something special for someone quite special... I need ITEM to finish it."
+    },
+    {
+        "id": 53,
+        "speech": "I heard you have ITEM. Could you provide it me?"
+    },
+    {
+        "id": 54,
+        "speech": "I see ITEM over there. Sell it to me. Yes?"
+    },
+    {
+        "id": 55,
+        "speech": "Ever heard about that good old tale about ITEM? So, I need it."
+    },
+    {
+        "id": 56,
+        "speech": "Psst.. Give me ITEM. I can pay in gold."
+    },
+    {
+        "id": 57,
+        "speech": "I am longing for ITEM. Do you have it?"
+    },
+    {
+        "id": 58,
+        "speech": "My mother lost the ITEM I had. Get me new ITEM."
+    },
+    {
+        "id": 59,
+        "speech": "I see you sell ITEM. Care to show it to me?"
+    },
+    {
+        "id": 60,
+        "speech": "How could you have ITEM? It is something... nevermind. Just sell it to me."
+    },
+    {
+        "id": 61,
+        "speech": "I'm here for one thing and one thing only: ITEM. Got it?"
+    },
+    {
+        "id": 62,
+        "speech": "They say legends are born with ITEM. Could you sell me one?"
+    },
+    {
+        "id": 63,
+        "speech": "I don't trust many shops, but for ITEM, I'm giving you a chance."
+    },
+    {
+        "id": 64,
+        "speech": "The prophecy foretold that I would find ITEM here. Make it true."
+    },
+    {
+        "id": 65,
+        "speech": "ITEM isn't just an object; it's the solution to my problems. Do you have it?"
+    },
+    {
+        "id": 66,
+        "speech": "I need ITEM for reasons I'd rather not explain. Do you have it?"
+    },
+    {
+        "id": 67,
+        "speech": "The merchant down the road said you have the finest ITEM. Let's see it."
+    },
+    {
+        "id": 68,
+        "speech": "My alchemy experiment went wrong. ITEM could fix it. Help me?"
+    },
+    {
+        "id": 69,
+        "speech": "I need ITEM, but not for what you're thinking. Don't ask. Just sell it to me."
+    },
+    {
+        "id": 70,
+        "speech": "They said you sell cursed things. I want ITEM anyway."
+    },
+    {
+        "id": 71,
+        "speech": "It's not every day someone like me needs ITEM. Got one?"
+    },
+    {
+        "id": 72,
+        "speech": "My kid broke ITEM. Can you get me a replacement?"
+    },
+    {
+        "id": 73,
+        "speech": "Do you accept trades? I've got something shiny for your ITEM."
+    },
+    {
+        "id": 74,
+        "speech": "I'll tell you a secret if you sell me ITEM."
+    },
+    {
+        "id": 75,
+        "speech": "Why does everyone want ITEM? Because it's amazing! Do you have it?"
+    },
+    {
+        "id": 76,
+        "speech": "I heard whispers in the tavern about your shop. Do you sell ITEM?"
+    },
+    {
+        "id": 77,
+        "speech": "I'm in a bind. ITEM is my only way out. Help?"
+    },
+    {
+        "id": 78,
+        "speech": "Oh, ITEM? I heard it's in fashion these days. Do you have it?"
+    },
+    {
+        "id": 79,
+        "speech": "I can smell the scent of ITEM from here. Show me."
+    },
+    {
+        "id": 80,
+        "speech": "I'm starting a quest, and ITEM is on my list. What do you say?"
+    },
+    {
+        "id": 81,
+        "speech": "My crew's depending on me, and I'm depending on ITEM. Got any?"
+    },
+    {
+        "id": 82,
+        "speech": "I need ITEM for a little... experiment. Nothing too dangerous!"
+    },
+    {
+        "id": 83,
+        "speech": "Ah, finally a shop worth visiting. Do you stock ITEM?"
+    },
+    {
+        "id": 84,
+        "speech": "I heard ITEM could save lives. I need one right now."
+    },
+    {
+        "id": 85,
+        "speech": "I've been searching for ITEM forever. Please tell me you have it."
+    },
+    {
+        "id": 86,
+        "speech": "ITEM has a certain charm, wouldn't you agree? Let me see it."
+    },
+    {
+        "id": 87,
+        "speech": "My cousin recommended your shop. Do you have ITEM for sale?"
+    },
+    {
+        "id": 88,
+        "speech": "This might sound strange, but I need ITEM for a pet project."
+    },
+    {
+        "id": 89,
+        "speech": "I just got paid, so I'm splurging on ITEM. Do you have any?"
+    },
+    {
+        "id": 90,
+        "speech": "The stars said I'd find ITEM here. Please don't prove them wrong."
+    },
+    {
+        "id": 91,
+        "speech": "I'm tired of cheap knockoffs. Show me a real ITEM!"
+    },
+    {
+        "id": 92,
+        "speech": "ITEM could make all my problems go away. Do you sell it?"
+    },
+    {
+        "id": 93,
+        "speech": "My friend's birthday is coming up, and I need ITEM as a gift."
+    },
+    {
+        "id": 94,
+        "speech": "I've got a bet to settle. Is ITEM in stock?"
+    },
+    {
+        "id": 95,
+        "speech": "My guild says ITEM is essential for our next mission. I need one."
+    },
+    {
+        "id": 96,
+        "speech": "I need something extraordinary today. ITEM, perhaps?"
+    },
+    {
+        "id": 97,
+        "speech": "If you've got ITEM, then you've got yourself a deal."
+    },
+    {
+        "id": 98,
+        "speech": "They told me ITEM is rare, but you look like someone who has it."
+    },
+    {
+        "id": 99,
+        "speech": "Ah, a shopkeeper with taste. Surely you have ITEM for me."
+    },
+    {
+        "id": 100,
+        "speech": "I could get ITEM anywhere, but I chose your shop. Impress me."
+    },    
+    {
+        "id": 101,
+        "speech": "I'll pay if you can find me the rarest ITEM in stock."
+    },    
+    {
+        "id": 102,
+        "speech": "My pigs like ITEM. Could you get it to me?"
     }
 ]

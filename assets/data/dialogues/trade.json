@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "speech": "You have SELF_ITEM and I have TRADE_ITEM. Let's switch?"
+    },
+    {
+        "id": 2,
+        "speech": "So fatigued of TRADE_ITEM! I'd like SELF_ITEM for a change..."
+    },
+    {
+        "id": 2,
+        "speech": "My good shoopkeeper. I have TRADE_ITEM! Do you have SELF_ITEM?"
+    }
+]
