@@ -31,7 +31,7 @@ To add a new scene:
 To add a button:
 
 1. Declare the button in the **declared_buttons module**. Currently, there are the following button types:
-   - **default**: Placeholder box.
+   - **default**: Placeholder box. (It is not supposed to be used in the final game; it is solely for development.)
    - **caption_btn**: Button that contains text.
    - **checkbox_off**: Unchecked checkbox.
    - **checkbox_on**: Checked checkbox.
@@ -65,13 +65,17 @@ For customer dialogues:
 #### Supplier Dialogue
 
 For supplier dialogues:
-- Add the dialogue to the `trade` file.
+- Add the dialogue to the `supply` file.
+- Assign a unique ID (integer).
+- Ensure the **text (speech)** includes the word "SUPPLY_ITEM" and "NUMBER" (in all caps). The game relies on these keyword for functionality.
 
-#### Deal Dialogue
+#### Trade Dialogue
 
 For deal-related dialogues:
-- Add the dialogue to the `deals` file.
+- Add the dialogue to the `trade` file.
+- Assign a unique ID (integer).
+- Ensure the **text (speech)** includes the words "TRADE_ITEM" and "SELF_ITEM" (in all caps). The game relies on these keyword for functionality.
 
 ## License
 
-This project is licensed under the GNU General Public License. For more details, see the [license file](\LICENSE).
+This project is licensed under the GNU General Public License. This means you are free to build upon the current code to develop the game further, but you must credit the original author and distribute any modifications under the same license. For more details, see the [license file](\LICENSE).
