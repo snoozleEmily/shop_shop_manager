@@ -1,11 +1,13 @@
 import pygame
+import random
 from typing import Optional, Callable
 
 from scenes.scene_manager import GameScenes
 from .sheep_sprite import sheep_sprite, jumping_sheep
-from utils.pygame_loads import Screen, load_image
+from utils.pygame_loads import Global, load_image
 from utils.declared_buttons import RETURN
 from backgrounds import SHEEP_FIELD
+
 
 # Constants
 current_frame = 0  # Current frame index for the sheep animation
@@ -31,7 +33,7 @@ class Sheep:
         """Update the sheep's position and reset when it goes off-screen."""
         self.x += self.velocity
         if self.x < -sheep_sprite[0].get_width():
-            self.x = Screen.SCREEN_WIDTH * 2
+            self.x = Global.SCREEN_WIDTH * 2
 
     def animate(self):
         """Animate the sheep by cycling through frames."""
@@ -48,7 +50,29 @@ class Sheep:
         else:
             display_surface.blit(sheep_sprite[self.current_frame], (self.x, self.y))
 
+class Bubble:
+    """Class to manage the random bubble behavior."""
+    
+    def __init__(self):
+        self.x = random.randint(0, Global.SCREEN_WIDTH)
+        self.y = random.randint(0, Global.SCREEN_HEIGHT)
+        self.timer = 0
+        self.visible = True
 
+    def update(self):
+        """Update the bubble's position and timer."""
+        self.x = random.randint(0, Global.SCREEN_WIDTH)
+        self.y = random.randint(0, Global.SCREEN_HEIGHT)
+        self.timer = 0
+
+    def draw(self, display_surface: pygame.Surface):
+        """Draw the bubble if it is visible."""
+        if self.visible:
+            pygame.draw.circle(display_surface, (255, 0, 0), (self.x, self.y), 20)
+
+# Initialize the bubble
+bubble = Bubble()
+    
 # Initialize the sheep
 sheep = Sheep(SHEEP_AXIS_X, SHEEP_AXIS_Y, SHEEP_VELOCITY)
 
@@ -75,6 +99,10 @@ def render_sheep(
     sheep.reset_position()
     sheep.animate()
     sheep.draw(display_surface)
+    
+    # Update and draw bubble
+    bubble.update()
+    bubble.draw(display_surface)
 
     # Render the exit button
     RETURN.draw_screen(display_surface)

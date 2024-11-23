@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "speech": "I have NUMBER SUPPLY_ITEM for a good price. You should buy it"
+    },
+    {
+        "id": 2,
+        "speech": "SUPPLY_ITEM! NUMBER of it! Do we gave a deal?"
+    },
+    {
+        "id": 3,
+        "speech": "I know many shoopkeepers. They all usually get SUPPLY_ITEM. I've got NUMBER of it today."
+    },
+    {
+        "id": 4,
+        "speech": "Do your clients ask for many SUPPLY_ITEM? I just received NUMBER from the source!"
+    },
+    {
+        "id": 5,
+        "speech": "For this day there are SUPPLY_ITEM. How about NUMBER of it?"
+    }
+]

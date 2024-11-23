@@ -6,13 +6,14 @@ pygame.init()
 pygame.mixer.init()
 
 
-class Screen:
+class Global:
     """
     Class to store on screen-related global variables.
 
     Attributes:
         SCREEN_WIDTH (int): Width of the game's window.
         SCREEN_HEIGHT (int): Height of the game's window.
+        clock
         paginated_data (list): List of items to be displayed on the table in inventory.
         current_page (int): Current page of the table of inventory.
     """
@@ -20,6 +21,9 @@ class Screen:
     SCREEN_WIDTH: int = 400
     SCREEN_HEIGHT: int = 800
 
+    # Clock to manage frame rate
+    clock: pygame.time.Clock = pygame.time.Clock()
+    
     # Table Of The Inventory Scene
     paginated_data = []
     current_page = 0

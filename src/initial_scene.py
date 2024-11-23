@@ -7,7 +7,7 @@ from utils.declared_buttons import START_GAME_BUTTON
 from backgrounds import INITIAL_IMG
 
 
-def handle_game_start(mouse_event: pygame.event.Event) -> bool:
+def handle_start(mouse_event: pygame.event.Event) -> bool:
     if mouse_event.type == pygame.MOUSEBUTTONDOWN and mouse_event.button == 1:
         if START_GAME_BUTTON.rect.collidepoint(mouse_event.pos):
             GameScenes.in_beginning, GameScenes.in_town = False, True

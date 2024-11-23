@@ -9,7 +9,7 @@ from .trigger_hover import (
     settings,
 )
 from .pygame_loads import (
-    Screen,
+    Global,
     all_items,
     FONT_DEFAULT,
     FONT_CURSIVE,

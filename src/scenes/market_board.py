@@ -1,7 +1,7 @@
 import pygame
 
 from utils.pygame_loads import (
-    Screen,
+    Global,
     all_items,
     FONT_CURSIVE,
 )
@@ -12,8 +12,8 @@ PADDING = 18
 ROW_MARGIN = 10
 COLUMN_MARGIN = 45
 
-table_width = (Screen.SCREEN_WIDTH + CELL_WIDTH) - PADDING
-table_height = (Screen.SCREEN_HEIGHT // 2) - (PADDING * 6)
+table_width = (Global.SCREEN_WIDTH + CELL_WIDTH) - PADDING
+table_height = (Global.SCREEN_HEIGHT // 2) - (PADDING * 6)
 
 # Calculate rows and columns per page
 rows_per_page = (table_height - CELL_HEIGHT - ROW_MARGIN) // (CELL_HEIGHT + ROW_MARGIN)
@@ -32,7 +32,7 @@ for page in range(total_pages):
     start_row = page * rows_per_page
     end_row = min(start_row + rows_per_page, len(items_without_titles))
     items_per_page = items_without_titles[start_row:end_row]
-    Screen.paginated_data.append(items_per_page)
+    Global.paginated_data.append(items_per_page)
 
 viewport_surface = pygame.Surface((table_width, table_height))
 
@@ -41,7 +41,7 @@ def render_table(display_surface: pygame.Surface) -> None:
     viewport_surface.fill((255, 255, 255))
 
     # Fetch data for the current page
-    pages = Screen.paginated_data[Screen.current_page]
+    pages = Global.paginated_data[Global.current_page]
 
     # Draw the column titles
     titles = all_items[0]

@@ -2,7 +2,7 @@ import pygame
 from typing import Optional, Callable
 
 from .scene_manager import GameScenes
-from utils.pygame_loads import Screen, load_image
+from utils.pygame_loads import Global, load_image
 from scenes.market_board import render_table, total_pages
 from utils.declared_buttons import EXIT_SCENE, NEXT_BUTTON
 from backgrounds import PAPER_IMG
@@ -18,10 +18,10 @@ def render_inventory(
 
     NEXT_BUTTON.draw_screen(display_surface)
     if NEXT_BUTTON.update_scene(mouse_event, trigger_update):
-        if Screen.current_page < total_pages - 1:
-            Screen.current_page += 1
+        if Global.current_page < total_pages - 1:
+            Global.current_page += 1
         else:
-            Screen.current_page = 0
+            Global.current_page = 0
 
     # Goes back to town if exit button is clicked
     EXIT_SCENE.draw_screen(display_surface)

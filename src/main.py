@@ -2,9 +2,9 @@ import pygame
 
 
 from gameplay import main_game
-from utils.pygame_loads import Screen
+from utils.pygame_loads import Global
 from music import SongsPath
-from initial_scene import handle_game_start, render_beginning
+from initial_scene import handle_start, render_beginning
 
 
 pygame.init()
@@ -12,8 +12,8 @@ pygame.mixer.init()
 clock = pygame.time.Clock()
 SCREEN = pygame.display.set_mode(
     (
-        Screen.SCREEN_HEIGHT,
-        Screen.SCREEN_WIDTH,
+        Global.SCREEN_HEIGHT,
+        Global.SCREEN_WIDTH,
     )
 )
 
@@ -34,7 +34,7 @@ while running:
 
     # Updates button state and draw the initial menu
     if not game_started:
-        game_started = handle_game_start(event)
+        game_started = handle_start(event)
         render_beginning(SCREEN, event)
     else:
         main_game(SCREEN, event)
