@@ -2,7 +2,7 @@ import pygame
 from typing import Optional, Callable
 
 from turns.day_turner import Days
-from .counting_sheep import render_sheep
+from .counting_sheep.render_sheep import render_sheep
 from scenes.scene_manager import GameScenes
 from utils.pygame_loads import load_image
 from utils.declared_buttons import SLEEP, WAKE_UP, EXIT_SCENE

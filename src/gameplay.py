@@ -4,8 +4,7 @@ import pygame
 from scenes.shop.shop_scene import render_shop
 from scenes.inventory_scene import render_inventory
 from scenes.tavern.tavern_scene import render_tavern
-from scenes.home.home_scene import turn, render_home
-from scenes.home.counting_sheep import render_sheep
+from scenes.home.home_scene import turn, render_home, render_sheep
 from scenes.settings_scene import render_settings
 from backgrounds import TOWN_IMG
 from utils.pygame_loads import load_image
