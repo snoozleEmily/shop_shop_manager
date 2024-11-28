@@ -22,7 +22,6 @@ game_started: bool = False
 
 songs_path: SongsPath = SongsPath()
 SongsPath.start_music(songs_path)
-
 while running:
     # Handle events
     for event in pygame.event.get():
