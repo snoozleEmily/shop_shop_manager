@@ -21,7 +21,7 @@ class Clickables:
 
         self.enabled = True
         self.has_hover = False
-        self.last_click_time = time.time() - 0.5  # Default click delay
+        self.last_click_time = time.perf_counter()  - 0.5  # Default click delay
 
     def draw_screen(self, surface: pygame.Surface) -> None:
         """
@@ -49,7 +49,7 @@ class Clickables:
             self.current_image = self.hover_image if hovered else self.default_image
 
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-            current_time = time.time()
+            current_time = time.perf_counter() 
 
             if self.enabled and self.rect.collidepoint(pygame.mouse.get_pos()):
                 if current_time - self.last_click_time >= 0.5:  # Default click delay
