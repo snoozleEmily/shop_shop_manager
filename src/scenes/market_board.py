@@ -43,20 +43,27 @@ def render_table(display_surface: pygame.Surface) -> None:
     # Fetch data for the current page
     pages = Global.paginated_data[Global.current_page]
 
-    # Draw the column titles
-    titles = all_items[0]
-    for j, title in enumerate(titles):
-        text_surface = FONT_CURSIVE.render(title, True, (0, 0, 0))
-        x = j * (CELL_WIDTH + COLUMN_MARGIN) + PADDING
-        y = PADDING / 3
-        viewport_surface.blit(text_surface, (x, y))
+    # Pre-compute constants for layout
+    column_positions = [
+        # Don't use here enumarate, it causes a bug
+        j * (CELL_WIDTH + COLUMN_MARGIN) + PADDING for j in range(len(all_items[0]))
+    ]
+    row_offsets = [
+        # Don't use here enumarate, it causes a bug
+        (i + 1) * (CELL_HEIGHT + ROW_MARGIN) + PADDING for i in range(len(pages))
+    ]
 
-    # Iterate over the paginated items and draw the table (excluding titles)
-    for i, row in enumerate(pages):
-        for j, cell in enumerate(row):
+    # Draw column titles
+    title_y = PADDING / 3
+    for col_pos, title in zip(column_positions, all_items[0]):
+        text_surface = FONT_CURSIVE.render(title, True, (0, 0, 0))
+        viewport_surface.blit(text_surface, (col_pos, title_y))
+
+    # Draw table rows
+    for row_offset, row in zip(row_offsets, pages):
+        for col_pos, cell in zip(column_positions, row):
             text_surface = FONT_CURSIVE.render(cell, True, (0, 0, 0))
-            x = j * (CELL_WIDTH + COLUMN_MARGIN) + PADDING
-            y = (i + 1) * (CELL_HEIGHT + ROW_MARGIN) + PADDING
-            viewport_surface.blit(text_surface, (x, y))
+            viewport_surface.blit(text_surface, (col_pos, row_offset))
+
 
     display_surface.blit(viewport_surface, (PADDING, PADDING))
