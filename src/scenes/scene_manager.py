@@ -85,7 +85,7 @@ class GameScenes:
                 return False
 
             # Calculate the elapsed time since the last recorded hover event
-            elapsed_time = time.perf_counter()  - self.last_hover_time
+            elapsed_time = time.perf_counter() - self.last_hover_time
 
             # This method returns True in two cases:
             # 1. If a button is actively hovered (hover flag is active).

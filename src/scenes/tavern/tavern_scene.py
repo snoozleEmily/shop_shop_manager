@@ -43,6 +43,7 @@ def render_tavern(
     if not Die.minigame_active:
         # Wait if the minigame has ended before showing ROLL_DICE again
         if current_time - return_click_time >= ROLL_DICE_DELAY:
+            
             ROLL_DICE.draw_screen(display_surface)
             if ROLL_DICE.update_scene(mouse_event, trigger_update):
                 Die.minigame_active = True

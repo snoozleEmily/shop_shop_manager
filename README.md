@@ -1,10 +1,11 @@
 # Shop Shop Manager Game
 
-A turn-based management game created with [Pygame](https://github.com/pygame/pygame).
+A fun **data analysis game** created with [Pygame](https://github.com/pygame/pygame).
 
 ## What is it about?
 
-Manage a shop in a fantasy world! Avoid bankruptcy by balancing your budget, negotiating deals, capitalizing on trades, and handling various items and clients. Trade with other merchants to build your fortune in a dynamic economy.
+Do you have an analitical eye? You better or else you will ot win.
+Avoid bankruptcy, balancing your budget, negotiating deals, capitalizing on trades, and handling various items and clients by managing a shop in a fantasy world! Trade with other merchants to build your fortune in a dynamic economy. 
 
 ## Gameplay
 
@@ -12,11 +13,11 @@ Details about gameplay will be explained here.
 
 ## Contributing
 
-Contributions are welcome! Below are some guidelines to help you get started:
+**Contributions are welcome!** Below are some guidelines to help you get started:
 
 ### Rendering
 
-Standard FPS re-rendering functionality is limited due to a workaround implemented to fix the flickering buttons. To maintain the default rendering behavior, handle specific cases in the gameplay module as necessary.
+Standard FPS re-rendering functionality is limited due to a _workaround_ implemented to fix the flickering buttons. To maintain the default rendering behavior, handle specific cases in the gameplay module as necessary.
 
 ### Adding a New Scene
 

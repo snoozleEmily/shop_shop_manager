@@ -16,6 +16,7 @@ def roll_dice(display_surface, mouse_event, trigger_update=None) -> pygame.Surfa
     # Only display the DICE_CUP if the dice have not been rolled yet
     if not Die.dice_rolled:
         display_surface.blit(load_image(DICE_TABLE), (97, 50))
+        
         DICE_CUP.draw_screen(display_surface)
         if DICE_CUP.update_scene(mouse_event, trigger_update):
             first_path = first_die.get_face()
