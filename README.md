@@ -4,7 +4,7 @@ A fun **data analysis game** created with [Pygame](https://github.com/pygame/pyg
 
 ## What is it about?
 
-Do you have an analitical eye? You better or else you will ot win.
+Do you have an analitical eye? You better or else you will not win.
 Avoid bankruptcy, balancing your budget, negotiating deals, capitalizing on trades, and handling various items and clients by managing a shop in a fantasy world! Trade with other merchants to build your fortune in a dynamic economy. 
 
 ## Gameplay
