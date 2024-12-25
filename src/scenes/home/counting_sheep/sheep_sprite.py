@@ -9,14 +9,14 @@ FRAME_HEIGHT: int = 200
 
 # Load sprite frames
 def get_sheep_frames(spritesheet_path: str, frame_width: int, frame_height: int) -> list[str]:
-    sprite_sheet = load_image(spritesheet_path)
-    sheet_width, sheet_height = sprite_sheet.get_size()
+    sprite_sheep = load_image(spritesheet_path)
+    sheep_width, sheep_height = sprite_sheep.get_size()
     sprites = []
 
     # Extract individual frames from the sprite sheet
-    for y in range(0, sheet_height, frame_height):
-        for x in range(0, sheet_width, frame_width):
-            frame = sprite_sheet.subsurface(
+    for y in range(0, sheep_height, frame_height):
+        for x in range(0, sheep_width, frame_width):
+            frame = sprite_sheep.subsurface(
                 pygame.Rect(x, y, frame_width, frame_height)
             )
             sprites.append(frame)

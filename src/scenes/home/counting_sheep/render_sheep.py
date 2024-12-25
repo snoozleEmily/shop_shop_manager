@@ -44,8 +44,8 @@ def render_sheep(
 
     # Update and draw bubble
     # bubble.draw_container(display_surface)
-    bubble.update_bubble()
-    bubble.draw_bubble(display_surface)
+    bubble.update_cloud()
+    bubble.draw_cloud(display_surface)
 
     # Render the exit button
     RETURN.draw_screen(display_surface)
