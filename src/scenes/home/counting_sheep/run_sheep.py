@@ -1,4 +1,5 @@
 import pygame
+import math
 
 from .sheep_sprite import sheep_sprite, jumping_sheep
 from utils.pygame_loads import Global
@@ -17,6 +18,12 @@ class RunSheep:
         self.current_frame = 0
         self.frame_counter = 0
         self.is_jumping = False
+        self.jump_timer = 0
+        self.jump_height = 100  # Maximum jump height in pixels
+        self.initial_y = 200
+        self.current_frame = 0
+        self.frame_counter = 0
+        self.ANIMATION_SPEED = 5
         
     def extended_width(self):
         """ If the width isn't muplipled by 2 the sheep appears only in half of the screen """
@@ -28,9 +35,24 @@ class RunSheep:
         if self.x < -sheep_sprite[0].get_width():
             self.x = self.extended_width()
 
+    def animate_jump(self):
+        """Calculate jump height using sine wave for smooth motion"""
+        if self.is_jumping:
+            current_time = pygame.time.get_ticks()
+            elapsed_time = current_time - self.jump_timer
+            progress = min(elapsed_time / 1000.0, 1.0)  # 1000ms = 1 second duration
+            
+            # Sine wave creates smooth up/down motion
+            jump_offset = math.sin(progress * math.pi) * self.jump_height
+            self.y = self.initial_y - jump_offset
+        else:
+            self.y = self.initial_y
+
     def animate_sheep(self):
-        """Animate the sheep by cycling through frames."""
-        if not self.is_jumping:  # Only animate when not jumping
+        """Animate the sheep by cycling through frames and handling jump"""
+        self.animate_jump()  # Handle jump animation
+        
+        if not self.is_jumping:  # Only animate running when not jumping
             self.frame_counter += 1
             if self.frame_counter >= self.ANIMATION_SPEED:
                 self.current_frame = (self.current_frame + 1) % len(sheep_sprite)
