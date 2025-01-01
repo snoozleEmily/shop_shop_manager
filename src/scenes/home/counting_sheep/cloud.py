@@ -81,14 +81,14 @@ class Cloud:
                     return True
         return False
  
-"""    
-    # To see the container uncomment this method (for debugging purposes)     
-    def draw_container(self, display_surface: pygame.Surface):
+  
+"""     # To see the container uncomment this method (for debugging purposes)     
+    def draw_cloud_box(self, display_surface: pygame.Surface):
         solid_color = (255, 0, 0)
         solid_surface = pygame.Surface((self.CONTAINER_WIDTH, self.CONTAINER_HEIGHT))
         solid_surface.fill(solid_color)
         display_surface.blit(solid_surface, (self.container_x, self.container_y))
         
         # Call the method in render_sheep like this
-        # bubble.draw_container(display_surface)  
+        # bubble.draw_container(display_surface)   
 """
