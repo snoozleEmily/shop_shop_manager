@@ -22,8 +22,8 @@ game_started: bool = False
 
 songs_path: SongsPath = SongsPath()
 SongsPath.start_music(songs_path)
+
 while running:
-    # Handle events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False  # Close game
@@ -38,10 +38,7 @@ while running:
     else:
         main_game(SCREEN, event)
 
-    # Updates the display
     pygame.display.flip()
-
-    # Limits FPS to 30
     clock.tick(30)
 
 pygame.quit()

@@ -22,6 +22,12 @@ cloud_C = Cloud()
 clouds = [cloud_A, cloud_B, cloud_C] # Add more clouds here
 sheep = RunSheep(SHEEP_AXIS_X, SHEEP_INIT_AXIS_Y, SHEEP_VELOCITY)
 
+def reset_sheep_game():
+    """Reset the states of the sheep minigame."""
+    global sheep, clouds
+    sheep = RunSheep(SHEEP_AXIS_X, SHEEP_INIT_AXIS_Y, SHEEP_VELOCITY)
+    clouds = [Cloud(), Cloud(), Cloud()]
+
 def render_sheep(
     display_surface: pygame.Surface,
     mouse_event: pygame.event.Event,
@@ -55,6 +61,8 @@ def render_sheep(
             sheep.jump_timer = pygame.time.get_ticks()  
 
     # Render the return button
-    #RETURN.draw_screen(display_surface)
+    RETURN.draw_screen(display_surface)
     if RETURN.update_scene(mouse_event, trigger_update):
-        GameScenes.in_sheep_mg = False  # End the sheep game
+        # End the sheep game
+        GameScenes.in_sheep_mg, GameScenes.in_home = False, True  
+        reset_sheep_game()
