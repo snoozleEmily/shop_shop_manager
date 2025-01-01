@@ -16,8 +16,11 @@ SHEEP_AXIS_X: int = 800  # Starting X position (right edge of the screen)
 SHEEP_INIT_AXIS_Y: int = 200  # Fixed Y position
 SHEEP_VELOCITY: int = -5  # Speed at which the sheep moves left
 
-cloud = Cloud() # Initialize the bubble
-sheep = RunSheep(SHEEP_AXIS_X, SHEEP_INIT_AXIS_Y, SHEEP_VELOCITY) # Initialize the sheep
+cloud_A = Cloud()
+cloud_B = Cloud()
+cloud_C = Cloud()
+clouds = [cloud_A, cloud_B, cloud_C] # Add more clouds here
+sheep = RunSheep(SHEEP_AXIS_X, SHEEP_INIT_AXIS_Y, SHEEP_VELOCITY)
 
 def render_sheep(
     display_surface: pygame.Surface,
@@ -30,11 +33,6 @@ def render_sheep(
     # Draw the sheep game background
     display_surface.blit(load_image(SHEEP_FIELD), (0, 0))
 
-    # Check for click to make the sheep jump
-    if cloud.kill_cloud(mouse_event):
-        sheep.is_jumping = True
-        sheep.jump_timer = pygame.time.get_ticks()  # Set the jump timer to the current time
-
     # Check if the jump duration has passed
     if sheep.is_jumping and pygame.time.get_ticks() - sheep.jump_timer >= 1000:
         sheep.is_jumping = False
@@ -46,8 +44,15 @@ def render_sheep(
 
     # Update and draw bubble
     # bubble.draw_container(display_surface) #  See container for debugging
-    cloud.update_cloud()
-    cloud.draw_cloud(display_surface)
+    for cloud in clouds:
+        cloud.update_cloud()
+        cloud.draw_cloud(display_surface)
+        
+        # Check for click to make the sheep jump
+        if cloud.kill_cloud(mouse_event):
+            sheep.is_jumping = True
+            # Set the jump timer to the current time
+            sheep.jump_timer = pygame.time.get_ticks()  
 
     # Render the return button
     #RETURN.draw_screen(display_surface)

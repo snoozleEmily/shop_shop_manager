@@ -18,6 +18,8 @@ class Cloud:
         # Dynamically calculate the container's center based on the screen size
         self.container_x = 97
         self.container_y = 11
+        self.min_distance = 120  # For clouds to be far apart
+
 
         # Random position within the centered container area
         self.x = random.randint(
@@ -42,7 +44,6 @@ class Cloud:
             self.timer -= 1
         else:
             # Reset the timer and update the cloud
-            min_distance = 120  # Minimum distance between the last and the new position
             new_x, new_y = self.x, self.y
             
             while True:
@@ -53,8 +54,8 @@ class Cloud:
                 # Calculate the distance between the new and old position
                 distance = self._calculate_distance(self.last_x, self.last_y, new_x, new_y)
                 
-                # If the distance is sufficient, break the loop
-                if distance >= min_distance:
+                # If the cloud is far from the previous position
+                if distance >= self.min_distance:
                     break
                 
             # Update position and reset the timer
@@ -66,7 +67,7 @@ class Cloud:
             self.timer = random.randint(60, 120)  # Reset the timer to a new value
             self.visible = True
 
-    def draw_cloud(self, display_surface: pygame.Surface): # Replace this with the clouds images
+    def draw_cloud(self, display_surface: pygame.Surface):
         """Draw the cloud if it is visible."""
         if self.visible and self.current_cloud:
             display_surface.blit(self.current_cloud, (self.x, self.y))
@@ -80,6 +81,30 @@ class Cloud:
                     self.visible = False
                     return True
         return False
+    
+    def sync_clouds(self, clouds):
+        """Update multiple clouds with a delay and ensure minimum distance."""
+        # Apply delay to cloud timers
+        for i in range(1, len(clouds)):
+            clouds[i].timer -= int(0.3 * 60)
+        
+        # Create a spatial partitioning grid
+        cloud_positions = set()  # Store cloud positions as tuples (x, y)
+        
+        for cloud in clouds:
+            while True:
+                cloud.update_cloud()
+                
+                # Check if cloud position is valid
+                current_position = (cloud.x, cloud.y)
+                if all(
+                    self._calculate_distance(x, y, cloud.x, cloud.y) 
+                       >= self.min_distance 
+                       for x, y in cloud_positions
+                       ):
+                    cloud_positions.add(current_position)
+                    break
+
  
   
 """     # To see the container uncomment this method (for debugging purposes)     
