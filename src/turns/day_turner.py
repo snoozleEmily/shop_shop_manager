@@ -1,11 +1,14 @@
-from utils.pygame_loads import FONT_BUTTON
-from scenes.tavern.tavern_scene import (
-    last_game_result,
-    minigame_start_time,
-    return_click_time,
-)
+import pygame
 
-# THE DICE MINIGAME INS'T RESETING?
+from utils.pygame_loads import FONT_BUTTON
+from scenes.scene_manager import GameScenes
+from scenes.tavern.dice import Die 
+from scenes.tavern.tavern_scene import (
+    dice_result,
+    minigame_start_time,
+    end_dice_ticks,
+    render_tavern,
+)
 
 class Days:
     turn_day: bool = False
@@ -13,7 +16,7 @@ class Days:
     current_day: int = 1
 
     def handle_days(self, display_surface):
-        global last_game_result, minigame_start_time, return_click_time
+        global dice_result, minigame_start_time, end_dice_ticks
         self.turn_day = True
 
         # Increment the day counter
@@ -23,10 +26,13 @@ class Days:
         # Update the display with the new day
         self.display_days(display_surface, self.current_day)
 
-        # THIS ISN'T WORKING
-        # THE DICE MINIGAME INS'T RESETING?
-        last_game_result = None  # Reset minigame-related variables
-        minigame_start_time, return_click_time = 0, 0
+        # Reset minigame values so it can be played again
+        dice_result = None
+        minigame_start_time, end_dice_ticks = 0, 0
+        Die.reset_dice() 
+        
+        # Return to town
+        GameScenes.in_home, GameScenes.in_town  = False, True
 
         if self.current_day == self.max_days:
             print("Max days reached - game won or lost.")

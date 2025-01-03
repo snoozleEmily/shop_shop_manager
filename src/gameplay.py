@@ -7,6 +7,7 @@ from scenes.tavern.tavern_scene import render_tavern
 from scenes.home.home_scene import turn, render_home, render_sheep
 from scenes.settings_scene import render_settings
 from backgrounds import TOWN_IMG
+from turns.day_turner import Days
 from utils.pygame_loads import load_image
 from utils.declared_buttons import (
     SHOP_BUTTON,
@@ -63,7 +64,7 @@ def main_game(display_surface, mouse_event, trigger_update=None):
         if settings.hover_check():
             render_settings(display_surface, mouse_event)
     
-    # ADD NEW SCENE HERE
+    # ADD NEW SCENE HERE >>>
 
     elif (GameScenes.in_town and was_clicked) or turn.turn_day:
         display_surface.blit(load_image(TOWN_IMG), (0, 0))
@@ -98,4 +99,4 @@ def main_game(display_surface, mouse_event, trigger_update=None):
         elif SETTINGS_BUTTON.update_scene(mouse_event, trigger_update):
             GameScenes.in_settings, GameScenes.in_town = True, False
 
-        # ADD NEW SCENE HERE
+        # ADD NEW SCENE HERE >>>

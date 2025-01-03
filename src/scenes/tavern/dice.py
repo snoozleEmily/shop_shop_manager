@@ -38,3 +38,12 @@ class Die:
         new_face_path = self.dice_images[face_number][0]
 
         return new_face_path
+    
+    @staticmethod
+    def reset_dice():
+        # In order to reset the minigame this flag must be set to True
+        Die.minigame_active = True 
+        Die.dice_rolled = False
+        Die.dice_path = ""
+        Die.face = 1
+

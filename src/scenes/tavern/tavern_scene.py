@@ -11,8 +11,8 @@ from backgrounds import TAVERN_IMG, DICE_TABLE
 from utils.declared_buttons import ROLL_DICE, RETURN, EXIT_SCENE
 
 minigame_start_time = 0
-return_click_time = 0
-last_game_result = None
+end_dice_ticks = 0
+dice_result = None
 
 # Delays added to prevent rapid button clicks
 RETURN_DELAY = 400  # milliseconds
@@ -24,7 +24,7 @@ def render_tavern(
     mouse_event: pygame.event.Event,
     trigger_update: Optional[Callable] = None,
 ) -> None:
-    global minigame_start_time, return_click_time, last_game_result
+    global minigame_start_time, end_dice_ticks, dice_result
     display_surface.blit(load_image(TAVERN_IMG), (0, 0))
 
     # Display the container
@@ -42,7 +42,7 @@ def render_tavern(
     # Show ROLL_DICE button if the minigame is not active
     if not Die.minigame_active:
         # Wait if the minigame has ended before showing ROLL_DICE again
-        if current_time - return_click_time >= ROLL_DICE_DELAY:
+        if current_time - end_dice_ticks >= ROLL_DICE_DELAY:
             
             ROLL_DICE.draw_screen(display_surface)
             if ROLL_DICE.update_scene(mouse_event, trigger_update):
@@ -50,8 +50,8 @@ def render_tavern(
                 minigame_start_time = pygame.time.get_ticks()  # Record start time
 
                 # If there was a previous result, use it
-                if last_game_result:
-                    Die.dice_path = last_game_result
+                if dice_result:
+                    Die.dice_path = dice_result
 
         # Goes back to town if exit button is clicked
         EXIT_SCENE.draw_screen(display_surface)  # Not visible in minigame
@@ -74,6 +74,6 @@ def render_tavern(
             RETURN.draw_screen(display_surface)
             if RETURN.update_scene(mouse_event, trigger_update):
                 Die.minigame_active = False
-                last_game_result = Die.dice_path  # Save the result of the dice roll
                 Die.dice_path = None  # Clear path to remove the minigame screen display
-                return_click_time = pygame.time.get_ticks()  # Record end minigame time
+                dice_result = Die.dice_path  # Save the result of the dice roll
+                end_dice_ticks = pygame.time.get_ticks()  # Record end minigame time
