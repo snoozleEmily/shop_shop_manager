@@ -7,7 +7,6 @@ from scenes.tavern.tavern_scene import render_tavern
 from scenes.home.home_scene import turn, render_home, render_sheep
 from scenes.settings_scene import render_settings
 from backgrounds import TOWN_IMG
-from turns.day_turner import Days
 from utils.pygame_loads import load_image
 from utils.declared_buttons import (
     SHOP_BUTTON,
@@ -15,6 +14,7 @@ from utils.declared_buttons import (
     TAVERN_BUTTON,
     HOME_BUTTON,
     SETTINGS_BUTTON,
+    COINS_DISPLAY
 )
 from utils.trigger_hover import (
     GameScenes,
@@ -24,7 +24,6 @@ from utils.trigger_hover import (
     inventory,
     settings,
 )
-
 
 def main_game(display_surface, mouse_event, trigger_update=None):
     was_clicked = mouse_event.type == pygame.MOUSEBUTTONDOWN
@@ -71,6 +70,9 @@ def main_game(display_surface, mouse_event, trigger_update=None):
 
         # Display the day counter
         turn.display_days(display_surface, turn.current_day)
+        
+        # Display coins     
+        COINS_DISPLAY.draw_screen(display_surface) # FALTA ADD O SOM DE MOEDA AQUI
 
         SHOP_BUTTON.draw_screen(display_surface)
         IVENTORY_BUTTON.draw_screen(display_surface)
@@ -100,3 +102,4 @@ def main_game(display_surface, mouse_event, trigger_update=None):
             GameScenes.in_settings, GameScenes.in_town = True, False
 
         # ADD NEW SCENE HERE >>>
+        

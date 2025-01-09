@@ -1,4 +1,6 @@
 from .buttons import Button
+from utils.interactables import Interactables
+
 
 # Regular Buttons
 EXIT_SCENE = Button(740, 4, text=None, type_tag="exit")
@@ -31,3 +33,7 @@ RETURN = Button(254, 295, "Return", type_tag="caption_btn")
 DICE_CUP = Button(180, 75, text=None, type_tag="dice_cup")
 SLEEP = Button(254, 55, text="Sleep", type_tag="caption_btn")
 WAKE_UP  = Button(254, 115, text="Wake Up", type_tag="caption_btn")
+
+
+# Interactable visuals
+COINS_DISPLAY = Interactables(650, 6, "0", type_tag="coins")
