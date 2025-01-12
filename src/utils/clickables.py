@@ -1,6 +1,6 @@
 import pygame
 import time
-from typing import Tuple
+from typing import Tuple, Optional, Callable
 
 
 class Clickables:
@@ -21,7 +21,7 @@ class Clickables:
 
         self.enabled = True
         self.has_hover = False
-        self.last_click_time = time.perf_counter()  - 0.5  # Default click delay
+        self.last_click_time = time.perf_counter() - 0.5  # Default click delay
 
     def draw_screen(self, surface: pygame.Surface) -> None:
         """
@@ -39,17 +39,18 @@ class Clickables:
         mouse_position: Tuple[int, int] = pygame.mouse.get_pos()
         return self.rect.collidepoint(mouse_position)
 
-    def update_scene(self, event: pygame.event.Event, trigger_update: None) -> bool:
+    def register_click(self, event: pygame.event.Event, last_click_time: time.perf_counter):
         """
-        Updates the state of the clickable object based on the given event and trigger_update function.
+        Check if button was clicked with delay between clicks
+        
+        Args:
+            event (pygame.event.Event): The pygame event to check for a click.
+
+        Returns:
+            bool: True if the button was clicked, False otherwise.
         """
-        hovered = self.is_hovered()
-
-        if self.has_hover and hasattr(self, "hover_image"):
-            self.current_image = self.hover_image if hovered else self.default_image
-
         if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-            current_time = time.perf_counter() 
+            current_time = time.perf_counter()
 
             if self.enabled and self.rect.collidepoint(pygame.mouse.get_pos()):
                 if current_time - self.last_click_time >= 0.5:  # Default click delay
@@ -57,3 +58,21 @@ class Clickables:
                     self.last_click_time = current_time
                     return True
         return False
+
+    def update_scene(self, event: pygame.event.Event, trigger_update: Optional[Callable]) -> bool:
+        """
+        Update the state of the clickable object based on the given event and trigger_update function.
+
+        Args:
+            event (pygame.event.Event): The pygame event to process.
+            trigger_update (Optional[Callable]): Placeholder as default, receives the scenes display fcuntions.
+
+        Returns:
+            bool: True if the clickable object was interacted with, False otherwise.
+        """
+        # Animate hover effect
+        hovered = self.is_hovered()
+        if self.has_hover and hasattr(self, "hover_image"):
+            self.current_image = self.hover_image if hovered else self.default_image
+
+        return self.register_click(event, self.last_click_time)

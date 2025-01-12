@@ -3,7 +3,7 @@ from utils.interactables import Interactables
 
 
 # Regular Buttons
-EXIT_SCENE = Button(740, 4, text=None, type_tag="exit")
+EXIT_SCENE = Button(740, 300, text=None, type_tag="exit")
 NEXT_BUTTON = Button(327, 320, text=None, type_tag="default")
 
 
@@ -28,11 +28,11 @@ SETTINGS_BUTTON = Button(768, 4, text=None, type_tag="settings")
 
 
 # Minigame Buttons
+DICE_CUP = Button(180, 75, text=None, type_tag="dice_cup")
 ROLL_DICE = Button(254, 5, "Roll Dice", type_tag="caption_btn")
 RETURN = Button(254, 295, "Return", type_tag="caption_btn")
-DICE_CUP = Button(180, 75, text=None, type_tag="dice_cup")
-SLEEP = Button(254, 55, text="Sleep", type_tag="caption_btn")
 WAKE_UP  = Button(254, 115, text="Wake Up", type_tag="caption_btn")
+SLEEP = Button(254, 55, text="Sleep", type_tag="caption_btn")
 
 
 # Interactable visuals

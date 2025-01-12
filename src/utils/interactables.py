@@ -17,7 +17,10 @@ SOUND_EFFECTS_PATH = r"D:/Projects/Python-studies/shop_shop_manager/music/sound_
 class Interactables(Clickables):
     def __init__(self, x, y, text, type_tag):
         super().__init__(x, y, text, type_tag)
-
+        
+        # type_tag = "coin" Do I need this here?
+        # Should I add more Interactables?
+        
         self.default_image = load_image(COINS_PATH)
         self.current_image = self.default_image
         self.rect = self.current_image.get_rect(topleft=(x, y))  # Add rect initialization
@@ -28,18 +31,6 @@ class Interactables(Clickables):
     def draw_screen(self, surface: pygame.Surface):
         super().draw_screen(surface)
         
-    def update_scene(self, event: pygame.event.Event, trigger_update: None) -> bool:
-        """
-        Override Clickables.update_scene to add coin sound effect on click.
+    def animate(self, event: pygame.event.Event) -> bool:
         
-        Args:
-            event (pygame.event.Event): The event to process
-            trigger_update (None): Trigger function for scene updates
-            
-        Returns:
-            bool: True if click was processed, False otherwise
-        """
-        if super().update_scene(event, trigger_update):
-            self.click_sound.play()
-            return True
-        return False
+        return self.register_click(event, 1)

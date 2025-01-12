@@ -68,19 +68,23 @@ def main_game(display_surface, mouse_event, trigger_update=None):
     elif (GameScenes.in_town and was_clicked) or turn.turn_day:
         display_surface.blit(load_image(TOWN_IMG), (0, 0))
 
-        # Display the day counter
+        # Day counter, gets updated when the day turns
         turn.display_days(display_surface, turn.current_day)
-        
-        # Display coins     
-        COINS_DISPLAY.draw_screen(display_surface) # FALTA ADD O SOM DE MOEDA AQUI
-
+            
+        COINS_DISPLAY.draw_screen(display_surface)
         SHOP_BUTTON.draw_screen(display_surface)
         IVENTORY_BUTTON.draw_screen(display_surface)
         TAVERN_BUTTON.draw_screen(display_surface)
         HOME_BUTTON.draw_screen(display_surface)
         SETTINGS_BUTTON.draw_screen(display_surface)
 
-        # Handle button click events:
+
+        # Handle interactive click (butttons and UI) events:
+        
+        if COINS_DISPLAY.animate(mouse_event):
+            # Plays coin sound and animation
+            pass 
+            
         # Switch to shop scene
         if SHOP_BUTTON.update_scene(mouse_event, trigger_update):
             GameScenes.in_shop, GameScenes.in_town = True, False

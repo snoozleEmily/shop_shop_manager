@@ -22,7 +22,7 @@ class SongsPath:
     def start_music(path):
         if path.mp3_files:
             pygame.mixer.music.load(path.mp3_files[0])
-            pygame.mixer.music.set_volume(0.0)
+            pygame.mixer.music.set_volume(0.2)
             pygame.mixer.music.play()
 
     @staticmethod
