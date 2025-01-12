@@ -44,7 +44,7 @@ class Days:
         border_surface = FONT_BUTTON.render(day_string, True, (0, 0, 0))
 
         # Get the size and position of the text
-        text_rect = days_text.get_rect(topleft=(720, 6))
+        text_rect = days_text.get_rect(topleft=(7, 8))
 
         # Draw the black border by adjusting the rect's position
         offsets = [-2, 2]  # Border offset values for top-left, top-right, etc.

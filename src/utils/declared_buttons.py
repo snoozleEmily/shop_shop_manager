@@ -24,7 +24,7 @@ SHOP_BUTTON = Button(10, 350, text=None, type_tag="default")
 IVENTORY_BUTTON = Button(63, 350, text=None, type_tag="default")
 TAVERN_BUTTON = Button(170, 350, text=None, type_tag="default")
 HOME_BUTTON = Button(116, 350, text=None, type_tag="default")
-SETTINGS_BUTTON = Button(10, 6, text=None, type_tag="settings")
+SETTINGS_BUTTON = Button(768, 4, text=None, type_tag="settings")
 
 
 # Minigame Buttons
@@ -36,4 +36,4 @@ WAKE_UP  = Button(254, 115, text="Wake Up", type_tag="caption_btn")
 
 
 # Interactable visuals
-COINS_DISPLAY = Interactables(650, 6, "0", type_tag="coins")
+COINS_DISPLAY = Interactables(732, 350, "0", type_tag="coins")

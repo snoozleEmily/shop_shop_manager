@@ -18,7 +18,6 @@ class Interactables(Clickables):
     def __init__(self, x, y, text, type_tag):
         super().__init__(x, y, text, type_tag)
 
-        # Long button with text (e.g. "Play Game")
         self.default_image = load_image(COINS_PATH)
         self.current_image = self.default_image
         self.rect = self.current_image.get_rect(topleft=(x, y))  # Add rect initialization
