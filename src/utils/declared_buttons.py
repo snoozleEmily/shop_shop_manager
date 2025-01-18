@@ -35,5 +35,5 @@ WAKE_UP  = Button(254, 115, text="Wake Up", type_tag="caption_btn")
 SLEEP = Button(254, 55, text="Sleep", type_tag="caption_btn")
 
 
-# Interactable visuals
+# Visual elements that allow interaction
 COINS_DISPLAY = Interactables(732, 350, "0", type_tag="coins")
