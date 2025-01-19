@@ -13,6 +13,7 @@ CLOUD_IMAGES = [load_image(f"{CLOUDS_PATH}\\{cloud}.png") for cloud in CLOUD_NAM
 class Cloud:
     """Class to manage the cloud behavior."""
 
+    minigame_active = False
     CONTAINER_WIDTH = 620
     CONTAINER_HEIGHT = 170
 

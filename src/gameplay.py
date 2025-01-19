@@ -4,6 +4,7 @@ import pygame
 from scenes.shop.shop_scene import render_shop
 from scenes.inventory_scene import render_inventory
 from scenes.tavern.tavern_scene import render_tavern
+from scenes.tavern.sky_mingame import render_sky
 from scenes.home.home_scene import turn, render_home, render_sheep
 from scenes.settings_scene import render_settings
 from backgrounds import TOWN_IMG
@@ -40,23 +41,25 @@ def main_game(display_surface, mouse_event, trigger_update=None):
             trigger_update = render_inventory(display_surface, mouse_event)
         if inventory.hover_check():
             render_inventory(display_surface, mouse_event)
-    
-    elif GameScenes.in_sheep_mg:
-        # Render counting sheep game
-        trigger_update = render_sheep(display_surface, mouse_event, trigger_update)
 
     elif GameScenes.in_home:
         if was_clicked:
             trigger_update = render_home(display_surface, mouse_event)
         if home.hover_check():
             render_home(display_surface, mouse_event)
-
+            
+    elif GameScenes.in_sheep_mg: # Home minigame
+        render_sheep(display_surface, mouse_event, trigger_update)
+    
     elif GameScenes.in_tavern:
         if was_clicked:
             trigger_update = render_tavern(display_surface, mouse_event)
         if tavern.hover_check():
             render_tavern(display_surface, mouse_event)
 
+    elif GameScenes.in_sky: # Tavern minigame
+        render_sky(display_surface, mouse_event)
+    
     elif GameScenes.in_settings:
         if was_clicked:
             trigger_update = render_settings(display_surface, mouse_event)

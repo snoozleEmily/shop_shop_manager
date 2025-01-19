@@ -13,6 +13,7 @@ class GameScenes:
     in_home: bool = False
     in_sheep_mg: bool = False
     in_tavern: bool = False
+    in_sky: bool = False
     in_inventory: bool = False    
     in_settings: bool = False
     # ADD NEW SCENE HERE

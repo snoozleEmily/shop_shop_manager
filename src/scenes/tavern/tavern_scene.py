@@ -4,11 +4,13 @@ from typing import Optional, Callable
 
 from .dice import Die
 from scenes.scene_manager import GameScenes
+from scenes.tavern.cloud import Cloud
 from .render_minigame import roll_dice
-from utils.container import render_container
 from utils.pygame_loads import load_image
+from utils.container import render_container
+from scenes.tavern.sky_mingame import render_sky
 from backgrounds import TAVERN_IMG, DICE_TABLE
-from utils.declared_buttons import ROLL_DICE, RETURN, EXIT_SCENE
+from utils.declared_buttons import ROLL_DICE, SKY, RETURN, EXIT_SCENE
 
 minigame_start_time = 0
 end_dice_ticks = 0
@@ -40,7 +42,7 @@ def render_tavern(
     current_time = pygame.time.get_ticks()
 
     # Show ROLL_DICE button if the minigame is not active
-    if not Die.minigame_active:
+    if not Die.minigame_active and not Cloud.minigame_active:
         # Wait if the minigame has ended before showing ROLL_DICE again
         if current_time - end_dice_ticks >= ROLL_DICE_DELAY:
             
@@ -56,8 +58,8 @@ def render_tavern(
         # Goes back to town if exit button is clicked
         EXIT_SCENE.draw_screen(display_surface)  # Not visible in minigame
         if EXIT_SCENE.update_scene(mouse_event, trigger_update):
-            GameScenes.in_town, GameScenes.in_tavern = True, False
-
+            GameScenes.in_town, GameScenes.in_tavern = True, False    
+    
     # Displays the dice minigame
     if Die.minigame_active:
         display_surface.fill((0, 0, 0))  # Make the background black
@@ -77,3 +79,9 @@ def render_tavern(
                 Die.dice_path = None  # Clear path to remove the minigame screen display
                 dice_result = Die.dice_path  # Save the result of the dice roll
                 end_dice_ticks = pygame.time.get_ticks()  # Record end minigame time
+
+    SKY.draw_screen(display_surface)
+    if SKY.update_scene(mouse_event, trigger_update):
+        render_sky(display_surface, mouse_event)
+        GameScenes.in_sky, GameScenes.in_tavern = True, False 
+        return

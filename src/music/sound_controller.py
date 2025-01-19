@@ -10,7 +10,7 @@ class SoundController(SongsPath):
 
     def __init__(self):
         super().__init__()
-        self.volume = 0.1  # Default volume
+        self.volume = 0.2  # Default volume
         self.prev_volume = self.volume
         self.playing = True
         self.previous_song = None
