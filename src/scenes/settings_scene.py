@@ -62,6 +62,9 @@ def render_settings(display_surface, mouse_event, trigger_update=None) -> None:
             print("README.md file not found.")
         except Exception as e:
             print(f"An error occurred while reading the README.md file: {e}")
+        finally: 
+            # Add info to the screen as well
+            print("About info button clicked - this is a placeholder")
 
     if SUPPORT.update_scene(mouse_event, trigger_update):
         # Should I only add my email?
