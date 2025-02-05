@@ -67,8 +67,14 @@ def render_settings(display_surface, mouse_event, trigger_update=None) -> None:
             print("About info button clicked - this is a placeholder")
 
     if SUPPORT.update_scene(mouse_event, trigger_update):
-        # Should I only add my email?
-        raise NotImplementedError("SUPPORT button Not implemented yet")
+        email = "will_add@example.com"
+        font = pygame.font.Font(None, 36)
+        email_position = (100, 200)
+        icon_position = (100 + font.size(email)[0] + 10, 200)
+
+        render_text(display_surface, email, email_position, font)
+        copy_icon_rect = render_copy_icon(display_surface, icon_position)
+        handle_copy_icon_click(mouse_event, copy_icon_rect, email)
 
     # Goes back to town if exit button is clicked
     if EXIT_SCENE.update_scene(mouse_event, trigger_update):
