@@ -48,13 +48,20 @@ def render_settings(display_surface, mouse_event, trigger_update=None) -> None:
     if SOUND_DOWN.update_scene(mouse_event, trigger_update):
         volume_controller.decrease_volume()
 
-    if SEE_LEADERBOARD.update_scene(mouse_event, trigger_update):
+    if SEE_LEADERBOARD.update_scene(mouse_event, trigger_update): # Do i need to implement this?
         # Need to implement the saving of scores/games
         raise NotImplementedError("SEE_LEADERBOARD button Not implemented yet")
 
     if ABOUT_INFO.update_scene(mouse_event, trigger_update):
-        # What type of info should I add?
-        raise NotImplementedError("ABOUT_INFO button Not implemented yet")
+         # Read and display the README file
+        try:
+            with open('README.md', 'r') as file:
+                readme_content = file.read()
+                print(readme_content)
+        except FileNotFoundError:
+            print("README.md file not found.")
+        except Exception as e:
+            print(f"An error occurred while reading the README.md file: {e}")
 
     if SUPPORT.update_scene(mouse_event, trigger_update):
         # Should I only add my email?
