@@ -1,3 +1,7 @@
+import pygame
+import pyperclip 
+
+
 from scenes.scene_manager import GameScenes
 from music.sound_controller import SoundController
 from utils.buttons import Button
@@ -17,6 +21,21 @@ from utils.declared_buttons import (
 
 
 volume_controller = SoundController()
+
+def render_text(display_surface, text, position, font, color=(0, 0, 0)):
+    text_surface = font.render(text, True, color)
+    display_surface.blit(text_surface, position)
+
+def render_copy_icon(display_surface, position, icon_size=(20, 20)):
+    icon = pygame.Surface(icon_size)
+    icon.fill((200, 200, 200))  # Simple gray square as an icon
+    display_surface.blit(icon, position)
+    return pygame.Rect(position, icon_size)
+
+def handle_copy_icon_click(mouse_event, copy_icon_rect, text_to_copy):
+    if mouse_event.type == pygame.MOUSEBUTTONDOWN and copy_icon_rect.collidepoint(mouse_event.pos):
+        pyperclip.copy(text_to_copy)
+        print(f"Copied to clipboard: {text_to_copy}")
 
 
 def render_settings(display_surface, mouse_event, trigger_update=None) -> None:
