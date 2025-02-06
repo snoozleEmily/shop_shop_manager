@@ -1,3 +1,4 @@
+import os
 import pygame
 import pyperclip 
 
@@ -71,10 +72,13 @@ def render_settings(display_surface, mouse_event, trigger_update=None) -> None:
         # Need to implement the saving of scores/games
         raise NotImplementedError("SEE_LEADERBOARD button Not implemented yet")
 
-    if ABOUT_INFO.update_scene(mouse_event, trigger_update):
-         # Read and display the README file
+    if ABOUT_INFO.update_scene(mouse_event, trigger_update): # doesnt work
+        # Read and display the README file
+        readme_path = os.path.join(os.path.dirname(__file__), '..', '..', '..', 'README.md')
         try:
-            with open('README.md', 'r') as file:
+            # Consider isolatin this part 
+            # and precomputing the text
+            with open(readme_path, 'r') as file:
                 readme_content = file.read()
                 print(readme_content)
         except FileNotFoundError:
