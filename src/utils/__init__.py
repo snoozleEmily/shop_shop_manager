@@ -1,9 +1,9 @@
 from .clickables import Clickables
 from .buttons import Button
 from .text_formatter import wrap_text
-from about.files_exist import check_readme
-from about.readme_parser import parse_readme 
-from about.about_game import (
+from ui_about.files_exist import check_readme
+from ui_about.readme_parser import parse_readme 
+from ui_about.about_game import (
     read_readme,
     render_text, 
     render_copy_icon, 

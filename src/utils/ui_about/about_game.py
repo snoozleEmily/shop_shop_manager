@@ -1,9 +1,13 @@
 import json
 from enum import Enum
-from readme_parser import parse_readme  # Import the parse_readme function
 
-README_PATH = r"D:\Projects\Python-studies\shop_shop_manager\README.md"
-ABOUT_PATH = r"D:\Projects\Python-studies\shop_shop_manager\src\utils\about_game.py"
+
+from files_exist import check_readme
+from readme_parser import parse_readme
+
+
+README_PATH = r"D:\Projects\Python-studies\shop_shop_manager\README"
+ABOUT_PATH = r"D:\Projects\Python-studies\shop_shop_manager\assets\data\about"
 
 # New section/subsection names need to be added here
 class ReadmeSections(Enum):
@@ -22,7 +26,7 @@ class ContributingSubsections(Enum):
     ADD_DIALOGUE = "Adding a New Dialogue"
 
 if __name__ == "__main__":
-    from files_exist import check_readme  # Import the check_readme function
+     # Import the check_readme function
 
     # Use check_readme to get the parsed README content
     parsed_readme = check_readme(README_PATH)
