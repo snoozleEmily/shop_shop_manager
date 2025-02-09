@@ -1,6 +1,8 @@
 import os
 import json
-from readme_parser import parse_readme  # Import the parse_readme function
+
+from .readme_parser import parse_readme 
+
 
 JSON_FILE_PATH = r"D:\Projects\Python-studies\shop_shop_manager\README_parsed.json"
 MD_FILE_PATH = r"D:\Projects\Python-studies\shop_shop_manager\README_parsed.md"

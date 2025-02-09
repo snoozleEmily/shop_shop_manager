@@ -49,12 +49,13 @@ def render_settings(display_surface, mouse_event, trigger_update=None) -> None:
         volume_controller.decrease_volume()
 
     if SEE_LEADERBOARD.update_scene(mouse_event, trigger_update): 
-        # Do I really need to implement this??????
+        # Show previous scores of the same user (save localy)
         # Need to implement the saving of scores/games
         raise NotImplementedError("SEE_LEADERBOARD button Not implemented yet")
 
     if ABOUT_INFO.update_scene(mouse_event, trigger_update):
         # Read and display the README file
+        # Show on screen - need to handle text creation - see shop_scene.py
         raise NotImplementedError("ABOUT_INFO button Not implemented yet")
         
 

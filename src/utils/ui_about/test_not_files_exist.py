@@ -1,6 +1,8 @@
-import unittest
 import os
 import shutil
+import unittest
+
+
 from files_exist import check_readme
 
 class TestFilesExist(unittest.TestCase):

@@ -2,8 +2,8 @@ import json
 from enum import Enum
 
 
-from files_exist import check_readme
-from readme_parser import parse_readme
+from .files_exist import check_readme
+from .readme_parser import parse_readme
 
 
 README_PATH = r"D:\Projects\Python-studies\shop_shop_manager\README"
@@ -26,8 +26,6 @@ class ContributingSubsections(Enum):
     ADD_DIALOGUE = "Adding a New Dialogue"
 
 if __name__ == "__main__":
-     # Import the check_readme function
-
     # Use check_readme to get the parsed README content
     parsed_readme = check_readme(README_PATH)
     if parsed_readme:
