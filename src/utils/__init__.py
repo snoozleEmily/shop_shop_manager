@@ -1,6 +1,12 @@
 from .clickables import Clickables
 from .buttons import Button
 from .text_formatter import wrap_text
+from .about_game import (
+    read_readme,
+    render_text, 
+    render_copy_icon, 
+    handle_copy_icon_click, 
+    )
 from .trigger_hover import (
     shop,
     inventory,
