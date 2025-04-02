@@ -1,4 +1,7 @@
+[WIP]
 # Shop Shop Manager Game
+
+[NOTE] The idea is to make a game that allows the player to analyse data while having fun. Please, do take into consideration that developing this kind of program takes some time (specially with a full time job), but eventuall I will finish it because I simply want to play and turn messy data into golden coins.
 
 A fun **data analysis game** created with [Pygame](https://github.com/pygame/pygame).
 
