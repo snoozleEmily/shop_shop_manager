@@ -20,7 +20,7 @@ Details about gameplay will be explained here.
 
 ### Rendering
 
-Standard FPS re-rendering functionality is limited due to a _workaround_ implemented to fix the flickering buttons. To maintain the default rendering behavior, handle specific cases in the gameplay module as necessary.
+THIS WILL BE CHANGED -> Standard FPS re-rendering functionality is limited due to a _workaround_ implemented to fix the flickering buttons. To maintain the default rendering behavior, handle specific cases in the gameplay module as necessary.
 
 ### Adding a New Scene
 
