@@ -18,13 +18,6 @@ Details about gameplay will be explained here.
 
 **Contributions are welcome!** Below are some guidelines to help you get started:
 
-<<<<<<< Updated upstream
-### Rendering
-
-THIS WILL BE CHANGED -> Standard FPS re-rendering functionality is limited due to a _workaround_ implemented to fix the flickering buttons. To maintain the default rendering behavior, handle specific cases in the gameplay module as necessary.
-
-=======
->>>>>>> Stashed changes
 ### Adding a New Scene
 
 To add a new scene you must define a flag for the scene in the `GameScenes` class within the **scene_manager module**.
