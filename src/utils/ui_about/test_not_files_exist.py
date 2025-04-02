@@ -1,48 +1,89 @@
 import os
-import shutil
+import tempfile
 import unittest
-
+from unittest.mock import patch
 
 from files_exist import check_readme
 
 class TestFilesExist(unittest.TestCase):
-
     def setUp(self):
-        # Create a temporary directory for testing
-        self.test_dir = os.path.join(os.path.dirname(__file__), 'test_temp_dir')
-        os.makedirs(self.test_dir, exist_ok=True)
-
-        # Update the file paths to use the temporary directory
-        self.json_file_path = os.path.join(self.test_dir, 'README_parsed.json')
-        self.md_file_path = os.path.join(self.test_dir, 'README_parsed.md')
+        # Use tempfile for safer temporary directory handling
+        self.test_dir = tempfile.TemporaryDirectory()
+        self.base_path = self.test_dir.name
+        
+        # Standard expected filenames
+        self.expected_json = 'README_parsed.json'
+        self.expected_md = 'README_parsed.md'
 
     def tearDown(self):
-        # Clean up the temporary directory after each test
-        shutil.rmtree(self.test_dir)
+        # Automatic cleanup with tempfile
+        self.test_dir.cleanup()
 
-    def test_unexpected_file_raises_value_error(self):
-        # Create an unexpected file in the directory
-        unexpected_file_path = os.path.join(self.test_dir, 'unexpected_file.txt')
-        with open(unexpected_file_path, 'w') as f:
-            f.write("This is an unexpected file.")
+    def create_file(self, filename, content=""):
+        """Helper to create files in test directory"""
+        path = os.path.join(self.test_dir.name, filename)
+        with open(path, 'w') as f:
+            f.write(content)
+        return path
 
-        # Check if ValueError is raised
-        with self.assertRaises(ValueError) as context:
-            check_readme('dummy_path', folder_path=self.test_dir)
+    def test_unexpected_files(self):
+        """Test various unexpected file scenarios"""
+        test_cases = [
+            ('extra.txt', 'text file'),
+            ('.hidden', 'hidden file'),
+            ('README.json', 'similar JSON'),  # Wrong naming pattern
+            ('data.csv', 'csv data')
+        ]
 
-        self.assertIn("Unexpected file found in the folder", str(context.exception))
-        self.assertIn("It should only contain JSON or MD archives.", str(context.exception))
+        for filename, content in test_cases:
+            with self.subTest(filename=filename):
+                self.create_file(filename, content)
+                self.create_file(self.expected_json)
+                self.create_file(self.expected_md)
 
-    def test_no_unexpected_file(self):
-        # Create expected JSON and MD files
-        with open(self.json_file_path, 'w') as f:
-            f.write("{}")
-        with open(self.md_file_path, 'w') as f:
-            f.write("{}")
+                with self.assertRaises(ValueError) as cm:
+                    check_readme('dummy', folder_path=self.test_dir.name)
+                
+                self.assertIn(filename, str(cm.exception))
+                self.assertIn("should only contain", str(cm.exception))
 
-        # Check if no error is raised
-        result = check_readme('dummy_path', folder_path=self.test_dir)
-        self.assertIsInstance(result, dict)
+    def test_valid_files(self):
+        """Test acceptable file combinations"""
+        test_cases = [
+            [self.expected_json, self.expected_md],  # Both files
+            [self.expected_json],  # Only JSON
+            [self.expected_md]  # Only MD
+        ]
+
+        for files in test_cases:
+            with self.subTest(files=files):
+                for f in files:
+                    self.create_file(f)
+                
+                result = check_readme('dummy', folder_path=self.test_dir.name)
+                self.assertIsInstance(result, dict)
+
+    def test_empty_directory(self):
+        """Test empty target directory"""
+        with self.assertRaises(ValueError) as cm:
+            check_readme('dummy', folder_path=self.test_dir.name)
+        
+        self.assertIn("No README files found", str(cm.exception))
+
+    def test_non_directory_path(self):
+        """Test invalid directory path"""
+        with self.assertRaises(ValueError) as cm:
+            check_readme('dummy', folder_path='/non/existent/path')
+        self.assertIn("is not a valid directory", str(cm.exception))
+
+    def test_file_permissions_error(self):
+        """Test read-protected directory"""
+        os.chmod(self.test_dir.name, 0o000)  # Remove all permissions
+        try:
+            with self.assertRaises(PermissionError):
+                check_readme('dummy', folder_path=self.test_dir.name)
+        finally:
+            os.chmod(self.test_dir.name, 0o755)  # Restore permissions
 
 if __name__ == "__main__":
-    unittest.main()
+    unittest.main(failfast=True)

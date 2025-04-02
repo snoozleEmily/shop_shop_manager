@@ -9,6 +9,7 @@ from scenes.home.home_scene import turn, render_home, render_sheep
 from scenes.settings_scene import render_settings
 from backgrounds import TOWN_IMG
 from utils.pygame_loads import load_image
+from utils.trigger_hover import GameScenes
 from utils.declared_buttons import (
     SHOP_BUTTON,
     IVENTORY_BUTTON,
@@ -17,14 +18,7 @@ from utils.declared_buttons import (
     SETTINGS_BUTTON,
     COINS_DISPLAY
 )
-from utils.trigger_hover import (
-    GameScenes,
-    shop,
-    home,
-    tavern,
-    inventory,
-    settings,
-)
+
 
 def main_game(display_surface, mouse_event, trigger_update=None):
     was_clicked = mouse_event.type == pygame.MOUSEBUTTONDOWN
@@ -33,19 +27,16 @@ def main_game(display_surface, mouse_event, trigger_update=None):
     if GameScenes.in_shop:
         if was_clicked:
             trigger_update = render_shop(display_surface, mouse_event)
-        if shop.hover_check():
             render_shop(display_surface, mouse_event)
 
     elif GameScenes.in_inventory:
         if was_clicked:
             trigger_update = render_inventory(display_surface, mouse_event)
-        if inventory.hover_check():
             render_inventory(display_surface, mouse_event)
 
     elif GameScenes.in_home:
         if was_clicked:
             trigger_update = render_home(display_surface, mouse_event)
-        if home.hover_check():
             render_home(display_surface, mouse_event)
             
     elif GameScenes.in_sheep_mg: # Home minigame
@@ -54,7 +45,6 @@ def main_game(display_surface, mouse_event, trigger_update=None):
     elif GameScenes.in_tavern:
         if was_clicked:
             trigger_update = render_tavern(display_surface, mouse_event)
-        if tavern.hover_check():
             render_tavern(display_surface, mouse_event)
 
     elif GameScenes.in_sky: # Tavern minigame
@@ -63,7 +53,6 @@ def main_game(display_surface, mouse_event, trigger_update=None):
     elif GameScenes.in_settings:
         if was_clicked:
             trigger_update = render_settings(display_surface, mouse_event)
-        if settings.hover_check():
             render_settings(display_surface, mouse_event)
     
     # ADD NEW SCENE HERE >>>

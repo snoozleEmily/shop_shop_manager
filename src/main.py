@@ -39,6 +39,7 @@ while running:
         main_game(SCREEN, event)
 
     pygame.display.flip()
-    clock.tick(30)
+    # clock.tick(30) -> the stupidity of a silly dev, I built a WHOLE system to avoid flickering
+    # thinking it was a complex bug when IN FACT it was one simple line of code that  shouldn't be there
 
 pygame.quit()

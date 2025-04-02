@@ -18,17 +18,16 @@ Details about gameplay will be explained here.
 
 **Contributions are welcome!** Below are some guidelines to help you get started:
 
+<<<<<<< Updated upstream
 ### Rendering
 
 THIS WILL BE CHANGED -> Standard FPS re-rendering functionality is limited due to a _workaround_ implemented to fix the flickering buttons. To maintain the default rendering behavior, handle specific cases in the gameplay module as necessary.
 
+=======
+>>>>>>> Stashed changes
 ### Adding a New Scene
 
-To add a new scene:
-
-1. Define a flag for the scene in the `GameScenes` class within the **scene_manager module**. Add it both as a variable and to the `scene_flags` dictionary.
-2. To enable hover updates for buttons in the new scene, include the scene in the `trigger_hover` module within the **utils package**.
-3. Declare the scene's flags in the **gameplay module**, ensuring consistency with the existing structure.
+To add a new scene you must define a flag for the scene in the `GameScenes` class within the **scene_manager module**.
 
 ### Adding a New Button
 
@@ -42,8 +41,6 @@ To add a button:
    - **exit**: Small door icon to exit scenes.
    - **settings**: Engine-like button that leads to the settings scene.
    - **dice_cup**: Used for the dice minigame.
-
-2. For the hover effect to work, include the button in the `buttons_in_scene` dictionary within the `trigger_hover` module.
 
 ### Adding a New Item
 

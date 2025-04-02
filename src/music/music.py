@@ -19,6 +19,10 @@ class SongsPath:
         self.is_first_song = False  # First song only plays once
 
     @staticmethod
+    def load_sound(sound_path: str) -> pygame.mixer.Sound:
+        return pygame.mixer.Sound(sound_path)
+
+    @staticmethod
     def start_music(path):
         if path.mp3_files:
             pygame.mixer.music.load(path.mp3_files[0])

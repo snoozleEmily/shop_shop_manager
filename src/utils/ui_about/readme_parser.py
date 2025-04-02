@@ -58,11 +58,14 @@ def _process_lines(lines):
 
 
 def _append_content(readme_dict, current_section, current_sub_dict, line):
-    """
-    Helper function to append content to the appropriate section or subsection.
-    """
+    # Determine where to append the line
     if current_sub_dict:
-        last_sub_key = list(current_sub_dict.keys())[-1]
-        current_sub_dict[last_sub_key] += f"\n{line}" if current_sub_dict[last_sub_key] else line
+        target_dict = current_sub_dict
+        subsection = list(current_sub_dict.keys())[-1]  # Last key
     else:
-        readme_dict[current_section] += f"\n{line}" if readme_dict[current_section] else line
+        target_dict = readme_dict
+        subsection = current_section
+
+    # Add newline only if content already exists
+    separator = "\n" if target_dict[subsection] else ""
+    target_dict[subsection] += f"{separator}{line}"
